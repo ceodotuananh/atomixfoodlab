@@ -2,12 +2,8 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atomix Foodlab – Marketing trọn gói cho quán ăn</title>
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&amp;display=swap" rel="stylesheet">
 <style>
@@ -365,9 +361,10 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 .strip{margin:-10px -20px 0}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}html{scroll-behavior:auto}.steam,.bub,.drip,.pop,.wave{opacity:.8}.toss{opacity:1}}
+[hidden]{display:none!important}
 </style>
-</helmet>
-
+</head>
+<body>
 <div id="top" style="position: relative">
 <div class="galaxy"><div class="stars"></div>
 <svg class="spice" viewBox="0 0 100 100" style="left: 6%; width: 34px; animation-duration: 22s" aria-hidden="true"><use href="#s-chili"></use></svg>
@@ -542,7 +539,6 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 </div>
 </section>
 
-<!-- 2. TỰ KHÁM: thực đơn triệu chứng + nồi lẩu -->
 <section id="tu-kham">
 <div class="wrap" style="display: flex; flex-direction: column; gap: 44px">
 <div class="rv center" style="display: flex; flex-direction: column; gap: 18px">
@@ -553,11 +549,9 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <div class="menu rv">
 <p class="mtitle">Thực đơn triệu chứng</p>
 <p class="msub">Tích món nào quán đang “gọi” mỗi ngày</p>
-<sc-for list="{{ pains }}" as="item" hint-placeholder-count="8">
-<label class="mline {{ item.cls }}"><input type="checkbox" checked="{{ item.checked }}" onChange="{{ item.toggle }}"><span class="mltxt">{{ item.t }}</span><span class="dots"></span><span class="pr">{{ item.cost }}</span></label>
-</sc-for>
+<div id="pains"></div>
 </div>
-<div class="potbox {{ lv.cls }} rv2">
+<div class="potbox lv0 rv2" id="potbox">
 <svg viewBox="0 0 300 300" aria-hidden="true">
 <ellipse cx="150" cy="150" rx="140" ry="120" fill="url(#gGlow)"></ellipse>
 <g class="psteam"><g class="steam"><path d="M110 120 C96 100 124 88 110 64" stroke="#ffe0e2" stroke-width="7" fill="none" stroke-linecap="round"></path></g><g class="steam s2"><path d="M150 110 C136 90 164 78 150 50" stroke="#ffe0e2" stroke-width="7" fill="none" stroke-linecap="round"></path></g><g class="steam s3"><path d="M190 120 C176 100 204 88 190 64" stroke="#ffe0e2" stroke-width="7" fill="none" stroke-linecap="round"></path></g></g>
@@ -576,9 +570,9 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <g transform="translate(156 270)"><use href="#flame" class="pf" x="0" y="-46" width="30" height="46"></use></g>
 <g transform="translate(186 268)"><use href="#flame" class="pf" x="0" y="-36" width="24" height="36"></use></g>
 </svg>
-<div class="pcount">{{ count }}<span style="font-size: 26px; color: #ff9ea3">/8 món</span></div>
-<span class="plv {{ lv.cls }}">Độ sôi: {{ lv.lvl }}</span>
-<p class="lead" style="max-width: 380px; margin: 0 auto; font-weight: 700; color: #fff">{{ lv.msg }}</p>
+<div class="pcount"><span id="count">0</span><span style="font-size: 26px; color: #ff9ea3">/8 món</span></div>
+<span class="plv lv0" id="lvl">Độ sôi: Nguội</span>
+<p class="lead" id="lvmsg" style="max-width: 380px; margin: 0 auto; font-weight: 700; color: #fff">Gọi món đi anh chị, nồi chưa sôi đâu!</p>
 <a class="btn btn-red" href="#dang-ky">Nhờ Atomix khám quán</a>
 </div>
 </div>
@@ -651,29 +645,18 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <h2 class="h2">Mở nắp xem <em>quán mình ở chặng nào</em></h2>
 <p class="lead">Mỗi chặng một nỗi lo, nên mỗi quán một “món” riêng. Bấm vào chiếc nắp giống quán anh chị nhất.</p>
 </div>
-<div class="cloches" role="group" aria-label="Chọn chặng của quán">
-<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
-<button type="button" class="cl {{ t.cls }}" aria-pressed="{{ t.pressed }}" onClick="{{ t.pick }}">
-<svg viewBox="0 0 150 130" aria-hidden="true"><ellipse cx="75" cy="118" rx="64" ry="9" fill="#000000" fill-opacity=".4"></ellipse><ellipse cx="75" cy="110" rx="66" ry="14" fill="#a99294"></ellipse><ellipse cx="75" cy="106" rx="62" ry="11" fill="#ffffff"></ellipse><g class="dish"><use href="#{{ t.sym }}" x="42" y="40" width="66" height="66"></use></g><g class="dome"><path d="M22 104 A53 53 0 0 1 128 104 Z" fill="url(#gRed)"></path><path d="M40 86 A36 36 0 0 1 62 62" stroke="#ffffff" stroke-opacity=".5" stroke-width="6" fill="none" stroke-linecap="round"></path><circle cx="75" cy="48" r="8" fill="url(#gGold)"></circle></g></svg>
-<span>{{ t.name }}</span>
-</button>
-</sc-for>
-</div>
+<div class="cloches" role="group" aria-label="Chọn chặng của quán" id="cloches"></div>
 <div class="record">
 <div class="rgrid">
 <div>
-<span class="rtitle">Hồ sơ quán · {{ st.short }}</span>
-<p class="rq">“{{ st.quote }}”</p>
-<div class="dx" style="margin-top: 22px">{{ st.pkg }} · {{ st.price }}</div>
-<a class="btn btn-ink" href="#dang-ky" onClick="{{ st.book }}" style="margin-top: 18px">Đây đúng là quán tôi</a>
+<span class="rtitle" id="st-title"></span>
+<p class="rq" id="st-quote"></p>
+<div class="dx" id="st-pkg" style="margin-top: 22px"></div>
+<a class="btn btn-ink" href="#dang-ky" id="st-book" style="margin-top: 18px">Đây đúng là quán tôi</a>
 </div>
 <div>
 <span class="rtitle">Atomix Foodlab giúp quán</span>
-<ul class="sym" style="margin-top: 12px">
-<sc-for list="{{ st.helps }}" as="h" hint-placeholder-count="4">
-<li><svg aria-hidden="true"><use href="#tick"></use></svg><span>{{ h }}</span></li>
-</sc-for>
-</ul>
+<ul class="sym" id="st-helps" style="margin-top: 12px"></ul>
 </div>
 </div>
 </div>
@@ -714,37 +697,17 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <p class="lead">Kéo thanh để thay số của quán mình. Con số dưới đây là kịch bản minh họa với tỷ lệ giả định cho từng chặng, giúp anh chị thấy tiền rò rỉ ở đâu.</p>
 </div>
 <div class="ctrls">
-<label class="rg">Số người tìm quán, món ăn quanh khu vực mỗi tháng<b>{{ sText }} người</b><input type="range" min="200" max="5000" step="100" value="{{ sRaw }}" onChange="{{ setS }}"></label>
-<label class="rg">Hóa đơn trung bình mỗi khách<b>{{ billText }}.000đ</b><input type="range" min="50" max="600" step="10" value="{{ billRaw }}" onChange="{{ setBillR }}"></label>
+<label class="rg" for="sRange">Số người tìm quán, món ăn quanh khu vực mỗi tháng<b id="sText"></b><input id="sRange" type="range" min="200" max="5000" step="100" value="1000"></label>
+<label class="rg" for="bRange">Hóa đơn trung bình mỗi khách<b id="billText"></b><input id="bRange" type="range" min="50" max="600" step="10" value="150"></label>
 </div>
 <div class="crow" aria-hidden="true" style="animation: none">
 <div class="vsmall" style="padding: 0 22px; color: #d9b8bb">Chưa dùng dịch vụ</div><div></div><div class="vsmall" style="padding: 0 22px; text-align: right; color: #ffd34d">Đã thuê Atomix Foodlab</div>
 </div>
-<div class="cmp">
-<sc-for list="{{ rows }}" as="r" hint-placeholder-count="5">
-<div class="crow">
-<div class="cside bad">
-<svg class="fx" viewBox="0 0 40 60" aria-hidden="true"><circle class="drip" cx="20" cy="8" r="6" fill="#b47208"></circle><circle class="drip k2" cx="12" cy="8" r="5" fill="#9a5f06"></circle><circle class="drip k3" cx="28" cy="8" r="4.5" fill="#b47208"></circle></svg>
-<span class="n">{{ r.bN }}</span>
-<span class="s">{{ r.bS }}</span>
-<span class="m">−{{ r.money }} triệu/tháng</span>
-<div class="bar"><i style="width: {{ r.bW }}%"></i></div>
-</div>
-<div class="cmid"><svg viewBox="{{ r.vb }}" aria-hidden="true"><use href="#{{ r.sym }}"></use></svg><span>{{ r.name }}</span></div>
-<div class="cside good">
-<svg class="fx" viewBox="0 0 40 60" aria-hidden="true"><circle class="pop" cx="20" cy="40" r="6" fill="#ffd34d"></circle><circle class="pop k2" cx="10" cy="44" r="4.5" fill="#f5b82e"></circle><circle class="pop k3" cx="30" cy="44" r="5" fill="#fff0b8"></circle></svg>
-<span class="n">{{ r.aN }}</span>
-<span class="s">{{ r.aS }}</span>
-<span class="m">+{{ r.money }} triệu/tháng</span>
-<div class="bar"><i style="width: {{ r.aW }}%"></i></div>
-</div>
-</div>
-</sc-for>
-</div>
+<div class="cmp" id="cmp"></div>
 <div class="tot rv">
-<div><div class="k">Doanh thu/tháng khi chưa làm</div><div class="v">{{ revB }} triệu</div></div>
-<div><div class="k" style="text-align: center">Atomix giữ lại và tăng thêm</div><div class="plus">+{{ revD }} triệu</div></div>
-<div style="text-align: right"><div class="k">Doanh thu/tháng với Atomix</div><div class="v">{{ revA }} triệu</div></div>
+<div><div class="k">Doanh thu/tháng khi chưa làm</div><div class="v" id="revB"></div></div>
+<div><div class="k" style="text-align: center">Atomix giữ lại và tăng thêm</div><div class="plus" id="revD"></div></div>
+<div style="text-align: right"><div class="k">Doanh thu/tháng với Atomix</div><div class="v" id="revA"></div></div>
 </div>
 <p style="margin: 0; font-size: 13.5px; color: #c9a3a6; line-height: 1.6">Tỷ lệ giả định theo chặng (chưa làm → có Atomix): thấy quán 40% → 75%, muốn thử 40% → 50%, đặt được bàn 60% → 90%, hóa đơn ×1,00 → ×1,15 nhờ combo và món gợi ý, khách quay lại 10% → 30%. Số tiền mỗi chặng là phần doanh thu tăng thêm khi lần lượt vá từng chặng. Kết quả thực tế tùy từng quán.</p>
 </div>
@@ -762,32 +725,20 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <div class="uni zm">
 <div class="rl r1"></div><div class="rl r2"></div><div class="rl r3"></div>
 <div class="core"><img src="assets/74e7b012970ff0255998845182cbed19.webp" alt="Atomix Foodlab"></div>
-<div class="spinr g1">
-<sc-for list="{{ ring1 }}" as="p" hint-placeholder-count="4">
-<div class="pp" style="--a: {{ p.a }}deg"><button type="button" class="pl {{ p.cls }}" aria-pressed="{{ p.pressed }}" onClick="{{ p.pick }}"><span class="pb"><svg class="ico" aria-hidden="true"><use href="#{{ p.icon }}"></use></svg></span><span class="pn">{{ p.name }}</span></button></div>
-</sc-for>
-</div>
-<div class="spinr g2">
-<sc-for list="{{ ring2 }}" as="p" hint-placeholder-count="5">
-<div class="pp" style="--a: {{ p.a }}deg"><button type="button" class="pl {{ p.cls }}" aria-pressed="{{ p.pressed }}" onClick="{{ p.pick }}"><span class="pb"><svg class="ico" aria-hidden="true"><use href="#{{ p.icon }}"></use></svg></span><span class="pn">{{ p.name }}</span></button></div>
-</sc-for>
-</div>
-<div class="spinr g3">
-<sc-for list="{{ ring3 }}" as="p" hint-placeholder-count="4">
-<div class="pp" style="--a: {{ p.a }}deg"><button type="button" class="pl {{ p.cls }}" aria-pressed="{{ p.pressed }}" onClick="{{ p.pick }}"><span class="pb"><svg class="ico" aria-hidden="true"><use href="#{{ p.icon }}"></use></svg></span><span class="pn">{{ p.name }}</span></button></div>
-</sc-for>
-</div>
+<div class="spinr g1" id="ring1"></div>
+<div class="spinr g2" id="ring2"></div>
+<div class="spinr g3" id="ring3"></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 18px">
 <div class="legend"><span class="lg"><i style="background: #e3101c"></i>Quỹ đạo 1 · Nền tảng</span><span class="lg"><i style="background: #f5b82e"></i>Quỹ đạo 2 · Kéo khách mới</span><span class="lg"><i style="background: #e9d3d5"></i>Quỹ đạo 3 · Giữ chân &amp; bùng nổ</span></div>
-<div class="kpanel fadeIn">
-<span class="ktag">{{ pk.ring }} · Hành tinh {{ pk.no }}/13</span>
-<div style="display: flex; align-items: center; gap: 14px"><span class="vi" style="width: 56px; height: 56px; border-radius: 50%"><svg class="ico" style="width: 28px; height: 28px" aria-hidden="true"><use href="#{{ pk.icon }}"></use></svg></span><h3 class="ktitle">{{ pk.name }}</h3></div>
-<div class="kbox"><b>Atomix làm gì</b>{{ pk.what }}</div>
-<div class="kbox"><b>Chữa nỗi đau</b>{{ pk.pain }}</div>
+<div class="kpanel">
+<span class="ktag" id="pk-tag"></span>
+<div style="display: flex; align-items: center; gap: 14px"><span class="vi" style="width: 56px; height: 56px; border-radius: 50%"><svg class="ico" style="width: 28px; height: 28px" aria-hidden="true"><use id="pk-icon" href="#i-pin"></use></svg></span><h3 class="ktitle" id="pk-name"></h3></div>
+<div class="kbox"><b>Atomix làm gì</b><span id="pk-what"></span></div>
+<div class="kbox"><b>Chữa nỗi đau</b><span id="pk-pain"></span></div>
 <div style="display: flex; gap: 10px">
-<button type="button" class="btn btn-ghost" onClick="{{ prevP }}" style="flex: 1">Hành tinh trước</button>
-<button type="button" class="btn btn-red" onClick="{{ nextP }}" style="flex: 1">Hành tinh tiếp</button>
+<button type="button" class="btn btn-ghost" id="prevP" style="flex: 1">Hành tinh trước</button>
+<button type="button" class="btn btn-red" id="nextP" style="flex: 1">Hành tinh tiếp</button>
 </div>
 </div>
 </div>
@@ -828,7 +779,7 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <li><svg aria-hidden="true"><use href="#tick"></use></svg>Google Maps, fanpage, chatbot đặt bàn</li>
 <li><svg aria-hidden="true"><use href="#tick"></use></svg>Hình ảnh, video khai trương</li>
 </ul>
-<a class="btn btn-ghost" href="#dang-ky" onClick="{{ pick1 }}">Gọi set này</a>
+<a class="btn btn-ghost" href="#dang-ky" data-pkg="0">Gọi set này</a>
 </div>
 <div class="set hot">
 <span class="ribbon">Bếp trưởng gợi ý</span>
@@ -841,7 +792,7 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <li><svg aria-hidden="true"><use href="#tick"></use></svg>Booking KOC, toplist chọn lọc</li>
 <li><svg aria-hidden="true"><use href="#tick"></use></svg>Tích điểm, voucher, báo cáo mỗi tuần</li>
 </ul>
-<a class="btn btn-white" href="#dang-ky" onClick="{{ pick2 }}">Gọi set này</a>
+<a class="btn btn-white" href="#dang-ky" data-pkg="1">Gọi set này</a>
 </div>
 <div class="set">
 <div class="plate"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-crown"></use></svg></div>
@@ -853,7 +804,7 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <li><svg aria-hidden="true"><use href="#tick"></use></svg>Video quảng cáo, TVC, O2O</li>
 <li><svg aria-hidden="true"><use href="#tick"></use></svg>Chuẩn hóa để mở chi nhánh</li>
 </ul>
-<a class="btn btn-ghost" href="#dang-ky" onClick="{{ pick3 }}">Gọi set này</a>
+<a class="btn btn-ghost" href="#dang-ky" data-pkg="2">Gọi set này</a>
 </div>
 </div>
 <div class="voucher rv">
@@ -901,31 +852,26 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <li><svg aria-hidden="true"><use href="#tick"></use></svg>Quán đã có cách giữ chân khách quen chưa</li>
 </ul>
 </div>
-<div class="rv2">
-<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-<div class="form">
+<div class="form" id="form">
 <div class="ftop"><span class="rtitle">Phiếu khám quán</span><span style="font-size: 14px; font-weight: 800; color: #7a4a50">Miễn phí · Không ràng buộc</span></div>
 <div class="fgrid">
-<label class="flb" for="f-name">Họ và tên<input class="fi" id="f-name" type="text" autocomplete="name" value="{{ f.name }}" onChange="{{ setName }}"></label>
-<label class="flb" for="f-phone">Số điện thoại / Zalo<input class="fi" id="f-phone" type="tel" autocomplete="tel" value="{{ f.phone }}" onChange="{{ setPhone }}"></label>
-<label class="flb" for="f-shop">Tên quán<input class="fi" id="f-shop" type="text" value="{{ f.shop }}" onChange="{{ setShop }}"></label>
-<label class="flb" for="f-area">Khu vực<select class="fi" id="f-area" value="{{ f.area }}" onChange="{{ setArea }}"><option>TP.HCM</option><option>Bình Dương</option><option>Đồng Nai</option><option>Vũng Tàu</option><option>Nơi khác</option></select></label>
-<label class="flb" for="f-stage">Quán đang ở chặng<select class="fi" id="f-stage" value="{{ f.stage }}" onChange="{{ setStage }}"><option>Sắp mở / mới mở</option><option>Có khách nhưng lúc đông lúc vắng</option><option>Lâu năm mà đứng yên</option><option>Bếp online, bán qua app</option></select></label>
-<label class="flb" for="f-pkg">Set quan tâm<select class="fi" id="f-pkg" value="{{ f.pkg }}" onChange="{{ setPkg }}"><option>Set Bệ phóng – từ 5 triệu/tháng</option><option>Set Tăng trưởng – từ 10 triệu/tháng</option><option>Set Thịnh vượng – từ 15 triệu/tháng</option><option>Chưa rõ, cần tư vấn</option></select></label>
+<label class="flb" for="f-name">Họ và tên<input class="fi" id="f-name" type="text" autocomplete="name"></label>
+<label class="flb" for="f-phone">Số điện thoại / Zalo<input class="fi" id="f-phone" type="tel" autocomplete="tel"></label>
+<label class="flb" for="f-shop">Tên quán<input class="fi" id="f-shop" type="text"></label>
+<label class="flb" for="f-area">Khu vực<select class="fi" id="f-area"><option>TP.HCM</option><option>Bình Dương</option><option>Đồng Nai</option><option>Vũng Tàu</option><option>Nơi khác</option></select></label>
+<label class="flb" for="f-stage">Quán đang ở chặng<select class="fi" id="f-stage"><option>Sắp mở / mới mở</option><option>Có khách nhưng lúc đông lúc vắng</option><option>Lâu năm mà đứng yên</option><option>Bếp online, bán qua app</option></select></label>
+<label class="flb" for="f-pkg">Set quan tâm<select class="fi" id="f-pkg"><option>Set Bệ phóng – từ 5 triệu/tháng</option><option>Set Tăng trưởng – từ 10 triệu/tháng</option><option>Set Thịnh vượng – từ 15 triệu/tháng</option><option>Chưa rõ, cần tư vấn</option></select></label>
 </div>
-<label class="flb" for="f-note">Điều anh chị đau đầu nhất lúc này (không bắt buộc)<textarea class="fi" id="f-note" placeholder="Ví dụ: ngày thường vắng quá, tin nhắn rep không kịp…" value="{{ f.note }}" onChange="{{ setNote }}"></textarea></label>
-<sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><div role="alert" style="padding: 12px 14px; border-radius: 12px; background: #ffe7e8; color: #8a0812; font-size: 15px; font-weight: 700">{{ err }}</div></sc-if>
-<button type="button" class="btn btn-red" onClick="{{ submit }}" style="width: 100%; min-height: 56px; font-size: 17px">{{ sendLabel }}</button>
+<label class="flb" for="f-note">Điều anh chị đau đầu nhất lúc này (không bắt buộc)<textarea class="fi" id="f-note" placeholder="Ví dụ: ngày thường vắng quá, tin nhắn rep không kịp…"></textarea></label>
+<div id="err" role="alert" hidden style="padding: 12px 14px; border-radius: 12px; background: #ffe7e8; color: #8a0812; font-size: 15px; font-weight: 700"></div>
+<button type="button" class="btn btn-red" id="submit" style="width: 100%; min-height: 56px; font-size: 17px">Đăng ký khám quán</button>
 <div style="font-size: 14px; color: #7a4a50; text-align: center">Hoặc gọi / nhắn Zalo: <a href="tel:0785249867" style="color: #c40d18; font-weight: 800">0785.24.9867</a></div>
 </div>
-</sc-if>
-<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-<div class="form" style="align-items: center; text-align: center; gap: 16px">
+<div class="form" id="thanks" hidden style="align-items: center; text-align: center; gap: 16px">
 <svg viewBox="0 0 300 250" style="width: 160px; height: auto" aria-hidden="true"><use href="#s-bowl"></use></svg>
 <div style="font-size: 24px; font-weight: 900; color: #2a0510">Đã nhận phiếu khám quán.</div>
 <div style="font-size: 16px; color: #6b3b41; line-height: 1.6">Atomix Foodlab sẽ gọi lại cho anh chị trong thời gian sớm nhất để xếp lịch khám.</div>
 </div>
-</sc-if>
 </div>
 </div>
 </section>
@@ -943,8 +889,7 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 
 </div>
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"sheetEndpoint":{"editor":"text","default":"","section":"Kết nối Google Sheet","label":"Link Google Apps Script nhận form"},"$preview":{"width":1440,"height":8000}}'>
+<script>
 const PAINS = [
   ['Cuối tuần kín bàn, ngày thường vắng hoe', 'Lúc đông lúc vắng'],
   ['Tin nhắn hỏi menu, đặt bàn rep không kịp', 'Lọt khách'],
@@ -980,119 +925,180 @@ const PLANETS = [
 const RING_NAMES = ['', 'Quỹ đạo 1 · Nền tảng', 'Quỹ đạo 2 · Kéo khách mới', 'Quỹ đạo 3 · Giữ chân & bùng nổ'];
 const RB = [0.40, 0.40, 0.60, 1.00, 0.10];
 const RA = [0.75, 0.50, 0.90, 1.15, 0.30];
-const BLANK = { name: '', phone: '', shop: '', area: 'TP.HCM', stage: STAGES[1].name, pkg: PKG[1], note: '' };
-class Component extends DCLogic {
-  constructor(props) {
-    super(props);
-    this.state = { stg: 1, pk: 2, chk: PAINS.map(() => false), S: 1000, bill: 150, f: { ...BLANK }, sent: false, sending: false, err: '' };
-  }
-  setField(key) {
-    return (e) => this.setState({ f: { ...this.state.f, [key]: e && e.target ? e.target.value : e }, err: '' });
-  }
-  setF(key, val) {
-    return () => this.setState({ f: { ...this.state.f, [key]: val }, err: '' });
-  }
-  async submit() {
-    const f = this.state.f;
-    const phone = String(f.phone || '').replace(/[^0-9+]/g, '');
-    if (!String(f.name || '').trim()) { this.setState({ err: 'Vui lòng nhập họ và tên.' }); return; }
-    const digits = phone.replace('+', '');
-    if (digits.length < 9 || digits.length > 12) { this.setState({ err: 'Số điện thoại chưa đúng, anh chị kiểm tra lại giúp nhé.' }); return; }
-    const url = String(this.props.sheetEndpoint || '').trim();
-    if (!/^https:\/\/script\.google\.com\//.test(url)) { this.setState({ err: 'Form chưa được kết nối Google Sheet. Anh chị gọi 0785.24.9867 để đặt lịch khám quán ngay nhé.' }); return; }
-    this.setState({ sending: true, err: '' });
-    try {
-      await fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({ name: f.name.trim(), phone: phone, shop: f.shop, area: f.area, stage: f.stage, package: f.pkg, note: f.note, source: 'Landing page Atomix Foodlab v3' }) });
-      this.setState({ sending: false, sent: true, f: { ...BLANK } });
-    } catch (e) {
-      this.setState({ sending: false, err: 'Chưa gửi được thông tin. Anh chị thử lại hoặc gọi 0785.24.9867 nhé.' });
-    }
-  }
-  funnel(S, bill, r) {
-    const seen = S * r[0];
-    const want = seen * r[1];
-    const booked = want * r[2];
-    const spend = bill * r[3];
-    const ret = booked * r[4];
-    return { seen, want, booked, spend, ret, rev: (booked + ret) * spend * 1000 };
-  }
-  renderVals() {
-    const s = this.state;
-    const chk = s.chk;
-    const count = chk.filter(Boolean).length;
-    let lv = { lvl: 'Nguội', cls: 'lv0', msg: 'Gọi món đi anh chị, nồi chưa sôi đâu!' };
-    if (count >= 6) lv = { lvl: 'Sôi trào', cls: 'lv3', msg: 'Tiền đang rò rỉ ở nhiều chặng. Cần khám quán ngay!' };
-    else if (count >= 3) lv = { lvl: 'Sôi sùng sục', cls: 'lv2', msg: 'Quán đang để lọt khách mỗi ngày. Khám sớm nhé!' };
-    else if (count >= 1) lv = { lvl: 'Âm ấm', cls: 'lv1', msg: 'Có vài lỗ hổng rồi. Vá sớm thì đỡ tốn.' };
 
-    const st = STAGES[s.stg];
-    const S = Number(s.S) || 0;
-    const bill = Number(s.bill) || 0;
-    const nf = (x) => Math.round(x).toLocaleString('vi-VN');
-    const mf = (vnd) => (vnd / 1e6).toLocaleString('vi-VN', { maximumFractionDigits: 1 });
-    const B = this.funnel(S, bill, RB);
-    const A = this.funnel(S, bill, RA);
-    const gains = [];
-    let prev = B.rev;
-    for (let k = 0; k < 5; k++) {
-      const mix = RB.map((v, i) => (i <= k ? RA[i] : v));
-      const cur = this.funnel(S, bill, mix).rev;
-      gains.push(cur - prev);
-      prev = cur;
-    }
-    const pct = (x, base) => Math.max(4, Math.min(100, base > 0 ? x / base * 100 : 0));
-    const rows = [
+const SHEET_ENDPOINT = ''; // Dán URL Web app của Apps Script vào đây (xem README.md)
+const state = { stg: 1, pk: 2, chk: PAINS.map(() => false), S: 1000, bill: 150 };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const nf = (x) => Math.round(x).toLocaleString('vi-VN');
+const mf = (vnd) => (vnd / 1e6).toLocaleString('vi-VN', { maximumFractionDigits: 1 });
+
+function funnel(S, bill, r) {
+  const seen = S * r[0];
+  const want = seen * r[1];
+  const booked = want * r[2];
+  const spend = bill * r[3];
+  const ret = booked * r[4];
+  return { seen, want, booked, spend, ret, rev: (booked + ret) * spend * 1000 };
+}
+
+const rowHtml = (r) => `<div class="crow">
+<div class="cside bad">
+<svg class="fx" viewBox="0 0 40 60" aria-hidden="true"><circle class="drip" cx="20" cy="8" r="6" fill="#b47208"></circle><circle class="drip k2" cx="12" cy="8" r="5" fill="#9a5f06"></circle><circle class="drip k3" cx="28" cy="8" r="4.5" fill="#b47208"></circle></svg>
+<span class="n">${r.bN}</span>
+<span class="s">${r.bS}</span>
+<span class="m">−${r.money} triệu/tháng</span>
+<div class="bar"><i style="width: ${r.bW}%"></i></div>
+</div>
+<div class="cmid"><svg viewBox="${r.vb}" aria-hidden="true"><use href="#${r.sym}"></use></svg><span>${r.name}</span></div>
+<div class="cside good">
+<svg class="fx" viewBox="0 0 40 60" aria-hidden="true"><circle class="pop" cx="20" cy="40" r="6" fill="#ffd34d"></circle><circle class="pop k2" cx="10" cy="44" r="4.5" fill="#f5b82e"></circle><circle class="pop k3" cx="30" cy="44" r="5" fill="#fff0b8"></circle></svg>
+<span class="n">${r.aN}</span>
+<span class="s">${r.aS}</span>
+<span class="m">+${r.money} triệu/tháng</span>
+<div class="bar"><i style="width: ${r.aW}%"></i></div>
+</div>
+</div>`;
+
+function renderPains() {
+  $('pains').innerHTML = PAINS.map((p, i) => `<label class="mline${state.chk[i] ? ' on' : ''}"><input type="checkbox"${state.chk[i] ? ' checked' : ''} data-i="${i}"><span class="mltxt">${esc(p[0])}</span><span class="dots"></span><span class="pr">${esc(p[1])}</span></label>`).join('');
+}
+
+function renderPot() {
+  const count = state.chk.filter(Boolean).length;
+  let lv = { lvl: 'Nguội', cls: 'lv0', msg: 'Gọi món đi anh chị, nồi chưa sôi đâu!' };
+  if (count >= 6) lv = { lvl: 'Sôi trào', cls: 'lv3', msg: 'Tiền đang rò rỉ ở nhiều chặng. Cần khám quán ngay!' };
+  else if (count >= 3) lv = { lvl: 'Sôi sùng sục', cls: 'lv2', msg: 'Quán đang để lọt khách mỗi ngày. Khám sớm nhé!' };
+  else if (count >= 1) lv = { lvl: 'Âm ấm', cls: 'lv1', msg: 'Có vài lỗ hổng rồi. Vá sớm thì đỡ tốn.' };
+  $('count').textContent = count;
+  $('potbox').className = 'potbox rv2 ' + lv.cls;
+  $('lvl').className = 'plv ' + lv.cls;
+  $('lvl').textContent = 'Độ sôi: ' + lv.lvl;
+  $('lvmsg').textContent = lv.msg;
+}
+
+function renderStage() {
+  $('cloches').innerHTML = STAGES.map((x, i) => `<button type="button" class="cl${i === state.stg ? ' on' : ''}" aria-pressed="${i === state.stg}" data-stg="${i}"><svg viewBox="0 0 150 130" aria-hidden="true"><ellipse cx="75" cy="118" rx="64" ry="9" fill="#000000" fill-opacity=".4"></ellipse><ellipse cx="75" cy="110" rx="66" ry="14" fill="#a99294"></ellipse><ellipse cx="75" cy="106" rx="62" ry="11" fill="#ffffff"></ellipse><g class="dish"><use href="#${x.sym}" x="42" y="40" width="66" height="66"></use></g><g class="dome"><path d="M22 104 A53 53 0 0 1 128 104 Z" fill="url(#gRed)"></path><path d="M40 86 A36 36 0 0 1 62 62" stroke="#ffffff" stroke-opacity=".5" stroke-width="6" fill="none" stroke-linecap="round"></path><circle cx="75" cy="48" r="8" fill="url(#gGold)"></circle></g></svg><span>${esc(x.name)}</span></button>`).join('');
+  const st = STAGES[state.stg];
+  $('st-title').textContent = 'Hồ sơ quán · ' + st.short;
+  $('st-quote').textContent = '“' + st.quote + '”';
+  $('st-pkg').textContent = st.pkg + ' · ' + st.price;
+  $('st-helps').innerHTML = st.helps.map((h) => `<li><svg aria-hidden="true"><use href="#tick"></use></svg><span>${esc(h)}</span></li>`).join('');
+}
+
+function renderRings() {
+  [1, 2, 3].forEach((ringNo) => {
+    const items = PLANETS.map((p, i) => ({ p, i })).filter((x) => x.p.ring === ringNo);
+    const off = ringNo === 1 ? -90 : ringNo === 2 ? -54 : -45;
+    $('ring' + ringNo).innerHTML = items.map((x, j) => {
+      const on = x.i === state.pk;
+      return `<div class="pp" style="--a: ${Math.round(off + j * 360 / items.length)}deg"><button type="button" class="pl${on ? ' on' : ''}" aria-pressed="${on}" data-pk="${x.i}"><span class="pb"><svg class="ico" aria-hidden="true"><use href="#${x.p.icon}"></use></svg></span><span class="pn">${esc(x.p.name)}</span></button></div>`;
+    }).join('');
+  });
+  const pk = PLANETS[state.pk];
+  $('pk-tag').textContent = RING_NAMES[pk.ring] + ' · Hành tinh ' + (state.pk + 1) + '/13';
+  $('pk-icon').setAttribute('href', '#' + pk.icon);
+  $('pk-name').textContent = pk.name;
+  $('pk-what').textContent = pk.what;
+  $('pk-pain').textContent = pk.pain;
+}
+
+function renderCompare() {
+  const S = Number(state.S) || 0;
+  const bill = Number(state.bill) || 0;
+  const B = funnel(S, bill, RB);
+  const A = funnel(S, bill, RA);
+  const gains = [];
+  let prev = B.rev;
+  for (let k = 0; k < 5; k++) {
+    const mix = RB.map((v, i) => (i <= k ? RA[i] : v));
+    const cur = funnel(S, bill, mix).rev;
+    gains.push(cur - prev);
+    prev = cur;
+  }
+  const pct = (x, base) => Math.max(4, Math.min(100, base > 0 ? x / base * 100 : 0));
+      const rows = [
       { name: 'Tìm thấy quán', sym: 's-mag', vb: '0 0 100 100', bN: 'Chỉ ' + nf(B.seen) + ' người thấy quán', bS: 'Lọt ' + nf(S - B.seen) + ' người vì quán không hiện', aN: nf(A.seen) + ' người thấy quán', aS: 'Giữ thêm ' + nf(A.seen - B.seen) + ' người nhờ Maps, quảng cáo, KOC', bW: pct(B.seen, S), aW: pct(A.seen, S) },
       { name: 'Chọn quán', sym: 's-star', vb: '0 0 100 100', bN: nf(B.want) + ' người muốn thử', bS: 'Lọt ' + nf(B.seen - B.want) + ' người vì ảnh xấu, ít đánh giá', aN: nf(A.want) + ' người muốn thử', aS: 'Thêm ' + nf(A.want - B.want) + ' người nhờ hình ảnh, đánh giá', bW: pct(B.want, S * 0.4), aW: pct(A.want, S * 0.4) },
       { name: 'Hỏi & đặt bàn', sym: 's-chat', vb: '0 0 150 130', bN: nf(B.booked) + ' người đặt được bàn', bS: 'Lọt ' + nf(B.want - B.booked) + ' người vì rep chậm', aN: nf(A.booked) + ' người đặt được bàn', aS: 'Thêm ' + nf(A.booked - B.booked) + ' người nhờ chatbot rep liền', bW: pct(B.booked, S * 0.4), aW: pct(A.booked, S * 0.4) },
       { name: 'Đến & gọi món', sym: 's-cloche', vb: '0 0 100 100', bN: 'Hóa đơn ' + nf(B.spend) + '.000đ/khách', bS: 'Khách gọi ít, không có món gợi ý', aN: 'Hóa đơn ' + nf(A.spend) + '.000đ/khách', aS: 'Tăng nhờ menu rõ, combo, món gợi ý', bW: 60, aW: 69 },
       { name: 'Quay lại', sym: 's-gift', vb: '0 0 100 100', bN: nf(B.ret) + ' khách quay lại', bS: nf(B.booked - B.ret) + ' khách về là quên quán', aN: nf(A.ret) + ' khách quay lại', aS: 'Thêm ' + nf(A.ret - B.ret) + ' lượt nhờ tích điểm, voucher', bW: pct(B.ret, S * 0.12), aW: pct(A.ret, S * 0.12) }
     ].map((r, i) => ({ ...r, money: mf(gains[i]) }));
+  $('cmp').innerHTML = rows.map(rowHtml).join('');
+  $('sText').textContent = nf(S) + ' người';
+  $('billText').textContent = nf(bill) + '.000đ';
+  $('revB').textContent = mf(B.rev) + ' triệu';
+  $('revD').textContent = '+' + mf(A.rev - B.rev) + ' triệu';
+  $('revA').textContent = mf(A.rev) + ' triệu';
+}
 
-    const pk = PLANETS[s.pk];
-    const mkRing = (ringNo) => {
-      const items = PLANETS.map((p, i) => ({ p, i })).filter((x) => x.p.ring === ringNo);
-      const off = ringNo === 1 ? -90 : ringNo === 2 ? -54 : -45;
-      return items.map((x, j) => ({ name: x.p.name, icon: x.p.icon, a: Math.round(off + j * 360 / items.length), cls: x.i === s.pk ? 'on' : '', pressed: x.i === s.pk ? 'true' : 'false', pick: () => this.setState({ pk: x.i }) }));
-    };
-
-    return {
-      pains: PAINS.map((p, i) => ({ t: p[0], cost: p[1], checked: !!chk[i], cls: chk[i] ? 'on' : '', toggle: () => { const c = this.state.chk.slice(); c[i] = !c[i]; this.setState({ chk: c }); } })),
-      count: count,
-      lv: lv,
-      tabs: STAGES.map((x, i) => ({ name: x.name, sym: x.sym, cls: i === s.stg ? 'on' : '', pressed: i === s.stg ? 'true' : 'false', pick: () => this.setState({ stg: i }) })),
-      st: { short: st.short, quote: st.quote, helps: st.helps, pkg: st.pkg, price: st.price, book: () => this.setState({ f: { ...this.state.f, stage: st.name, pkg: PKG[st.p] } }) },
-      sRaw: s.S, billRaw: s.bill,
-      sText: nf(S), billText: nf(bill),
-      setS: (e) => this.setState({ S: e.target.value }),
-      setBillR: (e) => this.setState({ bill: e.target.value }),
-      rows: rows,
-      revB: mf(B.rev), revA: mf(A.rev), revD: mf(A.rev - B.rev),
-      ring1: mkRing(1), ring2: mkRing(2), ring3: mkRing(3),
-      pk: { name: pk.name, icon: pk.icon, what: pk.what, pain: pk.pain, ring: RING_NAMES[pk.ring], no: s.pk + 1 },
-      prevP: () => this.setState({ pk: (this.state.pk + PLANETS.length - 1) % PLANETS.length }),
-      nextP: () => this.setState({ pk: (this.state.pk + 1) % PLANETS.length }),
-      pick1: this.setF('pkg', PKG[0]),
-      pick2: this.setF('pkg', PKG[1]),
-      pick3: this.setF('pkg', PKG[2]),
-      f: s.f,
-      setName: this.setField('name'),
-      setPhone: this.setField('phone'),
-      setShop: this.setField('shop'),
-      setArea: this.setField('area'),
-      setStage: this.setField('stage'),
-      setPkg: this.setField('pkg'),
-      setNote: this.setField('note'),
-      submit: () => this.submit(),
-      sendLabel: s.sending ? 'Đang gửi…' : 'Đăng ký khám quán',
-      err: s.err,
-      hasErr: !!s.err,
-      sent: s.sent,
-      notSent: !s.sent
-    };
+async function submit() {
+  const name = $('f-name').value.trim();
+  const phone = $('f-phone').value.replace(/[^0-9+]/g, '');
+  const digits = phone.replace('+', '');
+  const showErr = (msg) => { $('err').textContent = msg; $('err').hidden = false; };
+  $('err').hidden = true;
+  if (!name) return showErr('Vui lòng nhập họ và tên.');
+  if (digits.length < 9 || digits.length > 12) return showErr('Số điện thoại chưa đúng, anh chị kiểm tra lại giúp nhé.');
+  if (!/^https:\/\/script\.google\.com\//.test(SHEET_ENDPOINT)) return showErr('Form chưa được kết nối Google Sheet. Anh chị gọi 0785.24.9867 để đặt lịch khám quán ngay nhé.');
+  $('submit').disabled = true;
+  $('submit').textContent = 'Đang gửi…';
+  try {
+    await fetch(SHEET_ENDPOINT, {
+      method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ name, phone, shop: $('f-shop').value, area: $('f-area').value, stage: $('f-stage').value, package: $('f-pkg').value, note: $('f-note').value, source: 'Landing page Atomix Foodlab v3' })
+    });
+    $('form').hidden = true;
+    $('thanks').hidden = false;
+  } catch (e) {
+    showErr('Chưa gửi được thông tin. Anh chị thử lại hoặc gọi 0785.24.9867 nhé.');
+  } finally {
+    $('submit').disabled = false;
+    $('submit').textContent = 'Đăng ký khám quán';
   }
 }
+
+// Sự kiện
+$('pains').addEventListener('change', (e) => {
+  const i = Number(e.target.dataset.i);
+  state.chk[i] = e.target.checked;
+  e.target.parentNode.classList.toggle('on', e.target.checked);
+  renderPot();
+});
+$('cloches').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-stg]');
+  if (!b) return;
+  state.stg = Number(b.dataset.stg);
+  renderStage();
+});
+document.querySelector('.uni').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-pk]');
+  if (!b) return;
+  state.pk = Number(b.dataset.pk);
+  renderRings();
+});
+$('prevP').addEventListener('click', () => { state.pk = (state.pk + PLANETS.length - 1) % PLANETS.length; renderRings(); });
+$('nextP').addEventListener('click', () => { state.pk = (state.pk + 1) % PLANETS.length; renderRings(); });
+$('sRange').addEventListener('input', (e) => { state.S = Number(e.target.value); renderCompare(); });
+$('bRange').addEventListener('input', (e) => { state.bill = Number(e.target.value); renderCompare(); });
+$('st-book').addEventListener('click', () => {
+  const st = STAGES[state.stg];
+  $('f-stage').value = st.name;
+  $('f-pkg').value = PKG[st.p];
+});
+document.querySelectorAll('[data-pkg]').forEach((a) => a.addEventListener('click', () => {
+  $('f-pkg').value = PKG[Number(a.dataset.pkg)];
+}));
+$('submit').addEventListener('click', submit);
+
+// Khởi tạo
+$('f-stage').value = STAGES[1].name;
+$('f-pkg').value = PKG[1];
+renderPains();
+renderPot();
+renderStage();
+renderRings();
+renderCompare();
 </script>
 </body>
 </html>
