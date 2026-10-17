@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Atomix Foodlab – Marketing trọn gói cho quán ăn</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#16020a;color:#fff4f3;font-family:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+a{color:#ff6b72}a:hover{color:#ffffff}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;position:relative}
+.galaxy{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse 70% 55% at 18% 8%,rgba(227,16,28,.42),transparent 60%),radial-gradient(ellipse 50% 45% at 88% 28%,rgba(255,52,110,.20),transparent 60%),radial-gradient(ellipse 80% 60% at 50% 105%,rgba(150,6,24,.55),transparent 65%),linear-gradient(180deg,#22030b 0%,#14020a 55%,#1c0309 100%)}
+.stars{position:absolute;inset:-50px;background-image:radial-gradient(1.3px 1.3px at 22px 34px,#fff,transparent),radial-gradient(1px 1px at 128px 82px,#ffd9db,transparent),radial-gradient(1.6px 1.6px at 210px 160px,#fff,transparent),radial-gradient(1px 1px at 60px 200px,#ffb3b8,transparent),radial-gradient(1.2px 1.2px at 170px 240px,#fff,transparent);background-size:280px 280px;opacity:.6}
+.spice{position:absolute;opacity:.5;animation:drift 18s linear infinite}
+@keyframes drift{0%{transform:translateY(-10vh) rotate(0)}100%{transform:translateY(110vh) rotate(540deg)}}
+section{position:relative;padding:110px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:inherit;transition:transform .2s ease,background .2s ease}
+.btn:focus-visible,.cl:focus-visible,.pl:focus-visible,.fi:focus-visible{outline:3px solid #ffd0d3;outline-offset:3px}
+.btn-red{background:#e3101c;color:#fff;box-shadow:0 12px 30px -10px rgba(255,40,55,.75)}
+.btn-red:hover{background:#ff2834;color:#fff;transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff4f3;border-color:rgba(255,140,145,.35)}
+.btn-ghost:hover{border-color:#ff3b45;color:#fff;background:rgba(255,59,69,.14)}
+.btn-white{background:#fff;color:#b30c16}
+.btn-white:hover{background:#ffe9ea;color:#7a0710}
+.btn-ink{background:#2a0510;color:#fff}
+.btn-ink:hover{background:#c40d18;color:#fff}
+.logo-glow{display:block;filter:drop-shadow(0 0 12px rgba(255,70,80,.55))}
+.h2{font-size:clamp(28px,3.8vw,50px);font-weight:900;line-height:1.18;text-transform:uppercase;margin:0;text-wrap:balance;color:#fff}
+.h2 em{font-style:normal;color:#ff3b45;text-shadow:0 0 30px rgba(255,40,55,.55)}
+.lead{font-size:clamp(16.5px,1.5vw,19px);line-height:1.65;color:#ecc4c7;margin:0;font-weight:500;max-width:680px}
+.center{text-align:center;align-items:center}
+.center .lead{margin:0 auto}
+.tagx{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,140,145,.3);font-size:14px;font-weight:800;color:#ffe0e2}
+.tagx svg{width:26px;height:26px;flex:none}
+.ico{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.vi{flex:none;width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(150deg,#ff5a62,#b30c16);box-shadow:inset 0 2px 0 rgba(255,255,255,.35),0 8px 18px -8px rgba(255,40,55,.9)}
+
+/* chuyển động bếp */
+.bob{animation:bob 4s ease-in-out infinite}
+.bob2{animation:bob 5s ease-in-out .8s infinite}
+.bob3{animation:bob 4.6s ease-in-out 1.6s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.flick{transform-box:fill-box;transform-origin:50% 100%;animation:flick .55s ease-in-out infinite alternate}
+.flick.d1{animation-delay:.12s;animation-duration:.48s}.flick.d2{animation-delay:.25s;animation-duration:.62s}.flick.d3{animation-delay:.05s;animation-duration:.5s}.flick.d4{animation-delay:.33s;animation-duration:.58s}
+@keyframes flick{0%{transform:scaleY(.82) skewX(4deg);opacity:.85}100%{transform:scaleY(1.18) skewX(-5deg);opacity:1}}
+.steam{animation:steam 3s ease-in-out infinite;opacity:0}
+.steam.s2{animation-delay:1s}.steam.s3{animation-delay:2s}
+@keyframes steam{0%{opacity:0;transform:translateY(14px)}40%{opacity:.85}100%{opacity:0;transform:translateY(-34px)}}
+.wok{transform-box:view-box;transform-origin:500px 360px;animation:jolt 2.4s ease-in-out infinite}
+@keyframes jolt{0%,100%{transform:rotate(0)}12%{transform:rotate(-4deg) translateY(-6px)}24%{transform:rotate(1deg)}}
+.toss{transform-box:fill-box;transform-origin:center;animation:toss 2.4s cubic-bezier(.3,.6,.4,1) infinite}
+.toss.t2{animation-delay:.12s}.toss.t3{animation-delay:.22s}.toss.t4{animation-delay:.32s}.toss.t5{animation-delay:.06s}
+@keyframes toss{0%,100%{transform:translateY(70px) rotate(0);opacity:0}10%{opacity:1}45%{transform:translateY(-70px) rotate(200deg);opacity:1}85%{transform:translateY(60px) rotate(360deg);opacity:1}92%{opacity:0}}
+.lift{animation:lift 3.2s ease-in-out infinite}
+@keyframes lift{0%,100%{transform:translateY(40px)}40%,70%{transform:translateY(-28px)}}
+.pinch{transform-box:fill-box;transform-origin:0% 0%;animation:pinch 3.2s ease-in-out infinite}
+@keyframes pinch{0%,25%{transform:rotate(4deg)}35%,100%{transform:rotate(0)}}
+.stir{transform-box:view-box;transform-origin:840px 330px;animation:stir 2.6s ease-in-out infinite}
+@keyframes stir{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(16deg)}}
+.marq{display:flex;width:max-content;animation:marq 38s linear infinite}
+@keyframes marq{to{transform:translateX(-50%)}}
+.sway{transform-origin:50% 0;animation:sway 4s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-1.8deg)}50%{transform:rotate(1.8deg)}}
+.ding{transform-box:fill-box;transform-origin:50% 100%;animation:ding 2.8s ease-in-out infinite}
+@keyframes ding{0%,70%,100%{transform:none}75%{transform:translateY(5px) scaleY(.92)}82%{transform:translateY(-3px)}}
+.wave{animation:wave 2.8s ease-out infinite;opacity:0;transform-box:fill-box;transform-origin:center}
+@keyframes wave{0%,72%{opacity:0;transform:scale(.6)}80%{opacity:.9}100%{opacity:0;transform:scale(1.5)}}
+
+/* HERO */
+.hero{padding:56px 0 0;display:flex;flex-direction:column;gap:26px;align-items:center;text-align:center}
+.hero h1{font-size:clamp(46px,8.4vw,124px);font-weight:900;line-height:.98;margin:0;text-transform:uppercase;color:#fff;letter-spacing:-.02em}
+.hero h1 span{color:#ff3b45;text-shadow:0 0 40px rgba(255,40,55,.6)}
+.stage{position:relative;width:100%;max-width:1100px;margin:10px auto 0}
+.stage > svg{display:block;width:100%;height:auto;overflow:visible}
+.ncard{position:absolute;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:18px;background:rgba(30,4,10,.84);border:1px solid rgba(255,140,145,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 20px 40px -20px rgba(0,0,0,.9);font-size:14px;color:#ffe0e2;line-height:1.35;text-align:left}
+.ncard b{color:#fff;font-weight:800}
+.strip{position:relative;overflow:hidden;border-block:1px solid rgba(255,140,145,.2);background:linear-gradient(90deg,#e3101c,#8a0812);padding:16px 0;transform:rotate(-1.4deg);margin:-30px -20px 0}
+.mi{display:inline-flex;align-items:center;gap:18px;padding:0 18px;font-size:clamp(18px,2vw,24px);font-weight:900;text-transform:uppercase;color:#fff;letter-spacing:.04em;white-space:nowrap}
+.mi svg{width:26px;height:26px}
+
+/* TỰ KHÁM: thực đơn + nồi lẩu */
+.selfx{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.menu{position:relative;border-radius:26px;background:linear-gradient(180deg,#fffaf9,#f5e7e8);color:#2a0510;padding:34px 34px 28px;box-shadow:0 50px 90px -40px rgba(0,0,0,.85)}
+.menu::before{content:'';position:absolute;inset:12px;border:2px solid rgba(196,13,24,.25);border-radius:18px;pointer-events:none}
+.mtitle{text-align:center;font-size:clamp(22px,2.4vw,30px);font-weight:900;text-transform:uppercase;color:#c40d18;letter-spacing:.06em;margin:0}
+.msub{text-align:center;font-size:14px;font-weight:700;color:#7a4a50;margin:4px 0 18px}
+.mline{position:relative;display:flex;align-items:center;gap:12px;padding:12px 10px;border-radius:12px;cursor:pointer;font-size:16px;font-weight:700;line-height:1.4;min-height:52px}
+.mline:hover{background:rgba(196,13,24,.06)}
+.mline.on{background:rgba(196,13,24,.1)}
+.mline .dots{flex:1;min-width:20px;border-bottom:2px dotted rgba(42,5,16,.3);align-self:flex-end;margin-bottom:6px}
+.mline .pr{flex:none;font-size:13px;font-weight:900;color:#c40d18;text-transform:uppercase;letter-spacing:.06em}
+.mline input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;margin:0;border-radius:7px;border:2px solid #c9a3a6;background:#fff;display:grid;place-content:center;cursor:pointer}
+.mline input:checked{background:#e3101c;border-color:#e3101c}
+.mline input:checked::before{content:'';width:11px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:translateY(-2px) rotate(-45deg)}
+.mline input:focus-visible{outline:3px solid #c40d18;outline-offset:2px}
+.mltxt{flex:0 1 auto}
+.potbox{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.potbox svg{width:100%;max-width:380px;height:auto;overflow:visible}
+.pf{transform-box:fill-box;transform-origin:50% 100%;transition:transform .5s cubic-bezier(.3,1.4,.4,1)}
+.lv0 .pf{transform:scale(.35)}.lv1 .pf{transform:scale(.65)}.lv2 .pf{transform:scale(1)}.lv3 .pf{transform:scale(1.35)}
+.bub{animation:boil 2.4s ease-in infinite;opacity:0;transform-box:fill-box;transform-origin:center}
+.lv0 .bub{animation:none}.lv2 .bub{animation-duration:1.4s}.lv3 .bub{animation-duration:.8s}
+@keyframes boil{0%{opacity:0;transform:translateY(8px) scale(.4)}30%{opacity:1}100%{opacity:0;transform:translateY(-16px) scale(1.2)}}
+.lv0 .psteam{display:none}
+.pcount{font-size:64px;font-weight:900;line-height:1;color:#fff}
+.plv{display:inline-flex;padding:8px 18px;border-radius:999px;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.06em;background:rgba(255,255,255,.08);color:#ffd0d3}
+.plv.lv1{background:#ffe7a8;color:#6b4100}.plv.lv2{background:#ffd2b0;color:#8a3200}.plv.lv3{background:#e3101c;color:#fff}
+
+/* TICKET RAIL */
+.rail{position:relative;height:18px;border-radius:9px;background:linear-gradient(180deg,#f2e8e9,#8a7b7d 60%,#4a3d3f);box-shadow:0 10px 24px -8px rgba(0,0,0,.8);margin-top:20px}
+.tickets{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:-6px;padding:0 10px}
+.ticket{position:relative;background:#fffaf4;color:#2a0510;padding:30px 16px 34px;clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),92% 100%,84% calc(100% - 12px),76% 100%,68% calc(100% - 12px),60% 100%,52% calc(100% - 12px),44% 100%,36% calc(100% - 12px),28% 100%,20% calc(100% - 12px),12% 100%,4% calc(100% - 12px),0 100%);box-shadow:0 30px 40px -20px rgba(0,0,0,.9);display:flex;flex-direction:column;gap:10px}
+.ticket::before{content:'';position:absolute;top:0;left:50%;width:44px;height:16px;margin-left:-22px;background:#c40d18;border-radius:0 0 6px 6px}
+.tno{font-size:12px;font-weight:900;letter-spacing:.14em;color:#c40d18;text-transform:uppercase;border-bottom:2px dashed rgba(42,5,16,.25);padding-bottom:8px}
+.tt{font-size:17px;font-weight:900;line-height:1.3;margin:0}
+.td{font-size:14.5px;line-height:1.5;color:#5a2a31;margin:0}
+.tc{margin-top:auto;font-size:14px;font-weight:800;color:#c40d18;line-height:1.4}
+
+/* BENTO SỨC MẠNH */
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bt{position:relative;border-radius:30px;padding:30px;background:rgba(30,4,10,.78);border:1px solid rgba(255,140,145,.22);display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.bt.big{grid-column:span 2;grid-row:span 2;background:linear-gradient(140deg,rgba(227,16,28,.5),rgba(60,3,10,.92) 70%);border:1.5px solid #ff3b45;box-shadow:0 40px 80px -40px rgba(255,40,55,.9)}
+.bt.wide{grid-column:span 2}
+.bt .b3d{width:96px;height:96px;flex:none}
+.bt.big .b3d{width:150px;height:150px}
+.bt h3{margin:0;font-size:clamp(22px,2.2vw,30px);font-weight:900;text-transform:uppercase;color:#fff;line-height:1.15}
+.bt p{margin:0;font-size:16px;line-height:1.6;color:#ecc4c7}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:rgba(255,59,69,.14);border:1px solid rgba(255,90,100,.4);color:#ffe0e2;font-size:14px;font-weight:700}
+.tlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.tlist li{display:flex;gap:10px;font-size:15.5px;line-height:1.45;color:#ffe0e2;font-weight:600}
+.tlist svg{flex:none;width:20px;height:20px;margin-top:2px}
+
+/* CLOCHE CHẶNG */
+.cloches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.cl{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 10px 20px;border-radius:26px;border:1px solid rgba(255,140,145,.2);background:rgba(255,255,255,.04);color:#ffe0e2;font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;text-align:center;line-height:1.3;min-height:220px}
+.cl:hover{background:rgba(255,59,69,.12)}
+.cl.on{border-color:#ff3b45;background:rgba(227,16,28,.24);color:#fff;box-shadow:0 0 0 3px rgba(255,59,69,.25),0 30px 60px -30px rgba(255,40,55,.9)}
+.cl svg{width:150px;height:130px;overflow:visible}
+.dome{transform-box:fill-box;transform-origin:85% 100%;transition:transform .6s cubic-bezier(.3,1.5,.4,1)}
+.cl:hover .dome{transform:translateY(-6px)}
+.cl.on .dome{transform:translateY(-34px) rotate(-22deg)}
+.cl .dish{opacity:.15;transition:opacity .4s ease}
+.cl.on .dish{opacity:1}
+.record{position:relative;border-radius:30px;background:linear-gradient(180deg,#fffaf9,#f5e7e8);color:#2a0510;padding:36px 40px;box-shadow:0 50px 90px -40px rgba(0,0,0,.85);overflow:hidden;margin-top:22px}
+.record::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 37px,rgba(196,13,24,.07) 37px 38px);pointer-events:none}
+.rgrid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:start}
+.rtitle{font-size:14px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#c40d18}
+.rq{font-size:clamp(22px,2.3vw,30px);font-weight:900;line-height:1.3;margin:10px 0 0}
+.sym{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.sym li{display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.5;font-weight:600;padding:12px 14px;border-radius:12px;background:#fff;border:1px solid #ecd3d5}
+.sym svg{flex:none;width:20px;height:20px;margin-top:2px}
+.dx{font-size:clamp(20px,2vw,24px);font-weight:900;color:#c40d18;font-style:italic;line-height:1.3}
+
+/* HÀNH TRÌNH */
+.jour{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.photo{position:relative;border-radius:34px;padding:8px;background:linear-gradient(160deg,#ff3b45,#5a040c);box-shadow:0 0 60px rgba(255,40,55,.35),0 50px 90px -40px rgba(0,0,0,.9)}
+.photo img{display:block;width:100%;height:auto;border-radius:28px}
+.badge3d{position:absolute;width:96px;height:96px}
+.steps5{position:relative;display:flex;flex-direction:column;gap:12px}
+.steps5::before{content:'';position:absolute;left:38px;top:30px;bottom:30px;width:3px;background:repeating-linear-gradient(180deg,#ff3b45 0 10px,transparent 10px 18px);animation:noodle 1.2s linear infinite;background-size:3px 18px}
+@keyframes noodle{to{background-position:0 18px}}
+.s5{position:relative;display:grid;grid-template-columns:76px minmax(0,1fr);gap:16px;align-items:center;padding:14px 18px 14px 0;border-radius:22px}
+.s5:hover{background:rgba(255,59,69,.08)}
+.s5i{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#4a0a14,#1c0309);border:2px solid rgba(255,140,145,.45);position:relative;z-index:1}
+.s5i svg{width:52px;height:52px}
+.s5 h3{margin:0;font-size:19px;font-weight:900;color:#fff;text-transform:uppercase}
+.s5 h3 small{font-size:12px;font-weight:900;letter-spacing:.14em;color:#ff9ea3;margin-right:8px}
+.s5 .q{font-size:15px;font-style:italic;font-weight:700;color:#ffd0d3;margin:4px 0 0}
+.s5 .l{font-size:14.5px;color:#ecc4c7;margin:4px 0 0;line-height:1.5}
+.s5 .l b{color:#fff}
+
+/* TRƯỚC – SAU */
+.ba{position:relative;border-radius:34px;overflow:hidden;box-shadow:0 50px 100px -50px rgba(0,0,0,.95)}
+.ba img{display:block;width:100%;height:auto}
+.balbl{position:absolute;top:22px;padding:10px 18px;border-radius:999px;font-weight:900;font-size:clamp(13px,1.4vw,17px);text-transform:uppercase;letter-spacing:.06em}
+.ctrls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:24px 28px;border-radius:26px;background:rgba(30,4,10,.8);border:1px solid rgba(255,140,145,.25)}
+.rg{display:flex;flex-direction:column;gap:10px;font-size:15px;font-weight:800;color:#ffe0e2}
+.rg b{font-size:26px;font-weight:900;color:#fff}
+.rg input[type=range]{width:100%;accent-color:#e3101c;height:30px;cursor:pointer}
+.cmp{display:flex;flex-direction:column;gap:12px}
+.crow{display:grid;grid-template-columns:minmax(0,1fr) 150px minmax(0,1fr);gap:0;align-items:stretch}
+.cside{position:relative;padding:18px 22px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.cside.bad{border-radius:22px 0 0 22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-right:0;filter:saturate(.35)}
+.cside.good{border-radius:0 22px 22px 0;background:linear-gradient(100deg,rgba(227,16,28,.4),rgba(60,3,10,.85));border:1.5px solid #ff3b45;border-left:0}
+.cside .n{font-size:17px;font-weight:800;color:#fff;line-height:1.35}
+.cside .s{font-size:14px;color:#d9b8bb;line-height:1.45}
+.cside .m{font-size:clamp(20px,2vw,26px);font-weight:900;line-height:1.1}
+.bad .m{color:#ff9ea3}
+.good .m{color:#ffd34d;text-shadow:0 0 18px rgba(255,211,77,.4)}
+.bar{height:8px;border-radius:8px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;border-radius:8px;transition:width .5s ease}
+.bad .bar i{background:#8a7b7d}
+.good .bar i{background:linear-gradient(90deg,#ff3b45,#ffd34d)}
+.cmid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#16020a;border-block:1px solid rgba(255,140,145,.25);text-align:center;padding:10px 6px}
+.cmid svg{width:54px;height:54px}
+.cmid span{font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#fff;line-height:1.25}
+.fx{position:absolute;right:16px;top:12px;width:40px;height:60px;pointer-events:none}
+.drip{animation:drip 2.2s ease-in infinite;opacity:0}
+.drip.k2{animation-delay:.7s}.drip.k3{animation-delay:1.4s}
+@keyframes drip{0%{opacity:0;transform:translateY(0)}15%{opacity:1}100%{opacity:0;transform:translateY(46px)}}
+.pop{animation:pop 2s ease-out infinite;opacity:0}
+.pop.k2{animation-delay:.66s}.pop.k3{animation-delay:1.32s}
+@keyframes pop{0%{opacity:0;transform:translateY(40px) scale(.6)}25%{opacity:1}100%{opacity:0;transform:translateY(-6px) scale(1.1)}}
+.tot{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:16px;align-items:center;margin-top:8px;padding:26px 30px;border-radius:28px;background:linear-gradient(110deg,#e3101c,#8a0812 70%);box-shadow:0 40px 90px -40px rgba(255,40,55,.9)}
+.tot .k{font-size:13px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#ffd0d3}
+.tot .v{font-size:clamp(26px,3vw,40px);font-weight:900;color:#fff;line-height:1.1}
+.tot .plus{font-size:clamp(40px,5.4vw,76px);font-weight:900;color:#ffd34d;line-height:1;text-shadow:0 6px 0 rgba(90,4,12,.6);text-align:center}
+
+/* VŨ TRỤ */
+.uniwrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:center}
+.uni{position:relative;width:100%;max-width:640px;aspect-ratio:1/1;margin:0 auto;container-type:inline-size}
+.rl{position:absolute;left:50%;top:50%;aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;border:1.5px dashed rgba(255,140,145,.28)}
+.rl.r1{width:38cqw}.rl.r2{width:61cqw;border-color:rgba(255,140,145,.2)}.rl.r3{width:84cqw;border-color:rgba(255,140,145,.14)}
+.core{position:absolute;left:50%;top:50%;width:24cqw;aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#5a0d18,#1a0309 70%);box-shadow:0 0 70px rgba(255,40,55,.6),inset 0 0 30px rgba(255,59,69,.35)}
+.core img{width:72%;height:auto}
+.spinr{position:absolute;inset:0}
+.spinr.g1{animation:spin 60s linear infinite}.spinr.g2{animation:spin 90s linear infinite reverse}.spinr.g3{animation:spin 120s linear infinite}
+.pp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(var(--a)) translateX(calc(var(--r) * 1cqw)) rotate(calc(-1 * var(--a)))}
+.g1 .pp{--r:19}.g2 .pp{--r:30.5}.g3 .pp{--r:42}
+.pl{display:flex;flex-direction:column;align-items:center;gap:4px;width:13cqw;min-width:64px;background:none;border:0;padding:0;cursor:pointer;font-family:inherit;color:#ffe0e2}
+.g1 .pl{animation:spin 60s linear infinite reverse}.g2 .pl{animation:spin 90s linear infinite}.g3 .pl{animation:spin 120s linear infinite reverse}
+.uni:hover .spinr,.uni:hover .pl,.uni:focus-within .spinr,.uni:focus-within .pl{animation-play-state:paused}
+.pb{width:clamp(44px,8.4cqw,56px);height:clamp(44px,8.4cqw,56px);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;border:2px solid rgba(255,140,145,.5);background:radial-gradient(circle at 35% 30%,#ff6b72,#c40d18 55%,#5a040c);box-shadow:inset 0 3px 0 rgba(255,255,255,.35),0 10px 20px -8px rgba(255,40,55,.9);transition:transform .2s ease}
+.g2 .pb{background:radial-gradient(circle at 35% 30%,#fff0b8,#f5b82e 55%,#9a5f06);color:#2a0510}
+.g3 .pb{background:radial-gradient(circle at 35% 30%,#ffffff,#e9d3d5 55%,#8a7b7d);color:#8a0812}
+.pl:hover .pb{transform:scale(1.12)}
+.pl.on .pb{border-color:#fff;box-shadow:0 0 0 6px rgba(255,59,69,.3),0 0 30px rgba(255,59,69,.95)}
+.pn{font-size:clamp(10.5px,1.9cqw,13px);font-weight:800;line-height:1.2;text-align:center;text-shadow:0 2px 6px #16020a}
+.pl.on .pn{color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:10px}
+.lg{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#ffe0e2}
+.lg i{width:14px;height:14px;border-radius:50%}
+.kpanel{border-radius:28px;padding:30px;background:rgba(30,4,10,.88);border:1.5px solid rgba(255,90,100,.45);display:flex;flex-direction:column;gap:16px;box-shadow:0 30px 80px -40px rgba(255,40,55,.8)}
+.ktag{font-size:13px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#ff9ea3}
+.ktitle{font-size:clamp(24px,2.4vw,32px);font-weight:900;color:#fff;line-height:1.2;margin:0;text-transform:uppercase}
+.kbox{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px dashed rgba(255,140,145,.3);font-size:16px;line-height:1.55;color:#fff4f3}
+.kbox b{display:block;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#ff9ea3;margin-bottom:4px}
+
+/* CÔNG THỨC */
+.recipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ing{position:relative;border-radius:28px;padding:26px;background:rgba(30,4,10,.75);border:1px solid rgba(255,140,145,.22);display:flex;flex-direction:column;gap:10px}
+.ing .bowl{width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#4a0a14,#1c0309 70%);border:2px solid rgba(255,140,145,.35);transition:transform .4s ease}
+.ing:hover .bowl{transform:rotate(-10deg) scale(1.06)}
+.ing .bowl svg{width:72px;height:72px}
+.ing h3{margin:6px 0 0;font-size:26px;font-weight:900;color:#fff;text-transform:uppercase}
+.ing .sub{font-size:15px;font-weight:800;color:#ff9ea3}
+.ing p{margin:0;font-size:15.5px;line-height:1.55;color:#ecc4c7}
+.ing .no{position:absolute;right:22px;top:20px;font-size:44px;font-weight:900;color:rgba(255,140,145,.16)}
+
+/* SET MENU GIÁ */
+.sets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.set{position:relative;border-radius:30px;padding:30px;display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,140,145,.22)}
+.set.hot{background:linear-gradient(160deg,rgba(227,16,28,.5),rgba(60,3,10,.95) 70%);border:1.5px solid #ff3b45;box-shadow:0 40px 80px -40px rgba(255,40,55,.95);transform:translateY(-14px)}
+.plate{width:140px;height:140px;margin:0 auto;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,#ffffff 0 52%,#e9d3d5 53% 60%,#ffffff 61% 68%,#cdb8ba 69% 100%);box-shadow:0 24px 40px -18px rgba(0,0,0,.9)}
+.plate svg{width:84px;height:84px}
+.set:hover .plate{animation:spin 6s linear infinite}
+.sno{text-align:center;font-size:13px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#ff9ea3}
+.sname{text-align:center;font-size:clamp(24px,2.4vw,32px);font-weight:900;color:#fff;margin:0;text-transform:uppercase}
+.sfor{text-align:center;font-size:15px;color:#e8b9bc;margin:0;line-height:1.5}
+.sprice{display:flex;align-items:baseline;justify-content:center;gap:8px;padding:12px 0;border-block:2px dotted rgba(255,140,145,.35)}
+.sprice b{font-size:clamp(34px,3.4vw,46px);font-weight:900;color:#fff;line-height:1}
+.sprice span{font-size:14px;font-weight:700;color:#e8b9bc}
+.ribbon{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:7px 16px;border-radius:999px;background:#fff;color:#b30c16;font-size:13px;font-weight:900;white-space:nowrap}
+.voucher{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;border-radius:30px;background:linear-gradient(110deg,#e3101c,#8a0812 70%);box-shadow:0 40px 90px -40px rgba(255,40,55,.9);overflow:hidden;margin-top:24px}
+.vleft{padding:28px 40px;border-right:3px dashed rgba(255,255,255,.45);display:flex;flex-direction:column;align-items:center;gap:4px}
+.vbig{font-size:clamp(56px,7vw,92px);font-weight:900;line-height:.95;color:#fff;text-shadow:0 6px 0 rgba(90,4,12,.6)}
+.vsmall{font-size:13px;font-weight:900;letter-spacing:.16em;color:#ffd0d3;text-transform:uppercase}
+.vtext{padding:26px 20px 26px 36px;font-size:clamp(18px,1.9vw,24px);font-weight:800;line-height:1.45;color:#fff;margin:0}
+
+/* CAM KẾT + FAQ */
+.promises{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.prom{display:flex;flex-direction:column;gap:14px;padding:22px 18px;border-radius:22px;background:rgba(30,4,10,.7);border:1px solid rgba(255,140,145,.22);font-size:16px;font-weight:700;line-height:1.45;color:#fff}
+.faqg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.faq{border-radius:20px;background:rgba(30,4,10,.75);border:1px solid rgba(255,140,145,.22)}
+.faq[open]{border-color:#ff3b45;background:rgba(60,3,10,.85)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;font-size:17px;font-weight:800;color:#fff;min-height:64px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';flex:none;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e3101c;color:#fff;font-size:22px;font-weight:700}
+.faq[open] summary::after{content:'–'}
+.faq p{margin:0;padding:0 22px 20px;font-size:16px;line-height:1.65;color:#ecc4c7}
+
+/* ĐĂNG KÝ */
+.book{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:center}
+.form{position:relative;border-radius:24px;background:linear-gradient(180deg,#fffaf9,#f5e7e8);color:#2a0510;padding:34px;display:flex;flex-direction:column;gap:14px;box-shadow:0 50px 90px -40px rgba(0,0,0,.85)}
+.ftop{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:12px;border-bottom:2px solid #c40d18}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.flb{display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:800;color:#5a2a31}
+.fi{min-height:50px;border-radius:12px;border:1.5px solid #e2c3c6;background:#fff;color:#2a0510;font-family:inherit;font-size:16px;padding:0 14px}
+textarea.fi{padding:12px 14px;min-height:88px;resize:vertical}
+.fi:focus{outline:none;border-color:#c40d18;box-shadow:0 0 0 3px rgba(196,13,24,.18)}
+.plist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.plist li{display:flex;gap:10px;font-size:16px;line-height:1.5;color:#ffe0e2;font-weight:600}
+.plist svg{flex:none;width:20px;height:20px;margin-top:2px}
+
+@supports (animation-timeline: view()){
+.rv{animation:eRise linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+.rv2{animation:eRise linear both;animation-timeline:view();animation-range:entry 10% cover 36%}
+.zm{animation:eZoom linear both;animation-timeline:view();animation-range:entry 0% cover 36%}
+.ticket,.bt,.ing,.prom,.crow{animation:eRise linear both;animation-timeline:view();animation-range:entry 0% cover 26%}
+.set{animation:eRise linear both;animation-timeline:view();animation-range:entry 0% cover 26%}
+}
+@keyframes eRise{from{opacity:0;transform:translateY(70px)}to{opacity:1;transform:none}}
+@keyframes eZoom{from{opacity:0;transform:scale(.82);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+
+@media (max-width:1100px){
+.tickets{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:30px}
+.promises{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:1000px){
+.selfx,.jour,.uniwrap,.book,.rgrid{grid-template-columns:minmax(0,1fr)}
+.bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bt.big{grid-row:auto}
+.cloches,.recipe{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sets{grid-template-columns:minmax(0,1fr)}
+.set.hot{transform:none}
+.crow{grid-template-columns:minmax(0,1fr) 96px minmax(0,1fr)}
+.cmid span{font-size:11px}
+.voucher{grid-template-columns:auto minmax(0,1fr)}
+.vbtn{grid-column:1 / -1;padding:0 30px 28px}
+}
+@media (max-width:640px){
+.wrap{padding:0 18px}
+section{padding:72px 0}
+.hide-sm{display:none!important}
+.hbar{min-height:62px!important;gap:10px!important;flex-wrap:nowrap!important}
+.hlogo{height:44px!important}
+.hbrand > span:first-child{font-size:18px!important}
+.hbrand > span:last-child{font-size:10px!important}
+header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16px!important;white-space:nowrap;flex:none}
+.ncard{display:none}
+.menu{padding:26px 16px 20px}
+.mline .dots,.mline .pr{display:none}
+.tickets{grid-template-columns:minmax(0,1fr)}
+.sway{animation:none}
+.bento,.cloches,.recipe,.promises,.faqg,.fgrid,.ctrls{grid-template-columns:minmax(0,1fr)}
+.bt.big,.bt.wide{grid-column:auto}
+.record{padding:26px 20px}
+.crow{grid-template-columns:minmax(0,1fr)}
+.cmid{flex-direction:row;border-radius:18px 18px 0 0;border:1px solid rgba(255,140,145,.25);padding:10px}
+.cside.bad{border-radius:0;border-right:1px solid rgba(255,255,255,.1)}
+.cside.good{border-radius:0 0 18px 18px;border-left:1.5px solid #ff3b45}
+.tot{grid-template-columns:minmax(0,1fr);text-align:center}
+.uni{aspect-ratio:auto;max-width:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;container-type:normal}
+.rl,.core{display:none}
+.spinr{position:static;display:contents;animation:none}
+.pp{position:static;transform:none}
+.pl{animation:none!important;width:auto}
+.pb{width:52px;height:52px}
+.pn{font-size:12px}
+.form{padding:24px 18px}
+.voucher{grid-template-columns:minmax(0,1fr)}
+.vleft{border-right:0;border-bottom:3px dashed rgba(255,255,255,.45)}
+.vtext{padding:22px}
+.vbtn{padding:0 22px 22px}
+.vbtn .btn{width:100%}
+.strip{margin:-10px -20px 0}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}html{scroll-behavior:auto}.steam,.bub,.drip,.pop,.wave{opacity:.8}.toss{opacity:1}}
+</style>
+</helmet>
+
+<div id="top" style="position: relative">
+<div class="galaxy"><div class="stars"></div>
+<svg class="spice" viewBox="0 0 100 100" style="left: 6%; width: 34px; animation-duration: 22s" aria-hidden="true"><use href="#s-chili"></use></svg>
+<svg class="spice" viewBox="0 0 100 100" style="left: 28%; width: 26px; animation-duration: 28s; animation-delay: -9s" aria-hidden="true"><use href="#s-leaf"></use></svg>
+<svg class="spice" viewBox="0 0 100 100" style="left: 61%; width: 30px; animation-duration: 25s; animation-delay: -4s" aria-hidden="true"><use href="#s-tomato"></use></svg>
+<svg class="spice" viewBox="0 0 100 100" style="left: 84%; width: 36px; animation-duration: 31s; animation-delay: -15s" aria-hidden="true"><use href="#s-shrimp"></use></svg>
+<svg class="spice" viewBox="0 0 100 100" style="left: 45%; width: 22px; animation-duration: 24s; animation-delay: -18s" aria-hidden="true"><use href="#s-leaf"></use></svg>
+</div>
+
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+<defs>
+<linearGradient id="gRed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a90"></stop><stop offset=".45" stop-color="#e3101c"></stop><stop offset="1" stop-color="#6e0610"></stop></linearGradient>
+<linearGradient id="gRedD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5a62"></stop><stop offset="1" stop-color="#6e0610"></stop></linearGradient>
+<linearGradient id="gWhite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"></stop><stop offset=".5" stop-color="#f3e3e4"></stop><stop offset="1" stop-color="#a99294"></stop></linearGradient>
+<linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b8"></stop><stop offset=".5" stop-color="#f5b82e"></stop><stop offset="1" stop-color="#9a5f06"></stop></linearGradient>
+<linearGradient id="gSteel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b5c5e"></stop><stop offset=".5" stop-color="#2e2224"></stop><stop offset="1" stop-color="#0d0708"></stop></linearGradient>
+<radialGradient id="gSoup" cx=".4" cy=".4" r=".7"><stop offset="0" stop-color="#ffe2a8"></stop><stop offset="1" stop-color="#d9861f"></stop></radialGradient>
+<radialGradient id="gBroth" cx=".4" cy=".4" r=".7"><stop offset="0" stop-color="#ff8a5c"></stop><stop offset="1" stop-color="#b3260e"></stop></radialGradient>
+<linearGradient id="gWood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f2cb8e"></stop><stop offset="1" stop-color="#a86a2c"></stop></linearGradient>
+<linearGradient id="gDough" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"></stop><stop offset="1" stop-color="#e3c69a"></stop></linearGradient>
+<radialGradient id="gGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff3b45" stop-opacity=".45"></stop><stop offset="1" stop-color="#ff3b45" stop-opacity="0"></stop></radialGradient>
+<radialGradient id="gPin" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ff9aa0"></stop><stop offset=".5" stop-color="#e3101c"></stop><stop offset="1" stop-color="#5a040c"></stop></radialGradient>
+<radialGradient id="gTeal" cx=".35" cy=".55" r=".7"><stop offset="0" stop-color="#9fe6ef"></stop><stop offset="1" stop-color="#16697a"></stop></radialGradient>
+<linearGradient id="gFlame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd27a"></stop><stop offset=".45" stop-color="#ff7a2e"></stop><stop offset="1" stop-color="#e3101c"></stop></linearGradient>
+<linearGradient id="gWind" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"></stop><stop offset="1" stop-color="#ffb3b8"></stop></linearGradient>
+
+<symbol id="tick" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#e3101c"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+<symbol id="flame" viewBox="0 0 60 90"><path d="M30 88 C8 88 2 66 8 50 C12 40 20 36 20 22 C28 30 30 36 32 42 C34 30 34 18 30 2 C46 18 58 38 56 60 C55 78 46 88 30 88Z" fill="url(#gFlame)"></path><path d="M30 86 C20 86 16 76 18 68 C20 60 26 56 28 48 C34 56 40 62 40 70 C40 80 36 86 30 86Z" fill="#ffe7a8"></path></symbol>
+
+<symbol id="s-bowl" viewBox="0 0 300 250"><ellipse cx="150" cy="238" rx="112" ry="11" fill="#000000" fill-opacity=".45"></ellipse><ellipse cx="150" cy="222" rx="52" ry="9" fill="#5a040c"></ellipse><path d="M34 120 Q40 222 150 226 Q260 222 266 120 Z" fill="url(#gRed)"></path><path d="M40 152 Q150 176 260 152" stroke="#f5b82e" stroke-width="5" fill="none"></path><path d="M44 166 Q150 190 256 166" stroke="#f5b82e" stroke-width="2" fill="none" stroke-dasharray="6 8"></path><path d="M58 136 Q66 190 112 208" stroke="#ffffff" stroke-opacity=".35" stroke-width="10" fill="none" stroke-linecap="round"></path><ellipse cx="150" cy="120" rx="116" ry="30" fill="#ff5a62"></ellipse><ellipse cx="150" cy="122" rx="106" ry="24" fill="#5a040c"></ellipse><ellipse cx="150" cy="124" rx="100" ry="20" fill="url(#gSoup)"></ellipse><path d="M78 126 C100 114 116 134 136 121 C156 110 172 134 196 121 C210 114 220 126 230 122" stroke="#fff6e0" stroke-width="5" fill="none" stroke-linecap="round"></path><ellipse cx="118" cy="117" rx="19" ry="8" fill="#b5655a"></ellipse><ellipse cx="180" cy="125" rx="19" ry="8" fill="#a9584d"></ellipse><ellipse cx="148" cy="113" rx="10" ry="4" fill="#3c8d4a" transform="rotate(-20 148 113)"></ellipse><ellipse cx="98" cy="126" rx="8" ry="3.4" fill="#3c8d4a" transform="rotate(15 98 126)"></ellipse><circle cx="206" cy="114" r="4.5" fill="#e3101c"></circle></symbol>
+<symbol id="s-pin" viewBox="0 0 120 150"><ellipse cx="60" cy="142" rx="26" ry="7" fill="#000000" fill-opacity=".4"></ellipse><path d="M60 136 C60 136 14 86 14 54 A46 46 0 0 1 106 54 C106 86 60 136 60 136 Z" fill="#4a030a" transform="translate(4 4)"></path><path d="M60 136 C60 136 14 86 14 54 A46 46 0 0 1 106 54 C106 86 60 136 60 136 Z" fill="url(#gPin)"></path><circle cx="60" cy="54" r="21" fill="#fffaf9"></circle><path d="M60 41 L64.6 50.6 L75 52 L67.4 59.2 L69.3 69.5 L60 64.5 L50.7 69.5 L52.6 59.2 L45 52 L55.4 50.6 Z" fill="#f5b82e"></path><ellipse cx="40" cy="30" rx="11" ry="6" fill="#ffffff" fill-opacity=".45" transform="rotate(-35 40 30)"></ellipse></symbol>
+<symbol id="s-chat" viewBox="0 0 150 130"><ellipse cx="75" cy="124" rx="44" ry="6" fill="#000000" fill-opacity=".35"></ellipse><path d="M28 14 H122 A20 20 0 0 1 142 34 V78 A20 20 0 0 1 122 98 H62 L36 116 L40 98 H28 A20 20 0 0 1 8 78 V34 A20 20 0 0 1 28 14Z" fill="#a99294" transform="translate(4 6)"></path><path d="M28 14 H122 A20 20 0 0 1 142 34 V78 A20 20 0 0 1 122 98 H62 L36 116 L40 98 H28 A20 20 0 0 1 8 78 V34 A20 20 0 0 1 28 14Z" fill="url(#gWhite)"></path><circle cx="48" cy="56" r="9" fill="#e3101c"></circle><circle cx="75" cy="56" r="9" fill="#e3101c"></circle><circle cx="102" cy="56" r="9" fill="#e3101c"></circle></symbol>
+<symbol id="s-star" viewBox="0 0 100 100"><circle cx="52" cy="54" r="42" fill="#4a030a"></circle><circle cx="50" cy="50" r="42" fill="url(#gRed)"></circle><path d="M50 18 L58.8 38.2 L80.6 40.1 L64.1 54.6 L69 76 L50 64.8 L31 76 L35.9 54.6 L19.4 40.1 L41.2 38.2 Z" fill="url(#gGold)" stroke="#f5b82e" stroke-width="3" stroke-linejoin="round"></path></symbol>
+<symbol id="s-coin" viewBox="0 0 100 100"><ellipse cx="50" cy="92" rx="34" ry="6" fill="#000000" fill-opacity=".4"></ellipse><rect x="16" y="62" width="68" height="18" fill="#9a5f06"></rect><ellipse cx="50" cy="80" rx="34" ry="10" fill="#9a5f06"></ellipse><ellipse cx="50" cy="62" rx="34" ry="10" fill="url(#gGold)"></ellipse><rect x="16" y="40" width="68" height="18" fill="#b47208"></rect><ellipse cx="50" cy="58" rx="34" ry="10" fill="#b47208"></ellipse><ellipse cx="50" cy="40" rx="34" ry="10" fill="url(#gGold)"></ellipse><ellipse cx="50" cy="40" rx="20" ry="5" fill="none" stroke="#9a5f06" stroke-width="2.5"></ellipse></symbol>
+<symbol id="s-mag" viewBox="0 0 100 100"><path d="M62 64 L84 86" stroke="#4a030a" stroke-width="16" stroke-linecap="round"></path><path d="M60 60 L82 82" stroke="url(#gRedD)" stroke-width="12" stroke-linecap="round"></path><circle cx="42" cy="42" r="30" fill="url(#gRedD)"></circle><circle cx="42" cy="42" r="21" fill="url(#gWhite)"></circle><ellipse cx="34" cy="33" rx="8" ry="5" fill="#ffffff" transform="rotate(-35 34 33)"></ellipse></symbol>
+<symbol id="s-cloche" viewBox="0 0 100 100"><ellipse cx="50" cy="80" rx="42" ry="10" fill="#a99294"></ellipse><ellipse cx="50" cy="77" rx="40" ry="8" fill="#ffffff"></ellipse><path d="M16 74 A34 34 0 0 1 84 74 Z" fill="url(#gRed)"></path><path d="M28 62 A24 24 0 0 1 44 46" stroke="#ffffff" stroke-opacity=".5" stroke-width="5" fill="none" stroke-linecap="round"></path><circle cx="50" cy="34" r="6" fill="url(#gGold)"></circle></symbol>
+<symbol id="s-gift" viewBox="0 0 100 100"><rect x="20" y="46" width="60" height="40" rx="6" fill="url(#gRed)"></rect><rect x="14" y="34" width="72" height="16" rx="5" fill="#ff5a62"></rect><rect x="45" y="34" width="10" height="52" fill="url(#gGold)"></rect><ellipse cx="40" cy="28" rx="12" ry="7" fill="#f5b82e" transform="rotate(-25 40 28)"></ellipse><ellipse cx="60" cy="28" rx="12" ry="7" fill="#d98a16" transform="rotate(25 60 28)"></ellipse><circle cx="50" cy="32" r="5" fill="#9a5f06"></circle></symbol>
+<symbol id="s-heart" viewBox="0 0 100 92"><path transform="translate(4,6)" d="M50 86C22 64 4 48 4 28 4 14 15 4 28 4c9 0 17 5 22 13 5-8 13-13 22-13 13 0 24 10 24 24 0 20-18 36-46 58z" fill="#4a030a"></path><path d="M50 86C22 64 4 48 4 28 4 14 15 4 28 4c9 0 17 5 22 13 5-8 13-13 22-13 13 0 24 10 24 24 0 20-18 36-46 58z" fill="url(#gPin)"></path><ellipse cx="28" cy="22" rx="12" ry="7" fill="#ffffff" fill-opacity=".45" transform="rotate(-25 28 22)"></ellipse></symbol>
+<symbol id="s-rocket" viewBox="0 0 100 100"><g transform="rotate(40 50 50)"><path d="M42 72 Q50 98 58 72Z" fill="#f5b82e"></path><path d="M38 54 L24 74 L38 70Z" fill="#e3101c"></path><path d="M62 54 L76 74 L62 70Z" fill="#6e0610"></path><path d="M50 8 C65 20 67 46 62 72 H38 C33 46 35 20 50 8Z" fill="url(#gWhite)"></path><path d="M50 8 C57 14 61 22 62 30 H38 C39 22 43 14 50 8Z" fill="#e3101c"></path><circle cx="50" cy="44" r="9" fill="#6e0610"></circle><circle cx="50" cy="44" r="6" fill="#f5b82e"></circle></g></symbol>
+<symbol id="s-bars" viewBox="0 0 96 100"><polygon points="22,52 34,58 22,64 10,58" fill="#ffb3b8"></polygon><polygon points="10,58 22,64 22,86 10,80" fill="#ff5a62"></polygon><polygon points="22,64 34,58 34,80 22,86" fill="#8a0812"></polygon><polygon points="48,34 60,40 48,46 36,40" fill="#ffb3b8"></polygon><polygon points="36,40 48,46 48,86 36,80" fill="#ff3b45"></polygon><polygon points="48,46 60,40 60,80 48,86" fill="#8a0812"></polygon><polygon points="74,14 86,20 74,26 62,20" fill="#fff0b8"></polygon><polygon points="62,20 74,26 74,86 62,80" fill="#f5b82e"></polygon><polygon points="74,26 86,20 86,80 74,86" fill="#9a5f06"></polygon></symbol>
+<symbol id="s-crown" viewBox="0 0 100 100"><path d="M18 72 L14 32 L34 50 L50 22 L66 50 L86 32 L82 72Z" fill="#9a5f06" transform="translate(2 4)"></path><path d="M18 72 L14 32 L34 50 L50 22 L66 50 L86 32 L82 72Z" fill="url(#gGold)"></path><rect x="17" y="66" width="66" height="16" rx="4" fill="#b47208"></rect><circle cx="50" cy="74" r="5.5" fill="#e3101c"></circle><circle cx="32" cy="74" r="4" fill="#8a0812"></circle><circle cx="68" cy="74" r="4" fill="#8a0812"></circle><circle cx="14" cy="32" r="5" fill="#fff0b8"></circle><circle cx="50" cy="22" r="5" fill="#fff0b8"></circle><circle cx="86" cy="32" r="5" fill="#fff0b8"></circle></symbol>
+<symbol id="s-box" viewBox="0 0 100 100"><polygon points="50,22 84,40 50,58 16,40" fill="#ebc893"></polygon><polygon points="16,40 50,58 50,86 16,68" fill="#c9995c"></polygon><polygon points="50,58 84,40 84,68 50,86" fill="#a8773f"></polygon><polygon points="29,33 37,29 71,47 63,51" fill="#e3101c"></polygon><polygon points="63,51 71,47 71,75 63,79" fill="#8a0812"></polygon></symbol>
+<symbol id="s-dat" viewBox="0 0 100 100"><polygon points="50,24 84,42 50,60 16,42" fill="#6cc070"></polygon><polygon points="16,42 50,60 50,86 16,68" fill="#8b5a2b"></polygon><polygon points="50,60 84,42 84,68 50,86" fill="#5e3a1a"></polygon><path d="M50 42 V24" stroke="#2f7d3e" stroke-width="3.5" stroke-linecap="round"></path><ellipse cx="42" cy="22" rx="9" ry="5" fill="#4fa65c" transform="rotate(25 42 22)"></ellipse><ellipse cx="58" cy="18" rx="9" ry="5" fill="#6cc070" transform="rotate(-25 58 18)"></ellipse></symbol>
+<symbol id="s-nuoc" viewBox="0 0 100 100"><path d="M50 10 C50 10 20 46 20 64 A30 30 0 0 0 80 64 C80 46 50 10 50 10Z" fill="#0d4652" transform="translate(3 3)"></path><path d="M50 10 C50 10 20 46 20 64 A30 30 0 0 0 80 64 C80 46 50 10 50 10Z" fill="url(#gTeal)"></path><path d="M34 62 A16 16 0 0 0 44 78" stroke="#ffffff" stroke-opacity=".75" stroke-width="5" fill="none" stroke-linecap="round"></path></symbol>
+<symbol id="s-lua" viewBox="0 0 100 100"><path d="M50 8 C62 28 82 40 78 64 C75 82 62 92 50 92 C38 92 24 82 22 64 C20 46 36 40 38 24 C44 32 46 38 50 42 C52 30 50 18 50 8Z" fill="url(#gFlame)"></path><path d="M50 48 C58 58 64 66 62 76 C60 85 55 88 50 88 C45 88 39 84 38 76 C37 68 44 62 50 48Z" fill="#ffe7a8"></path></symbol>
+<symbol id="s-gio" viewBox="0 0 100 100"><g opacity=".45" transform="translate(2 5)"><path d="M12 42 H58 A12 12 0 1 0 46 30" stroke="#6e0610" stroke-width="10" fill="none" stroke-linecap="round"></path><path d="M12 60 H72 A12 12 0 1 1 60 72" stroke="#6e0610" stroke-width="10" fill="none" stroke-linecap="round"></path></g><path d="M12 42 H58 A12 12 0 1 0 46 30" stroke="url(#gWind)" stroke-width="10" fill="none" stroke-linecap="round"></path><path d="M12 60 H72 A12 12 0 1 1 60 72" stroke="url(#gWind)" stroke-width="10" fill="none" stroke-linecap="round"></path><path d="M24 78 H40" stroke="url(#gWind)" stroke-width="10" fill="none" stroke-linecap="round"></path></symbol>
+<symbol id="s-chef" viewBox="0 0 100 100"><ellipse cx="50" cy="93" rx="30" ry="5" fill="#000000" fill-opacity=".35"></ellipse><circle cx="30" cy="40" r="18" fill="url(#gWhite)"></circle><circle cx="70" cy="40" r="18" fill="url(#gWhite)"></circle><circle cx="50" cy="28" r="22" fill="url(#gWhite)"></circle><path d="M28 48 H72 V80 Q72 86 66 86 H34 Q28 86 28 80Z" fill="url(#gWhite)"></path><rect x="28" y="70" width="44" height="9" fill="#e3101c"></rect><path d="M40 52 V68 M50 52 V68 M60 52 V68" stroke="#c9b3b5" stroke-width="2.5" stroke-linecap="round"></path><ellipse cx="42" cy="20" rx="9" ry="5" fill="#ffffff"></ellipse></symbol>
+<symbol id="s-tools" viewBox="0 0 100 100"><rect x="22" y="8" width="44" height="80" rx="9" fill="#4a030a" transform="translate(3 3)"></rect><rect x="22" y="8" width="44" height="80" rx="9" fill="url(#gRed)"></rect><rect x="26" y="16" width="36" height="62" rx="4" fill="#1a0309"></rect><rect x="30" y="22" width="22" height="9" rx="4" fill="#ffffff"></rect><rect x="36" y="36" width="22" height="9" rx="4" fill="#f5b82e"></rect><rect x="30" y="50" width="18" height="9" rx="4" fill="#ffffff"></rect><circle cx="76" cy="70" r="15" fill="url(#gGold)" stroke="#9a5f06" stroke-width="6" stroke-dasharray="5 4"></circle><circle cx="76" cy="70" r="5" fill="#9a5f06"></circle></symbol>
+<symbol id="s-medal" viewBox="0 0 100 100"><path d="M34 6 L50 38 L40 44 L24 12Z" fill="#e3101c"></path><path d="M66 6 L50 38 L60 44 L76 12Z" fill="#8a0812"></path><circle cx="52" cy="66" r="26" fill="#9a5f06"></circle><circle cx="50" cy="64" r="26" fill="url(#gGold)"></circle><circle cx="50" cy="64" r="18" fill="none" stroke="#fff0b8" stroke-width="2"></circle><path d="M50 18 L58.8 38.2 L80.6 40.1 L64.1 54.6 L69 76 L50 64.8 L31 76 L35.9 54.6 L19.4 40.1 L41.2 38.2 Z" fill="#b47208" transform="translate(30 42) scale(.4)"></path></symbol>
+<symbol id="s-tag" viewBox="0 0 100 100"><g transform="rotate(-20 50 50)"><path d="M24 30 H62 L86 54 L62 78 H24 Q16 78 16 70 V38 Q16 30 24 30Z" fill="#9a5f06" transform="translate(3 4)"></path><path d="M24 30 H62 L86 54 L62 78 H24 Q16 78 16 70 V38 Q16 30 24 30Z" fill="url(#gGold)"></path><circle cx="66" cy="54" r="5" fill="#2a0510"></circle><circle cx="32" cy="46" r="5" fill="none" stroke="#8a0812" stroke-width="3"></circle><circle cx="48" cy="62" r="5" fill="none" stroke="#8a0812" stroke-width="3"></circle><path d="M30 64 L50 44" stroke="#8a0812" stroke-width="3.5" stroke-linecap="round"></path></g></symbol>
+<symbol id="s-bell" viewBox="0 0 100 100"><ellipse cx="50" cy="92" rx="38" ry="6" fill="#000000" fill-opacity=".4"></ellipse><rect x="10" y="76" width="80" height="10" rx="5" fill="#6e0610"></rect><rect x="10" y="73" width="80" height="8" rx="4" fill="url(#gRed)"></rect><g class="ding"><path d="M18 73 A32 32 0 0 1 82 73Z" fill="url(#gGold)"></path><path d="M28 63 A22 22 0 0 1 44 47" stroke="#ffffff" stroke-opacity=".6" stroke-width="4" fill="none" stroke-linecap="round"></path><rect x="46" y="32" width="8" height="10" fill="#9a5f06"></rect><ellipse cx="50" cy="31" rx="9" ry="4" fill="url(#gGold)"></ellipse></g></symbol>
+<symbol id="s-dumpling" viewBox="0 0 100 100"><ellipse cx="50" cy="74" rx="38" ry="8" fill="#000000" fill-opacity=".3"></ellipse><path d="M12 64 Q50 2 88 64 Q50 80 12 64Z" fill="url(#gDough)"></path><path d="M30 44 Q34 52 32 60 M42 34 Q46 46 44 62 M56 34 Q54 46 56 62 M68 44 Q66 52 68 60" stroke="#d2b07e" stroke-width="2.5" fill="none" stroke-linecap="round"></path></symbol>
+<symbol id="s-chili" viewBox="0 0 100 100"><path d="M24 32 Q44 22 70 50 Q86 70 82 90 Q60 74 42 56 Q28 44 24 32Z" fill="url(#gRed)"></path><path d="M24 32 Q14 26 18 12" stroke="#3c8d4a" stroke-width="6" fill="none" stroke-linecap="round"></path><path d="M40 36 Q58 44 70 62" stroke="#ffffff" stroke-opacity=".4" stroke-width="4" fill="none" stroke-linecap="round"></path></symbol>
+<symbol id="s-leaf" viewBox="0 0 100 100"><path d="M14 84 Q18 22 86 14 Q82 78 14 84Z" fill="#4fa65c"></path><path d="M18 80 Q50 50 80 20" stroke="#2f7d3e" stroke-width="3" fill="none"></path></symbol>
+<symbol id="s-shrimp" viewBox="0 0 100 100"><path d="M68 22 A30 30 0 1 0 74 72" stroke="#ff8a5c" stroke-width="18" fill="none" stroke-linecap="round"></path><path d="M68 22 A30 30 0 1 0 74 72" stroke="#c2410c" stroke-width="18" fill="none" stroke-dasharray="3 10" stroke-opacity=".55"></path><path d="M72 72 L88 66 L86 84Z" fill="#ff8a5c"></path><circle cx="66" cy="26" r="3" fill="#2a0510"></circle></symbol>
+<symbol id="s-tomato" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#e3101c"></circle><circle cx="50" cy="50" r="31" fill="#ff5a62"></circle><path d="M50 22 V78 M24 50 H76 M31 31 L69 69 M69 31 L31 69" stroke="#e3101c" stroke-width="4"></path><circle cx="40" cy="38" r="3" fill="#fff0b8"></circle><circle cx="62" cy="42" r="3" fill="#fff0b8"></circle><circle cx="40" cy="62" r="3" fill="#fff0b8"></circle><circle cx="60" cy="62" r="3" fill="#fff0b8"></circle></symbol>
+
+<symbol id="i-cam" viewBox="0 0 24 24"><g class="ico"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></g></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><g class="ico"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"></path><circle cx="12" cy="10" r="2.5"></circle></g></symbol>
+<symbol id="i-mega" viewBox="0 0 24 24"><g class="ico"><path d="M3 10v4h4l7 4V6L7 10H3z"></path><path d="M17.5 9a4 4 0 0 1 0 6"></path></g></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><g class="ico"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"></path><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"></path></g></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><g class="ico"><path d="M9 6h11M9 12h11M9 18h11"></path><path d="M4 6h.01M4 12h.01M4 18h.01"></path></g></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><g class="ico"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-3-5.4 3 1.1-6-4.5-4.2 6.1-.8z"></path></g></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><g class="ico"><rect x="3" y="9" width="18" height="12" rx="1.5"></rect><path d="M3 13h18M12 9v12M12 9c-2-4-6-4-6-1.5S10 9 12 9zM12 9c2-4 6-4 6-1.5S14 9 12 9z"></path></g></symbol>
+<symbol id="i-palette" viewBox="0 0 24 24"><g class="ico"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 2-2s-1-1.5-1-2.5 1-1.5 2-1.5h2a4 4 0 0 0 4-4c0-4.4-4-8-9-8z"></path><circle cx="7.5" cy="11" r="1"></circle><circle cx="10" cy="7" r="1"></circle><circle cx="15" cy="7.5" r="1"></circle></g></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><g class="ico"><path d="M3 12V4h8l10 10-8 8z"></path><circle cx="7.5" cy="8.5" r="1.5"></circle></g></symbol>
+<symbol id="i-flyer" viewBox="0 0 24 24"><g class="ico"><path d="M6 3h9l4 4v14H6z"></path><path d="M15 3v4h4M9 12h7M9 16h5"></path></g></symbol>
+<symbol id="i-app" viewBox="0 0 24 24"><g class="ico"><rect x="6" y="2" width="12" height="20" rx="2.5"></rect><path d="M10 18h4M9 8h6v5H9z"></path></g></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><g class="ico"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></g></symbol>
+<symbol id="i-sync" viewBox="0 0 24 24"><g class="ico"><path d="M20 8a8 8 0 0 0-14.5-2M4 16a8 8 0 0 0 14.5 2"></path><path d="M20 3v5h-5M4 21v-5h5"></path></g></symbol>
+<symbol id="i-event" viewBox="0 0 24 24"><g class="ico"><path d="M4 20l5-14 9 9z"></path><path d="M14 4l1 2M19 9l2-1M17 3l-1 3"></path></g></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><g class="ico"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l9-9M17 6l3 3M14 9l2 2"></path></g></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><g class="ico"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></g></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><g class="ico"><path d="M5 20V11M11 20V5M17 20v-6M3 20h18"></path></g></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24"><g class="ico"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6"></path></g></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><g class="ico"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></g></symbol>
+</defs>
+</svg>
+
+<div style="position: relative; z-index: 1; width: 100%; overflow-x: clip">
+
+<!-- HEADER -->
+<header style="position: sticky; top: 0; z-index: 150; background: rgba(22,2,10,.76); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,140,145,.16)">
+<div class="wrap hbar" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 76px; flex-wrap: wrap">
+<a href="#top" aria-label="Atomix Foodlab – về đầu trang" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none">
+<img src="assets/e7aefe3e5fd5fed2e271d4f0d0038774.webp" alt="" class="logo-glow hlogo" style="height: 54px; width: auto">
+<span class="hbrand" style="display: flex; flex-direction: column; line-height: 1">
+<span style="font-size: 23px; font-weight: 900; color: #ffffff; letter-spacing: .06em">ATOMIX</span>
+<span style="font-size: 12px; font-weight: 800; color: #ffffff; letter-spacing: .32em; margin-top: 4px">FOODLAB</span>
+</span>
+</a>
+<nav aria-label="Mục chính" class="hide-sm" style="display: flex; gap: 22px; font-size: 15px; font-weight: 700">
+<a href="#tu-kham" style="color: #ffe0e2; text-decoration: none">Tự khám quán</a>
+<a href="#truoc-sau" style="color: #ffe0e2; text-decoration: none">Trước – sau</a>
+<a href="#vu-tru" style="color: #ffe0e2; text-decoration: none">Vũ trụ marketing</a>
+<a href="#bang-gia" style="color: #ffe0e2; text-decoration: none">Bảng giá</a>
+</nav>
+<div style="display: flex; gap: 12px; align-items: center">
+<a class="btn btn-ghost hide-sm" href="tel:0785249867" style="min-height: 46px; font-size: 15px">0785.24.9867</a>
+<a class="btn btn-red" href="#dang-ky" style="min-height: 46px; font-size: 15px">Khám quán miễn phí</a>
+</div>
+</div>
+</header>
+
+<!-- 1. HERO: bếp đang nấu -->
+<section style="padding: 0 0 60px">
+<div class="wrap hero">
+<span class="tagx"><svg viewBox="0 0 60 90" aria-hidden="true"><use href="#flame"></use></svg>Atomix Foodlab · Marketing trọn gói cho nhà hàng, quán ăn &amp; bếp online</span>
+<h1>Bàn trống<br><span>là tiền mất.</span></h1>
+<p class="lead" style="margin: 0 auto">Tụi mình lo trọn từ hình ảnh món, Google Maps, quảng cáo, chatbot đặt bàn tới chăm sóc khách quen. Anh chị yên tâm đứng bếp, chi phí chỉ ngang một nhân viên.</p>
+<div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center">
+<a class="btn btn-red" href="#dang-ky" style="min-height: 58px; font-size: 17px; padding: 0 30px">Khám sức khỏe quán miễn phí</a>
+<a class="btn btn-ghost" href="#truoc-sau" style="min-height: 58px; font-size: 17px; padding: 0 30px">Xem quán đang mất bao nhiêu</a>
+</div>
+<div class="stage zm">
+<svg viewBox="0 0 1000 470" aria-hidden="true">
+<ellipse cx="500" cy="300" rx="460" ry="200" fill="url(#gGlow)"></ellipse>
+<ellipse cx="500" cy="452" rx="420" ry="16" fill="#000000" fill-opacity=".5"></ellipse>
+<!-- trái: bát + đũa gắp há cảo -->
+<use href="#s-bowl" x="30" y="236" width="270" height="225"></use>
+<g class="lift">
+<use href="#s-dumpling" x="150" y="168" width="78" height="78"></use>
+<g class="pinch"><rect x="232" y="20" width="9" height="200" rx="4.5" fill="url(#gWood)" transform="rotate(28 236 20)"></rect></g>
+<rect x="252" y="24" width="9" height="200" rx="4.5" fill="url(#gWood)" transform="rotate(22 256 24)"></rect>
+</g>
+<!-- giữa: chảo xóc -->
+<g transform="translate(400 432)"><use href="#flame" class="flick" x="0" y="-70" width="46" height="70"></use></g>
+<g transform="translate(446 438)"><use href="#flame" class="flick d1" x="0" y="-84" width="54" height="84"></use></g>
+<g transform="translate(500 440)"><use href="#flame" class="flick d2" x="0" y="-96" width="60" height="96"></use></g>
+<g transform="translate(556 438)"><use href="#flame" class="flick d3" x="0" y="-84" width="54" height="84"></use></g>
+<g transform="translate(606 432)"><use href="#flame" class="flick d4" x="0" y="-70" width="46" height="70"></use></g>
+<ellipse cx="530" cy="444" rx="150" ry="14" fill="none" stroke="#5a4a4c" stroke-width="8"></ellipse>
+<g class="toss"><use href="#s-shrimp" x="430" y="196" width="60" height="60"></use></g>
+<g class="toss t2"><use href="#s-chili" x="500" y="168" width="56" height="56"></use></g>
+<g class="toss t3"><use href="#s-leaf" x="560" y="200" width="46" height="46"></use></g>
+<g class="toss t4"><use href="#s-tomato" x="470" y="140" width="44" height="44"></use></g>
+<g class="toss t5"><use href="#s-leaf" x="540" y="130" width="34" height="34"></use></g>
+<g class="steam"><path d="M470 290 C456 270 484 258 470 236" stroke="#ffe0e2" stroke-width="7" fill="none" stroke-linecap="round"></path></g>
+<g class="steam s2"><path d="M530 280 C516 260 544 248 530 222" stroke="#ffe0e2" stroke-width="7" fill="none" stroke-linecap="round"></path></g>
+<g class="steam s3"><path d="M590 290 C576 270 604 258 590 236" stroke="#ffe0e2" stroke-width="7" fill="none" stroke-linecap="round"></path></g>
+<g class="wok">
+<path d="M690 318 L860 296" stroke="#2e2224" stroke-width="12" stroke-linecap="round"></path>
+<rect x="800" y="284" width="96" height="22" rx="11" fill="url(#gWood)" transform="rotate(-7 848 295)"></rect>
+<path d="M360 316 Q372 416 530 420 Q688 416 700 316 Z" fill="url(#gSteel)"></path>
+<path d="M392 350 Q440 400 520 404" stroke="#ff3b45" stroke-opacity=".35" stroke-width="6" fill="none" stroke-linecap="round"></path>
+<ellipse cx="530" cy="316" rx="171" ry="30" fill="#6b5c5e"></ellipse>
+<ellipse cx="530" cy="318" rx="160" ry="24" fill="#1a0309"></ellipse>
+<path d="M430 322 C460 306 490 332 520 316 C550 302 580 332 630 318" stroke="#ffe2a8" stroke-width="6" fill="none" stroke-linecap="round"></path>
+<ellipse cx="470" cy="318" rx="16" ry="6" fill="#ff8a5c"></ellipse><ellipse cx="560" cy="324" rx="14" ry="5" fill="#4fa65c"></ellipse><circle cx="600" cy="314" r="5" fill="#e3101c"></circle>
+</g>
+<!-- phải: nồi + muôi khuấy -->
+<path d="M760 340 Q764 432 860 436 Q956 432 960 340 Z" fill="url(#gRed)"></path>
+<rect x="744" y="346" width="22" height="12" rx="6" fill="#8a0812"></rect><rect x="954" y="346" width="22" height="12" rx="6" fill="#8a0812"></rect>
+<ellipse cx="860" cy="340" rx="100" ry="22" fill="#ff5a62"></ellipse>
+<ellipse cx="860" cy="342" rx="90" ry="17" fill="url(#gBroth)"></ellipse>
+<circle class="bub" cx="830" cy="342" r="5" fill="#ffd2b0" style="animation-duration: 1.4s"></circle>
+<circle class="bub" cx="880" cy="338" r="4" fill="#ffd2b0" style="animation-duration: 1.8s; animation-delay: .5s"></circle>
+<circle class="bub" cx="900" cy="346" r="3.5" fill="#ffd2b0" style="animation-duration: 1.2s; animation-delay: .9s"></circle>
+<g class="stir"><path d="M840 330 L812 196" stroke="url(#gWhite)" stroke-width="9" stroke-linecap="round"></path><ellipse cx="844" cy="336" rx="18" ry="9" fill="url(#gWhite)"></ellipse></g>
+<g class="steam s2"><path d="M880 320 C866 300 894 288 880 266" stroke="#ffe0e2" stroke-width="6" fill="none" stroke-linecap="round"></path></g>
+</svg>
+<div class="ncard bob" style="left: 2%; top: 8%"><span class="vi" style="width: 34px; height: 34px; border-radius: 50%"><svg viewBox="0 0 24 24" style="width: 18px; height: 18px" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span><b>Đặt bàn thành công</b><br>19:30 tối nay · 4 người</span></div>
+<div class="ncard bob2" style="right: 2%; top: 4%"><span style="color: #f5b82e; font-size: 16px; letter-spacing: 1px; font-weight: 900">★★★★★</span><span><b>Đánh giá mới</b><br>trên Google Maps</span></div>
+<div class="ncard bob3" style="left: 38%; top: -2%"><svg viewBox="0 0 100 100" style="width: 30px; height: 30px" aria-hidden="true"><use href="#s-gift"></use></svg><span><b>Khách quen quay lại</b><br>đã dùng voucher</span></div>
+</div>
+</div>
+<div class="strip" aria-hidden="true">
+<div class="marq">
+<span class="mi">Phở<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Lẩu<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Nướng<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Cơm tấm<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Bún chả<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Hải sản<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Cà phê<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Trà sữa<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Bếp online<svg viewBox="0 0 60 90"><use href="#flame"></use></svg></span>
+<span class="mi">Phở<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Lẩu<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Nướng<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Cơm tấm<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Bún chả<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Hải sản<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Cà phê<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Trà sữa<svg viewBox="0 0 60 90"><use href="#flame"></use></svg>Bếp online<svg viewBox="0 0 60 90"><use href="#flame"></use></svg></span>
+</div>
+</div>
+</section>
+
+<!-- 2. TỰ KHÁM: thực đơn triệu chứng + nồi lẩu -->
+<section id="tu-kham">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 44px">
+<div class="rv center" style="display: flex; flex-direction: column; gap: 18px">
+<h2 class="h2">Quán mình đang <em>“sôi” tới đâu?</em></h2>
+<p class="lead">Gọi món trong thực đơn triệu chứng: tích những điều đúng với quán. Nồi lẩu bên cạnh sẽ sôi theo.</p>
+</div>
+<div class="selfx">
+<div class="menu rv">
+<p class="mtitle">Thực đơn triệu chứng</p>
+<p class="msub">Tích món nào quán đang “gọi” mỗi ngày</p>
+<sc-for list="{{ pains }}" as="item" hint-placeholder-count="8">
+<label class="mline {{ item.cls }}"><input type="checkbox" checked="{{ item.checked }}" onChange="{{ item.toggle }}"><span class="mltxt">{{ item.t }}</span><span class="dots"></span><span class="pr">{{ item.cost }}</span></label>
+</sc-for>
+</div>
+<div class="potbox {{ lv.cls }} rv2">
+<svg viewBox="0 0 300 300" aria-hidden="true">
+<ellipse cx="150" cy="150" rx="140" ry="120" fill="url(#gGlow)"></ellipse>
+<g class="psteam"><g class="steam"><path d="M110 120 C96 100 124 88 110 64" stroke="#ffe0e2" stroke-width="7" fill="none" stroke-linecap="round"></path></g><g class="steam s2"><path d="M150 110 C136 90 164 78 150 50" stroke="#ffe0e2" stroke-width="7" fill="none" stroke-linecap="round"></path></g><g class="steam s3"><path d="M190 120 C176 100 204 88 190 64" stroke="#ffe0e2" stroke-width="7" fill="none" stroke-linecap="round"></path></g></g>
+<path d="M50 150 Q54 240 150 244 Q246 240 250 150 Z" fill="url(#gRed)"></path>
+<path d="M64 170 Q74 222 120 234" stroke="#ffffff" stroke-opacity=".3" stroke-width="9" fill="none" stroke-linecap="round"></path>
+<rect x="30" y="156" width="26" height="14" rx="7" fill="#8a0812"></rect><rect x="244" y="156" width="26" height="14" rx="7" fill="#8a0812"></rect>
+<ellipse cx="150" cy="150" rx="102" ry="24" fill="#ff5a62"></ellipse>
+<ellipse cx="150" cy="152" rx="92" ry="19" fill="url(#gBroth)"></ellipse>
+<circle class="bub" cx="112" cy="152" r="6" fill="#ffd2b0"></circle>
+<circle class="bub" cx="150" cy="146" r="5" fill="#ffd2b0" style="animation-delay: .4s"></circle>
+<circle class="bub" cx="186" cy="154" r="6.5" fill="#ffd2b0" style="animation-delay: .8s"></circle>
+<circle class="bub" cx="132" cy="158" r="4" fill="#ffd2b0" style="animation-delay: 1.2s"></circle>
+<ellipse cx="150" cy="266" rx="110" ry="12" fill="none" stroke="#5a4a4c" stroke-width="7"></ellipse>
+<g transform="translate(96 268)"><use href="#flame" class="pf" x="0" y="-36" width="24" height="36"></use></g>
+<g transform="translate(124 270)"><use href="#flame" class="pf" x="0" y="-46" width="30" height="46"></use></g>
+<g transform="translate(156 270)"><use href="#flame" class="pf" x="0" y="-46" width="30" height="46"></use></g>
+<g transform="translate(186 268)"><use href="#flame" class="pf" x="0" y="-36" width="24" height="36"></use></g>
+</svg>
+<div class="pcount">{{ count }}<span style="font-size: 26px; color: #ff9ea3">/8 món</span></div>
+<span class="plv {{ lv.cls }}">Độ sôi: {{ lv.lvl }}</span>
+<p class="lead" style="max-width: 380px; margin: 0 auto; font-weight: 700; color: #fff">{{ lv.msg }}</p>
+<a class="btn btn-red" href="#dang-ky">Nhờ Atomix khám quán</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 3. VÌ SAO KHÓ CÓ PHÒNG MARKETING -->
+<section>
+<div class="wrap" style="display: flex; flex-direction: column; gap: 26px">
+<div class="rv center" style="display: flex; flex-direction: column; gap: 18px">
+<span class="tagx" style="align-self: center"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-chef"></use></svg>Chuyện trong bếp ít ai nói</span>
+<h2 class="h2">Vì sao quán ăn <em>khó có một phòng marketing hiệu quả?</em></h2>
+<p class="lead">6 “order” mà chủ quán nào cũng từng nhận, treo sẵn trên giá phiếu bếp.</p>
+</div>
+<div class="rail" aria-hidden="true"></div>
+<div class="tickets">
+<div class="sway" style="animation-delay: 0s"><div class="ticket"><span class="tno">Order #01</span><h3 class="tt">Quán nhỏ, không đủ việc nuôi cả team</h3><p class="td">Một đội đủ người cần nhiều suất lương mỗi tháng, trong khi lợi nhuận quán ăn vốn mỏng.</p><span class="tc">→ Chủ quán tự làm, hoặc bỏ trống.</span></div></div>
+<div class="sway" style="animation-delay: -1.2s"><div class="ticket"><span class="tno">Order #02</span><h3 class="tt">Thuê người giỏi thì lương cao</h3><p class="td">Mà một người khó giỏi đủ chiến lược, quay chụp, quảng cáo, chatbot và chăm khách.</p><span class="tc">→ Tốn tiền mà vẫn thiếu tay.</span></div></div>
+<div class="sway" style="animation-delay: -2.4s"><div class="ticket"><span class="tno">Order #03</span><h3 class="tt">Agency tổng hợp không hiểu F&amp;B</h3><p class="td">Làm theo khuôn chung cho mọi ngành, báo cáo đẹp nhưng bàn vẫn trống.</p><span class="tc">→ Mất phí, không ra khách.</span></div></div>
+<div class="sway" style="animation-delay: -.6s"><div class="ticket"><span class="tno">Order #04</span><h3 class="tt">Freelancer mỗi người một mảng</h3><p class="td">Người chụp, người chạy quảng cáo, người viết bài, không ai chịu trách nhiệm kết quả chung.</p><span class="tc">→ Rời rạc, thiếu kế hoạch.</span></div></div>
+<div class="sway" style="animation-delay: -1.8s"><div class="ticket"><span class="tno">Order #05</span><h3 class="tt">Chủ quán ôm hết mọi việc</h3><p class="td">Vừa đứng bếp, quản nhân viên, nhập hàng, không còn sức làm marketing bài bản.</p><span class="tc">→ Làm theo cảm hứng.</span></div></div>
+<div class="sway" style="animation-delay: -3s"><div class="ticket"><span class="tno">Order #06</span><h3 class="tt">Nhân sự F&amp;B biến động</h3><p class="td">Người nghỉ là mang theo tài khoản, dữ liệu và cách làm.</p><span class="tc">→ Mỗi lần lại làm từ đầu.</span></div></div>
+</div>
+</div>
+</section>
+
+<!-- 4. SỨC MẠNH ATOMIX FOODLAB -->
+<section>
+<div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 18px">
+<h2 class="h2" style="max-width: 1000px">Atomix Foodlab: <em>phòng marketing riêng cho quán,</em> không phải nuôi cả đội.</h2>
+</div>
+<div class="bento">
+<div class="bt big">
+<svg class="b3d bob" viewBox="0 0 100 100" aria-hidden="true"><use href="#s-chef"></use></svg>
+<span class="chip" style="align-self: flex-start">Điểm mạnh 01</span>
+<h3>Chuyên riêng ngành F&amp;B</h3>
+<p>Atomix Foodlab chỉ làm cho nhà hàng, quán ăn và bếp online. Tụi mình hiểu giờ cao điểm, mùa lễ, cách khách chọn quán và cách một món ăn lên hình, nên không làm marketing kiểu chung chung cho mọi ngành.</p>
+<div class="chips"><span class="chip">Nhà hàng</span><span class="chip">Quán ăn</span><span class="chip">Lẩu, nướng</span><span class="chip">Cà phê</span><span class="chip">Bếp online</span></div>
+</div>
+<div class="bt wide">
+<div style="display: flex; gap: 18px; align-items: center"><svg class="b3d bob2" viewBox="0 0 100 100" aria-hidden="true"><use href="#s-tools"></use></svg><div><span class="chip">Điểm mạnh 02</span><h3 style="margin-top: 10px">Có sẵn công cụ</h3></div></div>
+<ul class="tlist">
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Chatbot gửi menu, nhận và xác nhận đặt bàn</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Hệ thống tích điểm, voucher chăm khách quen</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>AI hỗ trợ dựng video, thiết kế nhanh</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Bộ checklist khám quán và bảng chỉ số mỗi tuần</li>
+</ul>
+</div>
+<div class="bt">
+<svg class="b3d bob3" viewBox="0 0 100 100" aria-hidden="true"><use href="#s-medal"></use></svg>
+<span class="chip" style="align-self: flex-start">Điểm mạnh 03</span>
+<h3>Kinh nghiệm triển khai</h3>
+<p>Người làm chiến lược trực tiếp làm với quán. Quy trình từ khám quán tới báo cáo đã chuẩn hóa, mạng lưới quay chụp, KOC, in ấn đã chọn lọc.</p>
+</div>
+<div class="bt">
+<svg class="b3d bob" viewBox="0 0 100 100" aria-hidden="true"><use href="#s-tag"></use></svg>
+<span class="chip" style="align-self: flex-start">Điểm mạnh 04</span>
+<h3>Giá gói phù hợp</h3>
+<p>Từ 5 triệu/tháng, ngang chi phí một nhân viên mà có cả đội. Thử 3 tháng, không ràng buộc dài.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 5. CHẶNG CỦA QUÁN: mở nắp cloche -->
+<section id="giai-doan">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 36px">
+<div class="rv center" style="display: flex; flex-direction: column; gap: 18px">
+<h2 class="h2">Mở nắp xem <em>quán mình ở chặng nào</em></h2>
+<p class="lead">Mỗi chặng một nỗi lo, nên mỗi quán một “món” riêng. Bấm vào chiếc nắp giống quán anh chị nhất.</p>
+</div>
+<div class="cloches" role="group" aria-label="Chọn chặng của quán">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+<button type="button" class="cl {{ t.cls }}" aria-pressed="{{ t.pressed }}" onClick="{{ t.pick }}">
+<svg viewBox="0 0 150 130" aria-hidden="true"><ellipse cx="75" cy="118" rx="64" ry="9" fill="#000000" fill-opacity=".4"></ellipse><ellipse cx="75" cy="110" rx="66" ry="14" fill="#a99294"></ellipse><ellipse cx="75" cy="106" rx="62" ry="11" fill="#ffffff"></ellipse><g class="dish"><use href="#{{ t.sym }}" x="42" y="40" width="66" height="66"></use></g><g class="dome"><path d="M22 104 A53 53 0 0 1 128 104 Z" fill="url(#gRed)"></path><path d="M40 86 A36 36 0 0 1 62 62" stroke="#ffffff" stroke-opacity=".5" stroke-width="6" fill="none" stroke-linecap="round"></path><circle cx="75" cy="48" r="8" fill="url(#gGold)"></circle></g></svg>
+<span>{{ t.name }}</span>
+</button>
+</sc-for>
+</div>
+<div class="record">
+<div class="rgrid">
+<div>
+<span class="rtitle">Hồ sơ quán · {{ st.short }}</span>
+<p class="rq">“{{ st.quote }}”</p>
+<div class="dx" style="margin-top: 22px">{{ st.pkg }} · {{ st.price }}</div>
+<a class="btn btn-ink" href="#dang-ky" onClick="{{ st.book }}" style="margin-top: 18px">Đây đúng là quán tôi</a>
+</div>
+<div>
+<span class="rtitle">Atomix Foodlab giúp quán</span>
+<ul class="sym" style="margin-top: 12px">
+<sc-for list="{{ st.helps }}" as="h" hint-placeholder-count="4">
+<li><svg aria-hidden="true"><use href="#tick"></use></svg><span>{{ h }}</span></li>
+</sc-for>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 6. HÀNH TRÌNH 5 CHẶNG -->
+<section>
+<div class="wrap jour">
+<div class="zm" style="position: relative">
+<div class="photo"><img src="assets/6ae05e684d191641ac0214bfd15b3e98.webp" alt="Đôi bạn trẻ dùng điện thoại tìm quán ngon gần đây, xem đánh giá, khoảng cách và ưu đãi"></div>
+<svg class="badge3d bob" viewBox="0 0 120 150" style="left: -24px; top: 30%" aria-hidden="true"><use href="#s-pin"></use></svg>
+<svg class="badge3d bob2" viewBox="0 0 100 92" style="right: -20px; bottom: 12%; width: 84px; height: 78px" aria-hidden="true"><use href="#s-heart"></use></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<h2 class="h2 rv">Khách tìm quán qua 5 chặng. <em>Hụt một chặng là mất khách.</em></h2>
+<div class="steps5">
+<div class="s5 rv"><span class="s5i"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-mag"></use></svg></span><div><h3><small>01</small>Tìm</h3><p class="q">“Gần đây có quán nào ngon ta?”</p><p class="l"><b>Hay hụt:</b> không có trên Google Maps, TikTok. <b>Atomix làm:</b> Google Maps, quảng cáo phủ khu vực, KOC, toplist.</p></div></div>
+<div class="s5 rv"><span class="s5i"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-star"></use></svg></span><div><h3><small>02</small>Chọn</h3><p class="q">“Nhìn hình có ngon không? Người ta khen gì?”</p><p class="l"><b>Hay hụt:</b> ảnh món tối, ít đánh giá. <b>Atomix làm:</b> quay chụp món, xin đánh giá từ khách thật.</p></div></div>
+<div class="s5 rv"><span class="s5i"><svg viewBox="0 0 150 130" aria-hidden="true"><use href="#s-chat"></use></svg></span><div><h3><small>03</small>Hỏi</h3><p class="q">“Có menu không? Tối nay còn bàn không?”</p><p class="l"><b>Hay hụt:</b> rep chậm, không có menu gửi liền. <b>Atomix làm:</b> chatbot menu, xác nhận đặt bàn.</p></div></div>
+<div class="s5 rv"><span class="s5i"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-cloche"></use></svg></span><div><h3><small>04</small>Đến</h3><p class="q">“Hôm nay có gì đặc biệt không ta?”</p><p class="l"><b>Hay hụt:</b> menu khó đọc, không có món gợi ý. <b>Atomix làm:</b> menu, standee, combo, góc chụp hình.</p></div></div>
+<div class="s5 rv"><span class="s5i"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-gift"></use></svg></span><div><h3><small>05</small>Quay lại</h3><p class="q">“Lần sau đi đâu ăn nhỉ?”</p><p class="l"><b>Hay hụt:</b> khách về là quên. <b>Atomix làm:</b> tích điểm, voucher, tin nhắn hỏi thăm.</p></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 7. TRƯỚC – SAU -->
+<section id="truoc-sau" style="padding-top: 40px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 26px">
+<div class="ba zm">
+<img src="assets/4a5e5911896e1271af3eb295384f3a47.webp" alt="Hai nửa của cùng một quán: bên trái vắng tanh, bên phải đông kín khách">
+<span class="balbl" style="left: 22px; background: rgba(20,20,20,.8); color: #e9e2e3; border: 1px solid rgba(255,255,255,.3)">Chưa dùng dịch vụ</span>
+<span class="balbl" style="right: 22px; background: #e3101c; color: #fff; box-shadow: 0 0 30px rgba(255,59,69,.8)">Đã thuê Atomix Foodlab</span>
+</div>
+<div class="rv center" style="display: flex; flex-direction: column; gap: 14px; margin-top: 20px">
+<h2 class="h2">Cùng một quán, <em>hai kết quả rất khác.</em></h2>
+<p class="lead">Kéo thanh để thay số của quán mình. Con số dưới đây là kịch bản minh họa với tỷ lệ giả định cho từng chặng, giúp anh chị thấy tiền rò rỉ ở đâu.</p>
+</div>
+<div class="ctrls">
+<label class="rg">Số người tìm quán, món ăn quanh khu vực mỗi tháng<b>{{ sText }} người</b><input type="range" min="200" max="5000" step="100" value="{{ sRaw }}" onChange="{{ setS }}"></label>
+<label class="rg">Hóa đơn trung bình mỗi khách<b>{{ billText }}.000đ</b><input type="range" min="50" max="600" step="10" value="{{ billRaw }}" onChange="{{ setBillR }}"></label>
+</div>
+<div class="crow" aria-hidden="true" style="animation: none">
+<div class="vsmall" style="padding: 0 22px; color: #d9b8bb">Chưa dùng dịch vụ</div><div></div><div class="vsmall" style="padding: 0 22px; text-align: right; color: #ffd34d">Đã thuê Atomix Foodlab</div>
+</div>
+<div class="cmp">
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="5">
+<div class="crow">
+<div class="cside bad">
+<svg class="fx" viewBox="0 0 40 60" aria-hidden="true"><circle class="drip" cx="20" cy="8" r="6" fill="#b47208"></circle><circle class="drip k2" cx="12" cy="8" r="5" fill="#9a5f06"></circle><circle class="drip k3" cx="28" cy="8" r="4.5" fill="#b47208"></circle></svg>
+<span class="n">{{ r.bN }}</span>
+<span class="s">{{ r.bS }}</span>
+<span class="m">−{{ r.money }} triệu/tháng</span>
+<div class="bar"><i style="width: {{ r.bW }}%"></i></div>
+</div>
+<div class="cmid"><svg viewBox="{{ r.vb }}" aria-hidden="true"><use href="#{{ r.sym }}"></use></svg><span>{{ r.name }}</span></div>
+<div class="cside good">
+<svg class="fx" viewBox="0 0 40 60" aria-hidden="true"><circle class="pop" cx="20" cy="40" r="6" fill="#ffd34d"></circle><circle class="pop k2" cx="10" cy="44" r="4.5" fill="#f5b82e"></circle><circle class="pop k3" cx="30" cy="44" r="5" fill="#fff0b8"></circle></svg>
+<span class="n">{{ r.aN }}</span>
+<span class="s">{{ r.aS }}</span>
+<span class="m">+{{ r.money }} triệu/tháng</span>
+<div class="bar"><i style="width: {{ r.aW }}%"></i></div>
+</div>
+</div>
+</sc-for>
+</div>
+<div class="tot rv">
+<div><div class="k">Doanh thu/tháng khi chưa làm</div><div class="v">{{ revB }} triệu</div></div>
+<div><div class="k" style="text-align: center">Atomix giữ lại và tăng thêm</div><div class="plus">+{{ revD }} triệu</div></div>
+<div style="text-align: right"><div class="k">Doanh thu/tháng với Atomix</div><div class="v">{{ revA }} triệu</div></div>
+</div>
+<p style="margin: 0; font-size: 13.5px; color: #c9a3a6; line-height: 1.6">Tỷ lệ giả định theo chặng (chưa làm → có Atomix): thấy quán 40% → 75%, muốn thử 40% → 50%, đặt được bàn 60% → 90%, hóa đơn ×1,00 → ×1,15 nhờ combo và món gợi ý, khách quay lại 10% → 30%. Số tiền mỗi chặng là phần doanh thu tăng thêm khi lần lượt vá từng chặng. Kết quả thực tế tùy từng quán.</p>
+</div>
+</section>
+
+<!-- 8. VŨ TRỤ MARKETING F&B -->
+<section id="vu-tru">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
+<div class="rv center" style="display: flex; flex-direction: column; gap: 18px">
+<span class="tagx" style="align-self: center"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-star"></use></svg>13 hành tinh, 1 hệ thống</span>
+<h2 class="h2">Vũ trụ <em>marketing F&amp;B</em> của Atomix Foodlab</h2>
+<p class="lead">Mỗi hình thức là một hành tinh, xoay quanh quán anh chị trên 3 quỹ đạo. Rê chuột để dừng lại, bấm vào hành tinh để xem nó chữa “bệnh” gì.</p>
+</div>
+<div class="uniwrap">
+<div class="uni zm">
+<div class="rl r1"></div><div class="rl r2"></div><div class="rl r3"></div>
+<div class="core"><img src="assets/74e7b012970ff0255998845182cbed19.webp" alt="Atomix Foodlab"></div>
+<div class="spinr g1">
+<sc-for list="{{ ring1 }}" as="p" hint-placeholder-count="4">
+<div class="pp" style="--a: {{ p.a }}deg"><button type="button" class="pl {{ p.cls }}" aria-pressed="{{ p.pressed }}" onClick="{{ p.pick }}"><span class="pb"><svg class="ico" aria-hidden="true"><use href="#{{ p.icon }}"></use></svg></span><span class="pn">{{ p.name }}</span></button></div>
+</sc-for>
+</div>
+<div class="spinr g2">
+<sc-for list="{{ ring2 }}" as="p" hint-placeholder-count="5">
+<div class="pp" style="--a: {{ p.a }}deg"><button type="button" class="pl {{ p.cls }}" aria-pressed="{{ p.pressed }}" onClick="{{ p.pick }}"><span class="pb"><svg class="ico" aria-hidden="true"><use href="#{{ p.icon }}"></use></svg></span><span class="pn">{{ p.name }}</span></button></div>
+</sc-for>
+</div>
+<div class="spinr g3">
+<sc-for list="{{ ring3 }}" as="p" hint-placeholder-count="4">
+<div class="pp" style="--a: {{ p.a }}deg"><button type="button" class="pl {{ p.cls }}" aria-pressed="{{ p.pressed }}" onClick="{{ p.pick }}"><span class="pb"><svg class="ico" aria-hidden="true"><use href="#{{ p.icon }}"></use></svg></span><span class="pn">{{ p.name }}</span></button></div>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div class="legend"><span class="lg"><i style="background: #e3101c"></i>Quỹ đạo 1 · Nền tảng</span><span class="lg"><i style="background: #f5b82e"></i>Quỹ đạo 2 · Kéo khách mới</span><span class="lg"><i style="background: #e9d3d5"></i>Quỹ đạo 3 · Giữ chân &amp; bùng nổ</span></div>
+<div class="kpanel fadeIn">
+<span class="ktag">{{ pk.ring }} · Hành tinh {{ pk.no }}/13</span>
+<div style="display: flex; align-items: center; gap: 14px"><span class="vi" style="width: 56px; height: 56px; border-radius: 50%"><svg class="ico" style="width: 28px; height: 28px" aria-hidden="true"><use href="#{{ pk.icon }}"></use></svg></span><h3 class="ktitle">{{ pk.name }}</h3></div>
+<div class="kbox"><b>Atomix làm gì</b>{{ pk.what }}</div>
+<div class="kbox"><b>Chữa nỗi đau</b>{{ pk.pain }}</div>
+<div style="display: flex; gap: 10px">
+<button type="button" class="btn btn-ghost" onClick="{{ prevP }}" style="flex: 1">Hành tinh trước</button>
+<button type="button" class="btn btn-red" onClick="{{ nextP }}" style="flex: 1">Hành tinh tiếp</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 9. CÔNG THỨC MARKETING NGUYÊN TỬ -->
+<section>
+<div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 18px">
+<h2 class="h2" style="max-width: 1000px">Công thức <em>Marketing Nguyên Tử:</em> 4 nguyên liệu, 1 nồi kéo khách.</h2>
+</div>
+<div class="recipe">
+<div class="ing"><span class="no">01</span><span class="bowl"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-dat"></use></svg></span><h3>Đất</h3><span class="sub">Nền móng kế hoạch</span><p>Biết quán bán cho ai, món nào là ngôi sao, tiền nên chi vào đâu cho khỏi phí.</p></div>
+<div class="ing"><span class="no">02</span><span class="bowl"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-nuoc"></use></svg></span><h3>Nước</h3><span class="sub">Ý tưởng truyền thông</span><p>Câu chuyện riêng để khách nhớ quán mình, không lẫn với quán bên cạnh.</p></div>
+<div class="ing"><span class="no">03</span><span class="bowl"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-lua"></use></svg></span><h3>Lửa</h3><span class="sub">Kênh kéo khách</span><p>Có mặt đúng nơi khách đang tìm, đúng lúc khách đang đói.</p></div>
+<div class="ing"><span class="no">04</span><span class="bowl"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-gio"></use></svg></span><h3>Gió</h3><span class="sub">Vận hành mỗi ngày</span><p>Chatbot, đặt bàn, chăm khách quen chạy đều, kể cả lúc anh chị bận đứng bếp.</p></div>
+</div>
+</div>
+</section>
+
+<!-- 10. SET MENU GIÁ -->
+<section id="bang-gia">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+<div class="rv center" style="display: flex; flex-direction: column; gap: 18px">
+<h2 class="h2">Set menu <em>dịch vụ</em></h2>
+<p class="lead">Giá là phí làm việc của đội. Tiền quảng cáo, KOC, in ấn tính riêng, báo trước từng tháng, anh chị duyệt rồi mới chi. Mỗi set đều nêm nếm lại sau buổi khám quán.</p>
+</div>
+<div class="sets">
+<div class="set">
+<div class="plate"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-rocket"></use></svg></div>
+<div class="sno">Set 01</div><h3 class="sname">Bệ phóng</h3><p class="sfor">Cho quán sắp mở hoặc mới mở dưới 6 tháng</p>
+<div class="sprice"><span>từ</span><b>5 triệu</b><span>/tháng</span></div>
+<ul class="plist" style="flex: 1">
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Định vị quán, kế hoạch 90 ngày đầu</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Logo, menu, biển bảng, standee</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Google Maps, fanpage, chatbot đặt bàn</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Hình ảnh, video khai trương</li>
+</ul>
+<a class="btn btn-ghost" href="#dang-ky" onClick="{{ pick1 }}">Gọi set này</a>
+</div>
+<div class="set hot">
+<span class="ribbon">Bếp trưởng gợi ý</span>
+<div class="plate"><svg viewBox="0 0 96 100" aria-hidden="true"><use href="#s-bars"></use></svg></div>
+<div class="sno">Set 02</div><h3 class="sname">Tăng trưởng</h3><p class="sfor">Cho quán đã có khách nhưng lúc đông lúc vắng</p>
+<div class="sprice"><span>từ</span><b>10 triệu</b><span>/tháng</span></div>
+<ul class="plist" style="flex: 1">
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Tìm ra kênh nào thật sự ra khách</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Quảng cáo Facebook, TikTok quanh quán</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Booking KOC, toplist chọn lọc</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Tích điểm, voucher, báo cáo mỗi tuần</li>
+</ul>
+<a class="btn btn-white" href="#dang-ky" onClick="{{ pick2 }}">Gọi set này</a>
+</div>
+<div class="set">
+<div class="plate"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-crown"></use></svg></div>
+<div class="sno">Set 03</div><h3 class="sname">Thịnh vượng</h3><p class="sfor">Cho quán lâu năm muốn bứt lên lại</p>
+<div class="sprice"><span>từ</span><b>15 triệu</b><span>/tháng</span></div>
+<ul class="plist" style="flex: 1">
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Làm mới hình ảnh, menu, không gian</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Sự kiện, trade marketing, liên kết chéo</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Video quảng cáo, TVC, O2O</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Chuẩn hóa để mở chi nhánh</li>
+</ul>
+<a class="btn btn-ghost" href="#dang-ky" onClick="{{ pick3 }}">Gọi set này</a>
+</div>
+</div>
+<div class="voucher rv">
+<div class="vleft"><span class="vsmall">Chỉ nhận</span><span class="vbig">5</span><span class="vsmall">quán đầu tiên</span></div>
+<p class="vtext">Ưu đãi phí đồng hành cho 5 quán đầu tiên. Đổi lại, Atomix Foodlab được kể câu chuyện trước – sau của quán.</p>
+<div class="vbtn" style="padding-right: 32px"><a class="btn btn-white" href="#dang-ky" style="min-height: 56px">Giữ một suất</a></div>
+</div>
+</div>
+</section>
+
+<!-- 11. CAM KẾT + FAQ -->
+<section id="hoi-dap">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 36px">
+<div class="rv"><h2 class="h2">Atomix Foodlab <em>cam kết</em></h2></div>
+<div class="promises">
+<div class="prom"><span class="vi"><svg class="ico" style="width: 22px; height: 22px" aria-hidden="true"><use href="#i-key"></use></svg></span>Quán giữ 100% tài khoản và dữ liệu khách</div>
+<div class="prom"><span class="vi"><svg class="ico" style="width: 22px; height: 22px" aria-hidden="true"><use href="#i-cal"></use></svg></span>Thử trước 3 tháng, không ràng buộc dài</div>
+<div class="prom"><span class="vi"><svg class="ico" style="width: 22px; height: 22px" aria-hidden="true"><use href="#i-chart"></use></svg></span>Báo cáo mỗi tuần bằng con số rõ ràng</div>
+<div class="prom"><span class="vi"><svg class="ico" style="width: 22px; height: 22px" aria-hidden="true"><use href="#i-receipt"></use></svg></span>Chi phí chạy tách bạch, duyệt rồi mới chi</div>
+<div class="prom"><span class="vi"><svg class="ico" style="width: 22px; height: 22px" aria-hidden="true"><use href="#i-shield"></use></svg></span>Không nhận quán cùng phân khúc gần quán anh chị</div>
+</div>
+<div class="rv" style="margin-top: 30px"><h2 class="h2">Mấy câu <em>chủ quán hay hỏi</em></h2></div>
+<div class="faqg">
+<details class="faq"><summary>Có cam kết doanh thu không?</summary><p>Doanh thu còn tùy món, giá và phục vụ, nên tụi mình không hứa suông. Tụi mình cam kết những con số đo được: tin nhắn, lượt đặt bàn, đánh giá Google mới, tốc độ trả lời, khách quay lại qua voucher.</p></details>
+<details class="faq"><summary>Nhân viên quán tự đăng Facebook được rồi, thuê làm chi?</summary><p>Đăng bài chỉ là một phần nhỏ. Quán cần cả hệ thống: khách tìm thấy, rep kịp, đặt bàn dễ và có lý do quay lại. Buổi khám quán sẽ chỉ rõ quán đang hụt ở chặng nào.</p></details>
+<details class="faq"><summary>Tôi từng thuê agency mà mất tiền, lần này khác gì?</summary><p>Bắt đầu bằng buổi khám quán miễn phí, rồi thử 3 tháng. Mọi tài khoản đứng tên quán. Không hiệu quả thì dừng, anh chị vẫn giữ nguyên mọi thứ đã làm.</p></details>
+<details class="faq"><summary>Phí gói đã gồm tiền quảng cáo, KOC chưa?</summary><p>Chưa. Phí gói là công làm của đội. Tiền quảng cáo, KOC, in ấn được báo trước từng tháng, anh chị duyệt rồi mới chi.</p></details>
+<details class="faq"><summary>Quán ở Bình Dương, Đồng Nai, Vũng Tàu có làm sát được không?</summary><p>Được. Tụi mình có lịch quay chụp theo đợt, cộng tác viên tại chỗ, họp online mỗi tuần và ghé quán định kỳ.</p></details>
+<details class="faq"><summary>Ngừng hợp tác thì tôi còn giữ được gì?</summary><p>Giữ hết: fanpage, tài khoản quảng cáo, Google Maps, hình ảnh, video và danh sách khách hàng.</p></details>
+</div>
+</div>
+</section>
+
+<!-- 12. ĐĂNG KÝ -->
+<section id="dang-ky">
+<div class="wrap book">
+<div class="rv" style="display: flex; flex-direction: column; gap: 22px">
+<svg viewBox="0 0 100 100" style="width: 150px; height: 150px; overflow: visible" aria-hidden="true"><circle class="wave" cx="50" cy="56" r="40" fill="none" stroke="#ff3b45" stroke-width="2"></circle><use href="#s-bell"></use></svg>
+<h2 class="h2">Rung chuông, <em>Atomix tới khám quán.</em></h2>
+<p class="lead">Để lại thông tin, Atomix Foodlab gửi anh chị bản báo cáo khám quán dễ hiểu trong 48 giờ, kèm ước tính tiền đang để lọt.</p>
+<ul class="plist">
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Quán có hiện trên Google Maps không, đứng thứ mấy</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Fanpage, hình ảnh món có đủ hấp dẫn không</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Nhắn tin thử: bao lâu quán mới trả lời</li>
+<li><svg aria-hidden="true"><use href="#tick"></use></svg>Quán đã có cách giữ chân khách quen chưa</li>
+</ul>
+</div>
+<div class="rv2">
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<div class="form">
+<div class="ftop"><span class="rtitle">Phiếu khám quán</span><span style="font-size: 14px; font-weight: 800; color: #7a4a50">Miễn phí · Không ràng buộc</span></div>
+<div class="fgrid">
+<label class="flb" for="f-name">Họ và tên<input class="fi" id="f-name" type="text" autocomplete="name" value="{{ f.name }}" onChange="{{ setName }}"></label>
+<label class="flb" for="f-phone">Số điện thoại / Zalo<input class="fi" id="f-phone" type="tel" autocomplete="tel" value="{{ f.phone }}" onChange="{{ setPhone }}"></label>
+<label class="flb" for="f-shop">Tên quán<input class="fi" id="f-shop" type="text" value="{{ f.shop }}" onChange="{{ setShop }}"></label>
+<label class="flb" for="f-area">Khu vực<select class="fi" id="f-area" value="{{ f.area }}" onChange="{{ setArea }}"><option>TP.HCM</option><option>Bình Dương</option><option>Đồng Nai</option><option>Vũng Tàu</option><option>Nơi khác</option></select></label>
+<label class="flb" for="f-stage">Quán đang ở chặng<select class="fi" id="f-stage" value="{{ f.stage }}" onChange="{{ setStage }}"><option>Sắp mở / mới mở</option><option>Có khách nhưng lúc đông lúc vắng</option><option>Lâu năm mà đứng yên</option><option>Bếp online, bán qua app</option></select></label>
+<label class="flb" for="f-pkg">Set quan tâm<select class="fi" id="f-pkg" value="{{ f.pkg }}" onChange="{{ setPkg }}"><option>Set Bệ phóng – từ 5 triệu/tháng</option><option>Set Tăng trưởng – từ 10 triệu/tháng</option><option>Set Thịnh vượng – từ 15 triệu/tháng</option><option>Chưa rõ, cần tư vấn</option></select></label>
+</div>
+<label class="flb" for="f-note">Điều anh chị đau đầu nhất lúc này (không bắt buộc)<textarea class="fi" id="f-note" placeholder="Ví dụ: ngày thường vắng quá, tin nhắn rep không kịp…" value="{{ f.note }}" onChange="{{ setNote }}"></textarea></label>
+<sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><div role="alert" style="padding: 12px 14px; border-radius: 12px; background: #ffe7e8; color: #8a0812; font-size: 15px; font-weight: 700">{{ err }}</div></sc-if>
+<button type="button" class="btn btn-red" onClick="{{ submit }}" style="width: 100%; min-height: 56px; font-size: 17px">{{ sendLabel }}</button>
+<div style="font-size: 14px; color: #7a4a50; text-align: center">Hoặc gọi / nhắn Zalo: <a href="tel:0785249867" style="color: #c40d18; font-weight: 800">0785.24.9867</a></div>
+</div>
+</sc-if>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div class="form" style="align-items: center; text-align: center; gap: 16px">
+<svg viewBox="0 0 300 250" style="width: 160px; height: auto" aria-hidden="true"><use href="#s-bowl"></use></svg>
+<div style="font-size: 24px; font-weight: 900; color: #2a0510">Đã nhận phiếu khám quán.</div>
+<div style="font-size: 16px; color: #6b3b41; line-height: 1.6">Atomix Foodlab sẽ gọi lại cho anh chị trong thời gian sớm nhất để xếp lịch khám.</div>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top: 1px solid rgba(255,140,145,.16); padding: 44px 0 52px">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
+<a href="#top" aria-label="Atomix Foodlab – về đầu trang" style="text-decoration: none"><img src="assets/74e7b012970ff0255998845182cbed19.webp" alt="Atomix Foodlab" class="logo-glow" style="height: 110px; width: auto"></a>
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #e8b9bc; align-items: flex-end; text-align: right">
+<span>Marketing trọn gói cho nhà hàng, quán ăn &amp; bếp online · Marketing Nguyên Tử</span>
+<a href="tel:0785249867" style="font-weight: 800">Hotline / Zalo: 0785.24.9867</a>
+</div>
+</div>
+</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"sheetEndpoint":{"editor":"text","default":"","section":"Kết nối Google Sheet","label":"Link Google Apps Script nhận form"},"$preview":{"width":1440,"height":8000}}'>
+const PAINS = [
+  ['Cuối tuần kín bàn, ngày thường vắng hoe', 'Lúc đông lúc vắng'],
+  ['Tin nhắn hỏi menu, đặt bàn rep không kịp', 'Lọt khách'],
+  ['Khách tìm trên Google Maps không thấy quán', 'Vô hình'],
+  ['Boost bài, thuê KOC mà không biết cái nào ra khách', 'Đốt tiền'],
+  ['Không biết ai là khách mới, ai là khách quen', 'Mất dữ liệu'],
+  ['Phải giảm giá liên tục mới có khách', 'Mỏng lời'],
+  ['Muốn có người lo marketing mà không kham nổi cả team', 'Thiếu người'],
+  ['Bán qua app chiết khấu cao, không bán thì không có đơn', 'Lệ thuộc app']
+];
+const PKG = ['Set Bệ phóng – từ 5 triệu/tháng', 'Set Tăng trưởng – từ 10 triệu/tháng', 'Set Thịnh vượng – từ 15 triệu/tháng', 'Chưa rõ, cần tư vấn'];
+const STAGES = [
+  { name: 'Sắp mở / mới mở', short: 'Mới mở', sym: 's-rocket', quote: 'Vốn dồn hết vào mặt bằng rồi, giờ chẳng biết bắt đầu marketing từ đâu.', helps: ['Định vị quán, chọn món chủ lực, đặt giá hợp với khách quanh khu vực', 'Logo, menu, biển bảng, standee đồng bộ ngay từ đầu', 'Google Maps, fanpage, chatbot sẵn sàng trước ngày khai trương', 'Hình ảnh món và kế hoạch 90 ngày để quán không vắng sau khai trương'], pkg: 'Set Bệ phóng', price: 'từ 5 triệu/tháng', p: 0 },
+  { name: 'Có khách nhưng lúc đông lúc vắng', short: 'Chưa đều khách', sym: 's-bars', quote: 'Quán có khách, mà tôi không biết khách tới từ đâu. Tháng này lại vắng hơn tháng trước.', helps: ['Tìm ra kênh nào đang thật sự mang khách tới', 'Chương trình kéo khách ngày thường và giờ thấp điểm', 'Chatbot gửi menu, nhận đặt bàn cả lúc nửa đêm', 'Tích điểm, voucher để khách quen quay lại đều đặn'], pkg: 'Set Tăng trưởng', price: 'từ 10 triệu/tháng', p: 1 },
+  { name: 'Lâu năm mà đứng yên', short: 'Lâu năm', sym: 's-crown', quote: 'Khách quen vẫn tới, nhưng tụi trẻ chẳng biết quán tôi. Quán mới mở bên cạnh lại đông hơn.', helps: ['Làm mới hình ảnh, menu, không gian cho hợp gu khách trẻ', 'Phủ TikTok, KOC, toplist để kéo tệp khách mới', 'Sự kiện, khuyến mại, liên kết chéo tạo cớ cho khách ghé', 'Chuẩn hóa hệ thống để mở chi nhánh, nhượng quyền'], pkg: 'Set Thịnh vượng', price: 'từ 15 triệu/tháng', p: 2 },
+  { name: 'Bếp online, bán qua app', short: 'Bếp online', sym: 's-box', quote: 'Đơn thì đều, mà chiết khấu app ăn hết lời. Số điện thoại khách tôi cũng không có.', helps: ['Ảnh món chuẩn app, lên hình là thấy thèm', 'Chăm gian hàng để quán dễ được thấy hơn trên app', 'Kênh đặt món trực tiếp qua Messenger, Zalo có chatbot menu', 'Chương trình khách thân thiết kéo đơn về kênh riêng'], pkg: 'Set may đo', price: 'báo giá theo quy mô bếp', p: 3 }
+];
+const PLANETS = [
+  { ring: 1, name: 'Quay chụp media', icon: 'i-cam', what: 'Chụp món, không gian, khách thật; dựng video quảng cáo, TVC cho quán.', pain: 'Khách lướt qua vì quán thiếu hình ảnh, video đủ hấp dẫn.' },
+  { ring: 1, name: 'Nhận diện & POSM', icon: 'i-palette', what: 'Menu, banner, biển bảng, standee đồng bộ một bộ nhận diện.', pain: 'Quán không có điểm nhớ, menu khó đọc, biển hiệu khó thấy.' },
+  { ring: 1, name: 'Google Maps', icon: 'i-pin', what: 'Tối ưu Google Maps, tìm kiếm địa phương, quản lý và phản hồi đánh giá.', pain: 'Khách không biết quán nào ngon gần mình, quán không hiện khi khách tìm.' },
+  { ring: 1, name: 'Chatbot Messenger', icon: 'i-chat', what: 'Tự gửi menu, hình ảnh, xác nhận đặt bàn, nhắc lịch và chăm khách.', pain: 'Rep chậm, bỏ lỡ khách đặt bàn, hỏi menu vào giờ cao điểm.' },
+  { ring: 2, name: 'Quảng cáo FB, TikTok', icon: 'i-mega', what: 'Phủ quảng cáo trong bán kính quanh quán, đúng giờ khách đang đói.', pain: 'Không có kênh tiếp cận khách mới.' },
+  { ring: 2, name: 'Booking KOC', icon: 'i-star', what: 'Chọn KOC đúng tệp khách, review chân thật, có kịch bản.', pain: 'Khách mất thời gian chọn giữa quá nhiều quán và đánh giá.' },
+  { ring: 2, name: 'Booking toplist', icon: 'i-list', what: 'Đưa quán lên các trang, nhóm tổng hợp quán ngon theo khu vực.', pain: 'Khách tìm trong danh sách quán ngon mà không thấy tên quán mình.' },
+  { ring: 2, name: 'App giao đồ ăn', icon: 'i-app', what: 'Tối ưu gian hàng, ảnh món, chương trình trên các app giao đồ ăn.', pain: 'Đơn ship ít, quán khó được thấy trên app.' },
+  { ring: 2, name: 'Tờ rơi, offline', icon: 'i-flyer', what: 'Tờ rơi, phát món thử quanh văn phòng, trường học, khu dân cư.', pain: 'Người sống, làm việc quanh quán còn chưa biết quán mở.' },
+  { ring: 3, name: 'Chăm sóc khách', icon: 'i-gift', what: 'Voucher, tích điểm, quà sinh nhật, ưu đãi khi khách chia sẻ.', pain: 'Khách đến một lần rồi thôi, không biết ai là khách quen.' },
+  { ring: 3, name: 'Trade marketing', icon: 'i-event', what: 'Khuyến mại, sự kiện, cuộc thi, workshop tạo cớ cho khách ghé.', pain: 'Lúc đông lúc vắng, ngày thường không có lý do để khách tới.' },
+  { ring: 3, name: 'Liên kết chéo', icon: 'i-link', what: 'Hợp tác với cửa hàng, văn phòng, phòng gym quanh quán để chia sẻ khách.', pain: 'Chi phí kéo khách mới ngày càng cao.' },
+  { ring: 3, name: 'O2O', icon: 'i-sync', what: 'Nối online với offline: đặt trước nhận ưu đãi, quét mã tại bàn, check-in.', pain: 'Không biết khách thấy quảng cáo có thật sự tới quán không.' }
+];
+const RING_NAMES = ['', 'Quỹ đạo 1 · Nền tảng', 'Quỹ đạo 2 · Kéo khách mới', 'Quỹ đạo 3 · Giữ chân & bùng nổ'];
+const RB = [0.40, 0.40, 0.60, 1.00, 0.10];
+const RA = [0.75, 0.50, 0.90, 1.15, 0.30];
+const BLANK = { name: '', phone: '', shop: '', area: 'TP.HCM', stage: STAGES[1].name, pkg: PKG[1], note: '' };
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { stg: 1, pk: 2, chk: PAINS.map(() => false), S: 1000, bill: 150, f: { ...BLANK }, sent: false, sending: false, err: '' };
+  }
+  setField(key) {
+    return (e) => this.setState({ f: { ...this.state.f, [key]: e && e.target ? e.target.value : e }, err: '' });
+  }
+  setF(key, val) {
+    return () => this.setState({ f: { ...this.state.f, [key]: val }, err: '' });
+  }
+  async submit() {
+    const f = this.state.f;
+    const phone = String(f.phone || '').replace(/[^0-9+]/g, '');
+    if (!String(f.name || '').trim()) { this.setState({ err: 'Vui lòng nhập họ và tên.' }); return; }
+    const digits = phone.replace('+', '');
+    if (digits.length < 9 || digits.length > 12) { this.setState({ err: 'Số điện thoại chưa đúng, anh chị kiểm tra lại giúp nhé.' }); return; }
+    const url = String(this.props.sheetEndpoint || '').trim();
+    if (!/^https:\/\/script\.google\.com\//.test(url)) { this.setState({ err: 'Form chưa được kết nối Google Sheet. Anh chị gọi 0785.24.9867 để đặt lịch khám quán ngay nhé.' }); return; }
+    this.setState({ sending: true, err: '' });
+    try {
+      await fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ name: f.name.trim(), phone: phone, shop: f.shop, area: f.area, stage: f.stage, package: f.pkg, note: f.note, source: 'Landing page Atomix Foodlab v3' }) });
+      this.setState({ sending: false, sent: true, f: { ...BLANK } });
+    } catch (e) {
+      this.setState({ sending: false, err: 'Chưa gửi được thông tin. Anh chị thử lại hoặc gọi 0785.24.9867 nhé.' });
+    }
+  }
+  funnel(S, bill, r) {
+    const seen = S * r[0];
+    const want = seen * r[1];
+    const booked = want * r[2];
+    const spend = bill * r[3];
+    const ret = booked * r[4];
+    return { seen, want, booked, spend, ret, rev: (booked + ret) * spend * 1000 };
+  }
+  renderVals() {
+    const s = this.state;
+    const chk = s.chk;
+    const count = chk.filter(Boolean).length;
+    let lv = { lvl: 'Nguội', cls: 'lv0', msg: 'Gọi món đi anh chị, nồi chưa sôi đâu!' };
+    if (count >= 6) lv = { lvl: 'Sôi trào', cls: 'lv3', msg: 'Tiền đang rò rỉ ở nhiều chặng. Cần khám quán ngay!' };
+    else if (count >= 3) lv = { lvl: 'Sôi sùng sục', cls: 'lv2', msg: 'Quán đang để lọt khách mỗi ngày. Khám sớm nhé!' };
+    else if (count >= 1) lv = { lvl: 'Âm ấm', cls: 'lv1', msg: 'Có vài lỗ hổng rồi. Vá sớm thì đỡ tốn.' };
+
+    const st = STAGES[s.stg];
+    const S = Number(s.S) || 0;
+    const bill = Number(s.bill) || 0;
+    const nf = (x) => Math.round(x).toLocaleString('vi-VN');
+    const mf = (vnd) => (vnd / 1e6).toLocaleString('vi-VN', { maximumFractionDigits: 1 });
+    const B = this.funnel(S, bill, RB);
+    const A = this.funnel(S, bill, RA);
+    const gains = [];
+    let prev = B.rev;
+    for (let k = 0; k < 5; k++) {
+      const mix = RB.map((v, i) => (i <= k ? RA[i] : v));
+      const cur = this.funnel(S, bill, mix).rev;
+      gains.push(cur - prev);
+      prev = cur;
+    }
+    const pct = (x, base) => Math.max(4, Math.min(100, base > 0 ? x / base * 100 : 0));
+    const rows = [
+      { name: 'Tìm thấy quán', sym: 's-mag', vb: '0 0 100 100', bN: 'Chỉ ' + nf(B.seen) + ' người thấy quán', bS: 'Lọt ' + nf(S - B.seen) + ' người vì quán không hiện', aN: nf(A.seen) + ' người thấy quán', aS: 'Giữ thêm ' + nf(A.seen - B.seen) + ' người nhờ Maps, quảng cáo, KOC', bW: pct(B.seen, S), aW: pct(A.seen, S) },
+      { name: 'Chọn quán', sym: 's-star', vb: '0 0 100 100', bN: nf(B.want) + ' người muốn thử', bS: 'Lọt ' + nf(B.seen - B.want) + ' người vì ảnh xấu, ít đánh giá', aN: nf(A.want) + ' người muốn thử', aS: 'Thêm ' + nf(A.want - B.want) + ' người nhờ hình ảnh, đánh giá', bW: pct(B.want, S * 0.4), aW: pct(A.want, S * 0.4) },
+      { name: 'Hỏi & đặt bàn', sym: 's-chat', vb: '0 0 150 130', bN: nf(B.booked) + ' người đặt được bàn', bS: 'Lọt ' + nf(B.want - B.booked) + ' người vì rep chậm', aN: nf(A.booked) + ' người đặt được bàn', aS: 'Thêm ' + nf(A.booked - B.booked) + ' người nhờ chatbot rep liền', bW: pct(B.booked, S * 0.4), aW: pct(A.booked, S * 0.4) },
+      { name: 'Đến & gọi món', sym: 's-cloche', vb: '0 0 100 100', bN: 'Hóa đơn ' + nf(B.spend) + '.000đ/khách', bS: 'Khách gọi ít, không có món gợi ý', aN: 'Hóa đơn ' + nf(A.spend) + '.000đ/khách', aS: 'Tăng nhờ menu rõ, combo, món gợi ý', bW: 60, aW: 69 },
+      { name: 'Quay lại', sym: 's-gift', vb: '0 0 100 100', bN: nf(B.ret) + ' khách quay lại', bS: nf(B.booked - B.ret) + ' khách về là quên quán', aN: nf(A.ret) + ' khách quay lại', aS: 'Thêm ' + nf(A.ret - B.ret) + ' lượt nhờ tích điểm, voucher', bW: pct(B.ret, S * 0.12), aW: pct(A.ret, S * 0.12) }
+    ].map((r, i) => ({ ...r, money: mf(gains[i]) }));
+
+    const pk = PLANETS[s.pk];
+    const mkRing = (ringNo) => {
+      const items = PLANETS.map((p, i) => ({ p, i })).filter((x) => x.p.ring === ringNo);
+      const off = ringNo === 1 ? -90 : ringNo === 2 ? -54 : -45;
+      return items.map((x, j) => ({ name: x.p.name, icon: x.p.icon, a: Math.round(off + j * 360 / items.length), cls: x.i === s.pk ? 'on' : '', pressed: x.i === s.pk ? 'true' : 'false', pick: () => this.setState({ pk: x.i }) }));
+    };
+
+    return {
+      pains: PAINS.map((p, i) => ({ t: p[0], cost: p[1], checked: !!chk[i], cls: chk[i] ? 'on' : '', toggle: () => { const c = this.state.chk.slice(); c[i] = !c[i]; this.setState({ chk: c }); } })),
+      count: count,
+      lv: lv,
+      tabs: STAGES.map((x, i) => ({ name: x.name, sym: x.sym, cls: i === s.stg ? 'on' : '', pressed: i === s.stg ? 'true' : 'false', pick: () => this.setState({ stg: i }) })),
+      st: { short: st.short, quote: st.quote, helps: st.helps, pkg: st.pkg, price: st.price, book: () => this.setState({ f: { ...this.state.f, stage: st.name, pkg: PKG[st.p] } }) },
+      sRaw: s.S, billRaw: s.bill,
+      sText: nf(S), billText: nf(bill),
+      setS: (e) => this.setState({ S: e.target.value }),
+      setBillR: (e) => this.setState({ bill: e.target.value }),
+      rows: rows,
+      revB: mf(B.rev), revA: mf(A.rev), revD: mf(A.rev - B.rev),
+      ring1: mkRing(1), ring2: mkRing(2), ring3: mkRing(3),
+      pk: { name: pk.name, icon: pk.icon, what: pk.what, pain: pk.pain, ring: RING_NAMES[pk.ring], no: s.pk + 1 },
+      prevP: () => this.setState({ pk: (this.state.pk + PLANETS.length - 1) % PLANETS.length }),
+      nextP: () => this.setState({ pk: (this.state.pk + 1) % PLANETS.length }),
+      pick1: this.setF('pkg', PKG[0]),
+      pick2: this.setF('pkg', PKG[1]),
+      pick3: this.setF('pkg', PKG[2]),
+      f: s.f,
+      setName: this.setField('name'),
+      setPhone: this.setField('phone'),
+      setShop: this.setField('shop'),
+      setArea: this.setField('area'),
+      setStage: this.setField('stage'),
+      setPkg: this.setField('pkg'),
+      setNote: this.setField('note'),
+      submit: () => this.submit(),
+      sendLabel: s.sending ? 'Đang gửi…' : 'Đăng ký khám quán',
+      err: s.err,
+      hasErr: !!s.err,
+      sent: s.sent,
+      notSent: !s.sent
+    };
+  }
+}
+</script>
+</body>
+</html>
