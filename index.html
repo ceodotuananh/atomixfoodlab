@@ -361,6 +361,32 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 .strip{margin:-10px -20px 0}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}html{scroll-behavior:auto}.steam,.bub,.drip,.pop,.wave{opacity:.8}.toss{opacity:1}}
+/* THỰC ĐƠN MARKETING */
+.vt-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.vt-dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;flex:1}
+.vt-dot{width:12px;height:12px;border-radius:6px;border:0;padding:0;background:rgba(255,140,145,.35);cursor:pointer}
+.vt-dot[aria-current=true]{background:#ff3b45;width:30px}
+.vt-dot:focus-visible{outline:3px solid #ffd0d3;outline-offset:3px}
+.vt-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 6px 30px;scrollbar-width:thin;scrollbar-color:#e3101c transparent}
+.vt-card{flex:0 0 280px;scroll-snap-align:center;cursor:pointer;background:linear-gradient(180deg,#fffaf9,#f5e7e8);color:#2a0510;border-radius:26px;padding:24px 22px 22px;display:flex;flex-direction:column;gap:10px;box-shadow:0 40px 70px -40px rgba(0,0,0,.85);border:2px solid transparent;transition:transform .3s ease,border-color .3s ease}
+.vt-card:hover{transform:translateY(-4px)}
+.vt-card.on{border-color:#e3101c;box-shadow:0 0 0 4px rgba(255,59,69,.25),0 40px 70px -40px rgba(255,40,55,.9)}
+.vt-plate{width:140px;height:140px;margin:0 auto 6px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,#ffffff 0 52%,#e9d3d5 53% 60%,#ffffff 61% 68%,#cdb8ba 69% 100%);box-shadow:0 20px 34px -18px rgba(0,0,0,.6);flex:none}
+.vt-plate svg{width:86px;height:86px}
+.vt-plate-lg{width:220px;height:220px}
+.vt-plate-lg svg{width:136px;height:136px}
+.vt-no{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#c40d18;line-height:1.4}
+.vt-card h3{margin:0;font-size:20px;font-weight:900;text-transform:uppercase;line-height:1.2;color:#2a0510}
+.vt-card p{margin:0;font-size:15px;line-height:1.5;color:#5a2a31;font-weight:600}
+.vt-pick{margin-top:auto;min-height:48px;border-radius:999px;border:2px solid #c40d18;background:#fff;color:#c40d18;font-family:inherit;font-size:16px;font-weight:900;cursor:pointer}
+.vt-pick:hover{background:#fff0f0}
+.vt-pick[aria-pressed=true]{background:#e3101c;color:#fff}
+.vt-pick:focus-visible{outline:3px solid #c40d18;outline-offset:3px}
+.vt-detail{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:36px;align-items:center;border-radius:30px;padding:36px;background:rgba(30,4,10,.88);border:1.5px solid rgba(255,90,100,.45);box-shadow:0 30px 80px -40px rgba(255,40,55,.8)}
+.vt-detail .ktitle{margin-top:8px}
+.vt-info{display:flex;flex-direction:column}
+@media (max-width:1000px){.vt-detail{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:left}.vt-info{width:100%}}
+@media (max-width:640px){.vt-card{flex-basis:78vw}.vt-detail{padding:24px 18px}.vt-plate-lg{width:170px;height:170px}.vt-plate-lg svg{width:108px;height:108px}.vt-nav{justify-content:center}}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -717,32 +743,17 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <section id="vu-tru">
 <div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
 <div class="rv center" style="display: flex; flex-direction: column; gap: 18px">
-<span class="tagx" style="align-self: center"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-star"></use></svg>13 hành tinh, 1 hệ thống</span>
-<h2 class="h2">Vũ trụ <em>marketing F&amp;B</em> của Atomix Foodlab</h2>
-<p class="lead">Mỗi hình thức là một hành tinh, xoay quanh quán anh chị trên 3 quỹ đạo. Rê chuột để dừng lại, bấm vào hành tinh để xem nó chữa “bệnh” gì.</p>
+<span class="tagx" style="align-self: center"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-star"></use></svg>13 món · 1 thực đơn</span>
+<h2 class="h2">Thực đơn <em>marketing F&amp;B</em> của Atomix Foodlab</h2>
+<p class="lead">Mỗi hoạt động là một món trong thực đơn. Vuốt ngang để xem, bấm “Chọn món” để biết quán anh chị nhận được gì.</p>
 </div>
-<div class="uniwrap">
-<div class="uni zm">
-<div class="rl r1"></div><div class="rl r2"></div><div class="rl r3"></div>
-<div class="core"><img src="assets/74e7b012970ff0255998845182cbed19.webp" alt="Atomix Foodlab"></div>
-<div class="spinr g1" id="ring1"></div>
-<div class="spinr g2" id="ring2"></div>
-<div class="spinr g3" id="ring3"></div>
+<div class="vt-nav">
+<button type="button" class="btn btn-ghost" id="vt-prev" aria-label="Món trước">‹ Món trước</button>
+<div class="vt-dots" id="vt-dots"></div>
+<button type="button" class="btn btn-red" id="vt-next" aria-label="Món tiếp theo">Món tiếp ›</button>
 </div>
-<div style="display: flex; flex-direction: column; gap: 18px">
-<div class="legend"><span class="lg"><i style="background: #e3101c"></i>Quỹ đạo 1 · Nền tảng</span><span class="lg"><i style="background: #f5b82e"></i>Quỹ đạo 2 · Kéo khách mới</span><span class="lg"><i style="background: #e9d3d5"></i>Quỹ đạo 3 · Giữ chân &amp; bùng nổ</span></div>
-<div class="kpanel">
-<span class="ktag" id="pk-tag"></span>
-<div style="display: flex; align-items: center; gap: 14px"><span class="vi" style="width: 56px; height: 56px; border-radius: 50%"><svg class="ico" style="width: 28px; height: 28px" aria-hidden="true"><use id="pk-icon" href="#i-pin"></use></svg></span><h3 class="ktitle" id="pk-name"></h3></div>
-<div class="kbox"><b>Atomix làm gì</b><span id="pk-what"></span></div>
-<div class="kbox"><b>Chữa nỗi đau</b><span id="pk-pain"></span></div>
-<div style="display: flex; gap: 10px">
-<button type="button" class="btn btn-ghost" id="prevP" style="flex: 1">Hành tinh trước</button>
-<button type="button" class="btn btn-red" id="nextP" style="flex: 1">Hành tinh tiếp</button>
-</div>
-</div>
-</div>
-</div>
+<div class="vt-track" id="vt-track"></div>
+<div class="vt-detail" id="vt-detail"></div>
 </div>
 </section>
 
@@ -907,27 +918,27 @@ const STAGES = [
   { name: 'Lâu năm mà đứng yên', short: 'Lâu năm', sym: 's-crown', quote: 'Khách quen vẫn tới, nhưng tụi trẻ chẳng biết quán tôi. Quán mới mở bên cạnh lại đông hơn.', helps: ['Làm mới hình ảnh, menu, không gian cho hợp gu khách trẻ', 'Phủ TikTok, KOC, toplist để kéo tệp khách mới', 'Sự kiện, khuyến mại, liên kết chéo tạo cớ cho khách ghé', 'Chuẩn hóa hệ thống để mở chi nhánh, nhượng quyền'], pkg: 'Set Thịnh vượng', price: 'từ 15 triệu/tháng', p: 2 },
   { name: 'Bếp online, bán qua app', short: 'Bếp online', sym: 's-box', quote: 'Đơn thì đều, mà chiết khấu app ăn hết lời. Số điện thoại khách tôi cũng không có.', helps: ['Ảnh món chuẩn app, lên hình là thấy thèm', 'Chăm gian hàng để quán dễ được thấy hơn trên app', 'Kênh đặt món trực tiếp qua Messenger, Zalo có chatbot menu', 'Chương trình khách thân thiết kéo đơn về kênh riêng'], pkg: 'Set may đo', price: 'báo giá theo quy mô bếp', p: 3 }
 ];
-const PLANETS = [
-  { ring: 1, name: 'Quay chụp media', icon: 'i-cam', what: 'Chụp món, không gian, khách thật; dựng video quảng cáo, TVC cho quán.', pain: 'Khách lướt qua vì quán thiếu hình ảnh, video đủ hấp dẫn.' },
-  { ring: 1, name: 'Nhận diện & POSM', icon: 'i-palette', what: 'Menu, banner, biển bảng, standee đồng bộ một bộ nhận diện.', pain: 'Quán không có điểm nhớ, menu khó đọc, biển hiệu khó thấy.' },
-  { ring: 1, name: 'Google Maps', icon: 'i-pin', what: 'Tối ưu Google Maps, tìm kiếm địa phương, quản lý và phản hồi đánh giá.', pain: 'Khách không biết quán nào ngon gần mình, quán không hiện khi khách tìm.' },
-  { ring: 1, name: 'Chatbot Messenger', icon: 'i-chat', what: 'Tự gửi menu, hình ảnh, xác nhận đặt bàn, nhắc lịch và chăm khách.', pain: 'Rep chậm, bỏ lỡ khách đặt bàn, hỏi menu vào giờ cao điểm.' },
-  { ring: 2, name: 'Quảng cáo FB, TikTok', icon: 'i-mega', what: 'Phủ quảng cáo trong bán kính quanh quán, đúng giờ khách đang đói.', pain: 'Không có kênh tiếp cận khách mới.' },
-  { ring: 2, name: 'Booking KOC', icon: 'i-star', what: 'Chọn KOC đúng tệp khách, review chân thật, có kịch bản.', pain: 'Khách mất thời gian chọn giữa quá nhiều quán và đánh giá.' },
-  { ring: 2, name: 'Booking toplist', icon: 'i-list', what: 'Đưa quán lên các trang, nhóm tổng hợp quán ngon theo khu vực.', pain: 'Khách tìm trong danh sách quán ngon mà không thấy tên quán mình.' },
-  { ring: 2, name: 'App giao đồ ăn', icon: 'i-app', what: 'Tối ưu gian hàng, ảnh món, chương trình trên các app giao đồ ăn.', pain: 'Đơn ship ít, quán khó được thấy trên app.' },
-  { ring: 2, name: 'Tờ rơi, offline', icon: 'i-flyer', what: 'Tờ rơi, phát món thử quanh văn phòng, trường học, khu dân cư.', pain: 'Người sống, làm việc quanh quán còn chưa biết quán mở.' },
-  { ring: 3, name: 'Chăm sóc khách', icon: 'i-gift', what: 'Voucher, tích điểm, quà sinh nhật, ưu đãi khi khách chia sẻ.', pain: 'Khách đến một lần rồi thôi, không biết ai là khách quen.' },
-  { ring: 3, name: 'Trade marketing', icon: 'i-event', what: 'Khuyến mại, sự kiện, cuộc thi, workshop tạo cớ cho khách ghé.', pain: 'Lúc đông lúc vắng, ngày thường không có lý do để khách tới.' },
-  { ring: 3, name: 'Liên kết chéo', icon: 'i-link', what: 'Hợp tác với cửa hàng, văn phòng, phòng gym quanh quán để chia sẻ khách.', pain: 'Chi phí kéo khách mới ngày càng cao.' },
-  { ring: 3, name: 'O2O', icon: 'i-sync', what: 'Nối online với offline: đặt trước nhận ưu đãi, quét mã tại bàn, check-in.', pain: 'Không biết khách thấy quảng cáo có thật sự tới quán không.' }
+const MENU = [
+  { name: 'Quay chụp media', ico: 's-cloche', ring: 1, desc: 'Quay chụp món ăn, địa điểm và khách hàng để làm video quảng cáo và TVC.', items: ['Món ăn, địa điểm, khách hàng', 'Video quảng cáo', 'Video TVC'], pain: 'Khách lướt qua vì quán thiếu hình ảnh, video đủ hấp dẫn.' },
+  { name: 'Local MKT · Google Maps', ico: 's-pin', ring: 1, desc: 'Tối ưu SEO Google Maps để khách tìm thấy quán, và thu thập, phản hồi feedback.', items: ['SEO Google Maps', 'Thu thập và phản hồi feedback'], pain: 'Khách không biết quán nào ngon gần mình, quán không hiện khi khách tìm.' },
+  { name: 'Messenger · Chatbot', ico: 's-chat', ring: 1, desc: 'Chatbot gửi menu và media, xác nhận đặt bàn, theo dõi khách và chăm sóc sau bữa ăn.', items: ['Chatbot menu, media', 'Xác nhận đặt bàn', 'Theo dõi khách', 'Chăm sóc khách hàng (CSKH)'], pain: 'Rep chậm, bỏ lỡ khách đặt bàn, hỏi menu vào giờ cao điểm.' },
+  { name: 'Xây dựng nhận diện POSM', ico: 's-tag', ring: 1, desc: 'Menu, banner, biển bảng, standee đồng bộ một bộ nhận diện rõ ràng.', items: ['Menu', 'Banner', 'Biển bảng', 'Standee'], pain: 'Quán không có điểm nhớ, menu khó đọc, biển hiệu khó thấy.' },
+  { name: 'Quảng cáo Facebook, TikTok', ico: 's-rocket', ring: 2, desc: 'Phủ quảng cáo trong bán kính quanh quán, đúng giờ khách đang đói.', items: ['Phủ quảng cáo Facebook', 'Phủ quảng cáo TikTok', 'Phủ theo bán kính quanh quán'], pain: 'Không có kênh tiếp cận khách mới.' },
+  { name: 'Booking toplist', ico: 's-medal', ring: 2, desc: 'Đưa quán lên các danh sách quán ngon theo khu vực mà khách hay tìm.', items: ['Đưa quán lên toplist theo khu vực'], pain: 'Khách tìm trong danh sách quán ngon mà không thấy tên quán mình.' },
+  { name: 'Booking KOC review', ico: 's-star', ring: 2, desc: 'Chọn KOC đúng tệp khách để review chân thật, có kịch bản rõ ràng.', items: ['Chọn KOC đúng tệp khách', 'Review chân thật theo kịch bản'], pain: 'Khách mất thời gian chọn giữa quá nhiều quán và đánh giá.' },
+  { name: 'App food', ico: 's-coin', ring: 2, desc: 'Tối ưu gian hàng, ảnh món và chương trình trên các app giao đồ ăn.', items: ['Tối ưu gian hàng', 'Ảnh món trên app', 'Chương trình trên app'], pain: 'Đơn ship ít, quán khó được thấy trên app.' },
+  { name: 'Offline · Tờ rơi', ico: 's-box', ring: 2, desc: 'Tờ rơi và phát món thử quanh văn phòng, trường học, khu dân cư.', items: ['Tờ rơi', 'Phát món thử quanh khu vực quán'], pain: 'Người sống, làm việc quanh quán còn chưa biết quán mở.' },
+  { name: 'CSKH · Voucher, tích điểm', ico: 's-gift', ring: 3, desc: 'Voucher, tích điểm, quà tặng và chia sẻ để khách quen quay lại đều đặn.', items: ['Voucher', 'Tích điểm', 'Quà tặng', 'Chia sẻ ưu đãi'], pain: 'Khách đến một lần rồi thôi, không biết ai là khách quen.' },
+  { name: 'Trade marketing', ico: 's-bell', ring: 3, desc: 'Khuyến mại, sự kiện ấn tượng, cuộc thi và workshop tạo lý do để khách ghé.', items: ['Khuyến mại', 'Sự kiện ấn tượng', 'Cuộc thi', 'Workshop'], pain: 'Lúc đông lúc vắng, ngày thường không có lý do để khách tới.' },
+  { name: 'Liên kết chéo', ico: 's-heart', ring: 3, desc: 'Hợp tác với cửa hàng, văn phòng, phòng gym quanh quán để chia sẻ khách.', items: ['Hợp tác cửa hàng, văn phòng, phòng gym quanh quán', 'Chia sẻ khách hàng'], pain: 'Chi phí kéo khách mới ngày càng cao.' },
+  { name: 'O2O · Online ↔ Offline', ico: 's-gio', ring: 3, desc: 'Nối online với offline: đặt trước nhận ưu đãi, quét mã tại bàn, check-in.', items: ['Đặt trước nhận ưu đãi', 'Quét mã tại bàn', 'Check-in'], pain: 'Không biết khách thấy quảng cáo có thật sự tới quán không.' },
 ];
 const RING_NAMES = ['', 'Quỹ đạo 1 · Nền tảng', 'Quỹ đạo 2 · Kéo khách mới', 'Quỹ đạo 3 · Giữ chân & bùng nổ'];
 const RB = [0.40, 0.40, 0.60, 1.00, 0.10];
 const RA = [0.75, 0.50, 0.90, 1.15, 0.30];
 
 const SHEET_ENDPOINT = ''; // Dán URL Web app của Apps Script vào đây (xem README.md)
-const state = { stg: 1, pk: 2, chk: PAINS.map(() => false), S: 1000, bill: 150 };
+const state = { stg: 1, pk: 0, chk: PAINS.map(() => false), S: 1000, bill: 150 };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const nf = (x) => Math.round(x).toLocaleString('vi-VN');
@@ -986,21 +997,26 @@ function renderStage() {
   $('st-helps').innerHTML = st.helps.map((h) => `<li><svg aria-hidden="true"><use href="#tick"></use></svg><span>${esc(h)}</span></li>`).join('');
 }
 
-function renderRings() {
-  [1, 2, 3].forEach((ringNo) => {
-    const items = PLANETS.map((p, i) => ({ p, i })).filter((x) => x.p.ring === ringNo);
-    const off = ringNo === 1 ? -90 : ringNo === 2 ? -54 : -45;
-    $('ring' + ringNo).innerHTML = items.map((x, j) => {
-      const on = x.i === state.pk;
-      return `<div class="pp" style="--a: ${Math.round(off + j * 360 / items.length)}deg"><button type="button" class="pl${on ? ' on' : ''}" aria-pressed="${on}" data-pk="${x.i}"><span class="pb"><svg class="ico" aria-hidden="true"><use href="#${x.p.icon}"></use></svg></span><span class="pn">${esc(x.p.name)}</span></button></div>`;
-    }).join('');
+let menuSel = 0;
+function renderMenu() {
+  $('vt-track').innerHTML = MENU.map((m, i) => `<article class="vt-card" data-i="${i}"><div class="vt-plate"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#${m.ico}"></use></svg></div><span class="vt-no">Món ${String(i + 1).padStart(2, '0')} · ${esc(RING_NAMES[m.ring])}</span><h3>${esc(m.name)}</h3><p>${esc(m.desc)}</p><button type="button" class="vt-pick" data-i="${i}" aria-pressed="false">Chọn món</button></article>`).join('');
+  $('vt-dots').innerHTML = MENU.map((m, i) => `<button type="button" class="vt-dot" data-i="${i}" aria-label="Món ${i + 1}: ${esc(m.name)}"></button>`).join('');
+  selectItem(state.pk);
+}
+
+function selectItem(i, scroll) {
+  state.pk = i;
+  document.querySelectorAll('.vt-card').forEach((c, j) => {
+    const on = j === i;
+    const btn = c.querySelector('.vt-pick');
+    c.classList.toggle('on', on);
+    btn.setAttribute('aria-pressed', String(on));
+    btn.textContent = on ? 'Đang chọn' : 'Chọn món';
   });
-  const pk = PLANETS[state.pk];
-  $('pk-tag').textContent = RING_NAMES[pk.ring] + ' · Hành tinh ' + (state.pk + 1) + '/13';
-  $('pk-icon').setAttribute('href', '#' + pk.icon);
-  $('pk-name').textContent = pk.name;
-  $('pk-what').textContent = pk.what;
-  $('pk-pain').textContent = pk.pain;
+  document.querySelectorAll('.vt-dot').forEach((d, j) => d.setAttribute('aria-current', String(j === i)));
+  const m = MENU[i];
+  $('vt-detail').innerHTML = `<div class="vt-plate vt-plate-lg"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#${m.ico}"></use></svg></div><div class="vt-info"><span class="ktag">Món ${String(i + 1).padStart(2, '0')}/13 · ${esc(RING_NAMES[m.ring])}</span><h3 class="ktitle">${esc(m.name)}</h3><p class="lead" style="margin-top: 10px">${esc(m.desc)}</p><ul class="tlist" style="margin-top: 16px">${m.items.map((it) => `<li><svg aria-hidden="true"><use href="#tick"></use></svg>${esc(it)}</li>`).join('')}</ul><div class="kbox" style="margin-top: 16px"><b>Chữa nỗi đau</b>${esc(m.pain)}</div><a class="btn btn-red" href="#dang-ky" style="margin-top: 20px">Đặt món này cho quán</a></div>`;
+  if (scroll) document.querySelectorAll('.vt-card')[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 }
 
 function renderCompare() {
@@ -1071,14 +1087,16 @@ $('cloches').addEventListener('click', (e) => {
   state.stg = Number(b.dataset.stg);
   renderStage();
 });
-document.querySelector('.uni').addEventListener('click', (e) => {
-  const b = e.target.closest('[data-pk]');
-  if (!b) return;
-  state.pk = Number(b.dataset.pk);
-  renderRings();
+$('vt-track').addEventListener('click', (e) => {
+  const c = e.target.closest('.vt-card');
+  if (c) selectItem(Number(c.dataset.i));
 });
-$('prevP').addEventListener('click', () => { state.pk = (state.pk + PLANETS.length - 1) % PLANETS.length; renderRings(); });
-$('nextP').addEventListener('click', () => { state.pk = (state.pk + 1) % PLANETS.length; renderRings(); });
+$('vt-dots').addEventListener('click', (e) => {
+  const d = e.target.closest('.vt-dot');
+  if (d) selectItem(Number(d.dataset.i), true);
+});
+$('vt-prev').addEventListener('click', () => selectItem((state.pk + MENU.length - 1) % MENU.length, true));
+$('vt-next').addEventListener('click', () => selectItem((state.pk + 1) % MENU.length, true));
 $('sRange').addEventListener('input', (e) => { state.S = Number(e.target.value); renderCompare(); });
 $('bRange').addEventListener('input', (e) => { state.bill = Number(e.target.value); renderCompare(); });
 $('st-book').addEventListener('click', () => {
@@ -1097,7 +1115,7 @@ $('f-pkg').value = PKG[1];
 renderPains();
 renderPot();
 renderStage();
-renderRings();
+renderMenu();
 renderCompare();
 </script>
 </body>
