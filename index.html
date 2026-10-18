@@ -361,27 +361,88 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 .strip{margin:-10px -20px 0}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}html{scroll-behavior:auto}.steam,.bub,.drip,.pop,.wave{opacity:.8}.toss{opacity:1}}
-/* THỰC ĐƠN MARKETING: 2 hàng tự chạy */
-.vt-marquee{display:flex;flex-direction:column;gap:26px;margin:0 -32px;padding:12px 0 22px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.vt-row{overflow:hidden}
-.vt-track{display:flex;width:max-content;animation:vt-scroll 90s linear infinite}
-.vt-track.vt-rev{animation-direction:reverse;animation-duration:105s}
-.vt-marquee:hover .vt-track,.vt-marquee:focus-within .vt-track{animation-play-state:paused}
+/* THỰC ĐƠN MARKETING: 2 hàng tự chạy, kéo được */
+.vt-hint{display:inline-flex;align-items:center;gap:10px;align-self:center;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.06);border:1px dashed rgba(255,140,145,.4);font-size:14px;font-weight:800;color:#ffd0d3}
+.vt-hint svg{width:22px;height:22px;animation:vtNudge 1.8s ease-in-out infinite}
+@keyframes vtNudge{0%,100%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+.vt-marquee{display:flex;flex-direction:column;gap:26px;margin:0 -32px;padding:14px 0 22px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.vt-row{overflow:hidden;padding:10px 0 14px;cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.vt-row.is-drag{cursor:grabbing}
+.vt-track{display:flex;width:max-content;will-change:transform}
 .vt-group{display:flex}
-@keyframes vt-scroll{to{transform:translateX(-50%)}}
-.vt-card{flex:none;width:300px;margin-right:22px;border-radius:28px;padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;background:linear-gradient(170deg,rgba(70,6,16,.94),rgba(22,2,10,.97));border:1px solid rgba(255,140,145,.28);box-shadow:0 30px 60px -36px rgba(255,40,55,.8)}
-.vt-art{position:relative;height:200px;border-radius:22px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at 50% 42%,rgba(255,96,104,.42),rgba(90,4,12,.25) 55%,transparent 75%),linear-gradient(180deg,#2a0510,#14020a)}
-.vt-art svg{width:184px;height:184px;transition:transform .45s ease}
-.vt-card:hover .vt-art svg{transform:scale(1.07) rotate(-2deg)}
+.vt-card{position:relative;flex:none;width:300px;margin-right:22px;border-radius:28px;padding:14px 14px 18px;display:flex;flex-direction:column;gap:8px;background:linear-gradient(170deg,rgba(78,8,18,.95),rgba(22,2,10,.97));border:1px solid rgba(255,140,145,.28);box-shadow:0 30px 60px -36px rgba(255,40,55,.8);transition:transform .4s cubic-bezier(.3,1.5,.5,1),border-color .3s ease,box-shadow .3s ease}
+.vt-card:hover{transform:translateY(-8px);border-color:#ff3b45;box-shadow:0 0 0 3px rgba(255,59,69,.2),0 40px 70px -30px rgba(255,40,55,.95)}
+.vt-art{position:relative;height:206px;border-radius:22px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(180deg,#30060f,#14020a)}
+.vt-art::before{content:'';position:absolute;inset:-20%;background:radial-gradient(circle at 50% 48%,rgba(255,90,100,.5),rgba(255,90,100,0) 58%);animation:vtGlow 4s ease-in-out infinite}
+.vt-art::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%);transform:translateX(-120%);transition:transform .9s ease;pointer-events:none}
+.vt-card:hover .vt-art::after{transform:translateX(120%)}
+@keyframes vtGlow{0%,100%{transform:scale(.85);opacity:.6}50%{transform:scale(1.1);opacity:1}}
+.vt-art svg{position:relative;z-index:1;width:188px;height:188px;overflow:visible;transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+.vt-card:hover .vt-art svg{transform:scale(1.08) rotate(-2deg)}
+.vt-tag{position:absolute;left:12px;top:12px;z-index:2;min-width:42px;height:42px;padding:0 8px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:#ffffff;color:#b30c16;font-size:15px;font-weight:900;box-shadow:0 8px 18px -8px rgba(0,0,0,.8)}
 .vt-no{font-size:11.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#ff9ea3;margin-top:6px}
 .vt-card h3{margin:0;font-size:19px;font-weight:900;text-transform:uppercase;line-height:1.2;color:#fff}
 .vt-card p{margin:0;font-size:14.5px;line-height:1.5;color:#ecc4c7}
 .vt-foot{display:flex;justify-content:flex-end;margin-top:auto;padding-top:12px;border-top:1.5px dotted rgba(255,140,145,.35)}
-.vt-pick{min-height:44px;padding:0 20px;border-radius:999px;border:0;background:#e3101c;color:#fff;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 10px 22px -10px rgba(255,40,55,.9);transition:background .2s ease}
-.vt-pick:hover{background:#ff2834}
+.vt-pick{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px 0 10px;border-radius:999px;border:0;background:#e3101c;color:#fff;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 10px 22px -10px rgba(255,40,55,.9);transition:background .2s ease,transform .2s ease}
+.vt-pick:hover{background:#ff2834;transform:scale(1.04)}
 .vt-pick:focus-visible{outline:3px solid #ffd0d3;outline-offset:3px}
-@media (max-width:640px){.vt-marquee{margin:0 -18px}.vt-card{width:264px}.vt-art{height:170px}.vt-art svg{width:156px;height:156px}}
-@media (prefers-reduced-motion:reduce){.vt-track{animation:none}.vt-row{overflow-x:auto}}
+.vt-plus{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.24);font-size:19px;line-height:1;transition:transform .3s ease}
+.vt-pick:hover .vt-plus{transform:rotate(90deg)}
+/* chuyển động trong minh hoạ */
+.vt-art .vt-bob{animation:vtBob 3.2s ease-in-out infinite}
+.vt-art .vt-blink{animation:vtBlink 1.2s steps(2,start) infinite}
+.vt-art .vt-spin{transform-box:view-box;animation:vtSpin 3s linear infinite}
+.vt-art .vt-steam{opacity:0;animation:vtSteam 2.6s ease-in-out infinite}
+.vt-art .vt-drop{animation:vtDrop 2.4s cubic-bezier(.3,.7,.4,1) infinite}
+.vt-art .vt-ping{transform-box:fill-box;transform-origin:center;animation:vtPing 2.4s ease-out infinite}
+.vt-art .vt-drive{animation:vtDrive 5s linear infinite}
+.vt-art .vt-wave{animation:vtWave 1.6s ease-in-out infinite}
+.vt-art .vt-pop{transform-box:fill-box;transform-origin:center;animation:vtPop 2s ease-in-out infinite}
+.vt-art .vt-float{opacity:0;animation:vtFloat 3s ease-out infinite}
+.vt-art .vt-msg{opacity:0;animation:vtMsg 4.8s ease-out infinite}
+.vt-art .vt-type{animation:vtType 1s ease-in-out infinite}
+.vt-art .vt-bounce{transform-box:fill-box;transform-origin:50% 100%;animation:vtBounce 2.2s ease-in-out infinite}
+.vt-art .vt-swing{transform-box:fill-box;transform-origin:50% 0;animation:vtSwing 2.8s ease-in-out infinite}
+.vt-art .vt-twinkle{transform-box:fill-box;transform-origin:center;animation:vtTwinkle 1.8s ease-in-out infinite}
+.vt-art .vt-in{opacity:0;animation:vtIn 4.2s ease-out infinite}
+.vt-art .vt-tilt{transform-box:fill-box;transform-origin:center;animation:vtTilt 3.4s ease-in-out infinite}
+.vt-art .vt-flip{transform-box:fill-box;transform-origin:center;animation:vtFlip 2.8s ease-in-out infinite}
+.vt-art .vt-flag{transform-box:fill-box;transform-origin:50% 0;animation:vtFlag 1.6s ease-in-out infinite}
+.vt-art .vt-fall{transform-box:fill-box;transform-origin:center;opacity:0;animation:vtFall 3s linear infinite}
+.vt-art .vt-pulse{transform-box:fill-box;transform-origin:center;animation:vtPulse 1.8s ease-in-out infinite}
+.vt-art .vt-fly{transform-box:fill-box;transform-origin:center;animation:vtFly 3.6s ease-in-out infinite}
+.vt-art .vt-speed{animation:vtSpeed .9s linear infinite}
+.vt-art .vt-walk{opacity:0;animation:vtWalk 3.4s ease-in-out infinite}
+.vt-art .vt-back{animation-direction:reverse}
+.vt-art .vt-flow{stroke-dasharray:12 8;animation:vtFlow 1s linear infinite}
+.vt-art .d2{animation-delay:.3s}.vt-art .d3{animation-delay:.6s}.vt-art .d4{animation-delay:.9s}.vt-art .d5{animation-delay:1.2s}.vt-art .d6{animation-delay:1.5s}
+@keyframes vtBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes vtBlink{to{opacity:.15}}
+@keyframes vtSpin{to{transform:rotate(360deg)}}
+@keyframes vtSteam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-18px)}}
+@keyframes vtDrop{0%,60%,100%{transform:translateY(0)}20%{transform:translateY(-14px)}40%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes vtPing{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(2.2)}}
+@keyframes vtDrive{from{transform:translateX(0)}to{transform:translateX(130px)}}
+@keyframes vtWave{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes vtPop{0%,100%{transform:scale(1)}50%{transform:scale(1.16)}}
+@keyframes vtFloat{0%{opacity:0;transform:translateY(16px)}25%{opacity:1}100%{opacity:0;transform:translateY(-24px)}}
+@keyframes vtMsg{0%{opacity:0;transform:translateY(8px)}10%,80%{opacity:1;transform:none}92%,100%{opacity:0}}
+@keyframes vtType{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes vtBounce{0%,60%,100%{transform:none}70%{transform:translateY(-9px) scaleY(1.05)}80%{transform:scaleY(.94)}}
+@keyframes vtSwing{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@keyframes vtTwinkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.65}}
+@keyframes vtIn{0%{opacity:0;transform:translateX(-14px)}12%,85%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes vtTilt{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes vtFlip{0%,100%{transform:scaleX(1)}50%{transform:scaleX(-1)}}
+@keyframes vtFlag{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+@keyframes vtFall{0%{opacity:0;transform:translateY(-30px) rotate(0)}15%{opacity:1}100%{opacity:0;transform:translateY(64px) rotate(240deg)}}
+@keyframes vtPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes vtFly{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-9px) rotate(-4deg)}}
+@keyframes vtSpeed{0%{opacity:0;transform:translateX(16px)}30%{opacity:1}100%{opacity:0;transform:translateX(-16px)}}
+@keyframes vtWalk{0%{opacity:0;transform:translateX(0)}15%,85%{opacity:1}100%{opacity:0;transform:translateX(72px)}}
+@keyframes vtFlow{to{stroke-dashoffset:-20}}
+@media (max-width:640px){.vt-marquee{margin:0 -18px}.vt-card{width:266px}.vt-art{height:178px}.vt-art svg{width:162px;height:162px}}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -462,175 +523,6 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <symbol id="i-chart" viewBox="0 0 24 24"><g class="ico"><path d="M5 20V11M11 20V5M17 20v-6M3 20h18"></path></g></symbol>
 <symbol id="i-receipt" viewBox="0 0 24 24"><g class="ico"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6"></path></g></symbol>
 <symbol id="i-shield" viewBox="0 0 24 24"><g class="ico"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></g></symbol>
-<symbol id="vt-1" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<rect x="40" y="44" width="104" height="70" rx="14" fill="url(#gRed)"/>
-<rect x="40" y="44" width="104" height="18" rx="9" fill="#ffffff" fill-opacity=".22"/>
-<rect x="62" y="26" width="42" height="22" rx="7" fill="url(#gWhite)"/>
-<path d="M144 66 L178 48 L178 112 L144 94 Z" fill="url(#gSteel)"/>
-<circle cx="90" cy="80" r="23" fill="#1a0309"/>
-<circle cx="90" cy="80" r="16" fill="url(#gTeal)"/>
-<ellipse cx="84" cy="73" rx="5" ry="3" fill="#ffffff" fill-opacity=".85" transform="rotate(-30 84 73)"/>
-<circle cx="126" cy="60" r="4.5" fill="#ff3b45"/>
-<ellipse cx="100" cy="150" rx="62" ry="14" fill="url(#gWhite)"/>
-<path d="M58 148 Q100 100 142 148 Z" fill="url(#gSoup)"/>
-<ellipse cx="92" cy="138" rx="12" ry="4" fill="#3c8d4a" transform="rotate(-12 92 138)"/>
-<circle cx="112" cy="134" r="4" fill="#e3101c"/>
-</symbol>
-
-<symbol id="vt-2" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<rect x="28" y="30" width="144" height="128" rx="18" fill="#f4ebe2"/>
-<path d="M28 92 H172 M28 124 H172 M72 30 V158 M130 30 V158" stroke="#ffffff" stroke-width="9"/>
-<rect x="82" y="98" width="40" height="24" rx="6" fill="#b9dfa4"/>
-<path d="M100 146 C100 146 64 106 64 80 A36 36 0 0 1 136 80 C136 106 100 146 100 146Z" fill="#4a030a" transform="translate(4 5)"/>
-<path d="M100 146 C100 146 64 106 64 80 A36 36 0 0 1 136 80 C136 106 100 146 100 146Z" fill="url(#gPin)"/>
-<circle cx="100" cy="80" r="15" fill="#fffaf9"/>
-<path d="M100 71 L103.5 78 L111 79 L105.5 84 L107 91.5 L100 88 L93 91.5 L94.5 84 L89 79 L96.5 78Z" fill="#f5b82e"/>
-<rect x="36" y="160" width="128" height="22" rx="11" fill="#ffffff"/>
-<text x="100" y="175" text-anchor="middle" font-size="12" font-weight="900" fill="#c40d18">★ 4.9 · Google Maps</text>
-</symbol>
-
-<symbol id="vt-3" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<path d="M40 86 Q30 100 40 114 M28 76 Q12 100 28 124 M160 86 Q170 100 160 114 M172 76 Q188 100 172 124" stroke="url(#gRed)" stroke-width="6" fill="none" stroke-linecap="round"/>
-<rect x="62" y="22" width="76" height="146" rx="18" fill="url(#gSteel)"/>
-<rect x="70" y="38" width="60" height="114" rx="8" fill="#ffffff"/>
-<rect x="70" y="38" width="60" height="60" rx="8" fill="url(#gSoup)"/>
-<circle cx="100" cy="68" r="14" fill="#e3101c"/>
-<path d="M96 60 L107 68 L96 76Z" fill="#ffffff"/>
-<rect x="78" y="110" width="44" height="6" rx="3" fill="#e9d3d5"/>
-<rect x="78" y="122" width="30" height="6" rx="3" fill="#e9d3d5"/>
-<rect x="78" y="136" width="44" height="9" rx="4.5" fill="url(#gRed)"/>
-<path d="M152 62 C142 54 134 48 134 40 A9 9 0 0 1 152 36 A9 9 0 0 1 170 40 C170 48 162 54 152 62Z" fill="url(#gRed)"/>
-</symbol>
-
-<symbol id="vt-4" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<rect x="54" y="22" width="84" height="152" rx="18" fill="url(#gSteel)"/>
-<rect x="62" y="38" width="68" height="120" rx="8" fill="#fff6f5"/>
-<rect x="68" y="46" width="36" height="18" rx="9" fill="#e9d3d5"/>
-<rect x="84" y="72" width="40" height="20" rx="10" fill="url(#gRed)"/>
-<path d="M96 82 L101 87 L110 77" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<rect x="68" y="100" width="34" height="16" rx="8" fill="#e9d3d5"/>
-<rect x="76" y="124" width="48" height="22" rx="11" fill="url(#gGold)"/>
-<circle cx="150" cy="56" r="22" fill="url(#gPin)"/>
-<path d="M140 52 H160 M140 60 H152" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
-</symbol>
-
-<symbol id="vt-5" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<rect x="36" y="46" width="124" height="128" rx="14" fill="url(#gWhite)"/>
-<rect x="36" y="46" width="124" height="30" rx="14" fill="url(#gRed)"/>
-<circle cx="58" cy="92" r="10" fill="url(#gGold)"/>
-<rect x="76" y="86" width="72" height="12" rx="6" fill="#d9c2c4"/>
-<circle cx="58" cy="122" r="10" fill="#cfd3d8"/>
-<rect x="76" y="116" width="58" height="12" rx="6" fill="#d9c2c4"/>
-<circle cx="58" cy="152" r="10" fill="#c98a4f"/>
-<rect x="76" y="146" width="66" height="12" rx="6" fill="#d9c2c4"/>
-<circle cx="154" cy="40" r="24" fill="url(#gGold)" stroke="#9a5f06" stroke-width="3"/>
-<path d="M154 28 L157.5 36 L166 37 L159.5 42.5 L161.5 51 L154 46.5 L146.5 51 L148.5 42.5 L142 37 L150.5 36Z" fill="#ffffff"/>
-</symbol>
-
-<symbol id="vt-6" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<rect x="54" y="20" width="92" height="152" rx="18" fill="url(#gSteel)"/>
-<rect x="62" y="36" width="76" height="120" rx="8" fill="#fff6f5"/>
-<circle cx="100" cy="72" r="19" fill="#f2c4a0"/>
-<path d="M68 128 Q100 90 132 128 L132 136 L68 136Z" fill="url(#gRed)"/>
-<circle cx="93" cy="70" r="2.5" fill="#2a0510"/><circle cx="107" cy="70" r="2.5" fill="#2a0510"/>
-<path d="M93 80 Q100 86 107 80" stroke="#8a0812" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-<path d="M0 -8 L2.4 -2.5 L8 -2 L3.8 1.8 L5 7.5 L0 4.5 L-5 7.5 L-3.8 1.8 L-8 -2 L-2.4 -2.5Z" transform="translate(76 142) scale(.9)" fill="#f5b82e"/>
-<path d="M0 -8 L2.4 -2.5 L8 -2 L3.8 1.8 L5 7.5 L0 4.5 L-5 7.5 L-3.8 1.8 L-8 -2 L-2.4 -2.5Z" transform="translate(89 142) scale(.9)" fill="#f5b82e"/>
-<path d="M0 -8 L2.4 -2.5 L8 -2 L3.8 1.8 L5 7.5 L0 4.5 L-5 7.5 L-3.8 1.8 L-8 -2 L-2.4 -2.5Z" transform="translate(102 142) scale(.9)" fill="#f5b82e"/>
-<path d="M0 -8 L2.4 -2.5 L8 -2 L3.8 1.8 L5 7.5 L0 4.5 L-5 7.5 L-3.8 1.8 L-8 -2 L-2.4 -2.5Z" transform="translate(115 142) scale(.9)" fill="#f5b82e"/>
-<path d="M0 -8 L2.4 -2.5 L8 -2 L3.8 1.8 L5 7.5 L0 4.5 L-5 7.5 L-3.8 1.8 L-8 -2 L-2.4 -2.5Z" transform="translate(128 142) scale(.9)" fill="#f5b82e"/>
-<rect x="14" y="44" width="50" height="26" rx="13" fill="url(#gRed)"/>
-<text x="39" y="61" text-anchor="middle" font-size="11" font-weight="900" fill="#ffffff">Ngon xỉu!</text>
-</symbol>
-
-<symbol id="vt-7" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<path d="M24 62 H176 V90 Q162 90 162 104 Q162 118 176 118 V146 H24 V118 Q38 118 38 104 Q38 90 24 90 Z" fill="url(#gRed)"/>
-<path d="M120 72 V136" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="5 5" opacity=".6"/>
-<text x="70" y="108" text-anchor="middle" font-size="17" font-weight="900" fill="#ffffff">GIẢM 20%</text>
-<rect x="110" y="122" width="66" height="50" rx="6" fill="url(#gWhite)"/>
-<rect x="136" y="122" width="16" height="50" fill="url(#gGold)"/>
-<ellipse cx="138" cy="118" rx="11" ry="7" fill="url(#gGold)"/>
-<ellipse cx="152" cy="118" rx="11" ry="7" fill="url(#gGold)"/>
-<circle cx="40" cy="36" r="26" fill="url(#gGold)" stroke="#9a5f06" stroke-width="3"/>
-<path d="M0 -8 L2.4 -2.5 L8 -2 L3.8 1.8 L5 7.5 L0 4.5 L-5 7.5 L-3.8 1.8 L-8 -2 L-2.4 -2.5Z" transform="translate(40 36) scale(2.1)" fill="#fff6d0"/>
-</symbol>
-
-<symbol id="vt-8" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<path d="M60 160 L100 54 L140 160 Z" fill="url(#gRed)"/>
-<rect x="78" y="88" width="44" height="54" rx="4" fill="#fffaf9"/>
-<circle cx="100" cy="112" r="12" fill="url(#gSoup)"/>
-<rect x="84" y="130" width="32" height="4" rx="2" fill="#e9d3d5"/>
-<rect x="84" y="138" width="22" height="4" rx="2" fill="#e9d3d5"/>
-<path d="M60 160 L44 178 M140 160 L156 178" stroke="url(#gSteel)" stroke-width="6" stroke-linecap="round"/>
-<rect x="110" y="24" width="78" height="36" rx="7" fill="url(#gGold)"/>
-<text x="149" y="48" text-anchor="middle" font-size="15" font-weight="900" fill="#6e0610">MENU</text>
-</symbol>
-
-<symbol id="vt-9" viewBox="0 0 200 200">
-<path d="M14 40 Q100 72 186 40" stroke="#6e0610" stroke-width="2.5" fill="none"/>
-<polygon points="22,46 38,46 30,64" fill="url(#gRed)"/>
-<polygon points="52,52 68,52 60,70" fill="url(#gGold)"/>
-<polygon points="82,58 98,58 90,76" fill="url(#gWhite)"/>
-<polygon points="112,58 128,58 120,76" fill="url(#gRed)"/>
-<polygon points="142,52 158,52 150,70" fill="url(#gGold)"/>
-<polygon points="172,46 188,46 180,64" fill="url(#gWhite)"/>
-<ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<circle cx="100" cy="122" r="44" fill="url(#gGold)" stroke="#9a5f06" stroke-width="4"/>
-<text x="100" y="142" text-anchor="middle" font-size="52" font-weight="900" fill="#6e0610">%</text>
-<circle cx="36" cy="104" r="5" fill="#e3101c"/><circle cx="168" cy="98" r="5" fill="#f5b82e"/>
-<circle cx="50" cy="164" r="4" fill="#f5b82e"/><circle cx="156" cy="166" r="5" fill="#e3101c"/>
-</symbol>
-
-<symbol id="vt-10" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<rect x="44" y="60" width="92" height="120" rx="6" fill="#e9d3d5" transform="rotate(-10 90 120)"/>
-<rect x="56" y="48" width="92" height="120" rx="6" fill="#fffaf9" transform="rotate(6 102 108)"/>
-<rect x="64" y="36" width="92" height="120" rx="6" fill="#ffffff" stroke="#e9d3d5" stroke-width="2"/>
-<rect x="64" y="36" width="92" height="38" rx="6" fill="url(#gRed)"/>
-<rect x="74" y="84" width="72" height="5" rx="2.5" fill="#d9c2c4"/>
-<rect x="74" y="95" width="60" height="5" rx="2.5" fill="#d9c2c4"/>
-<rect x="74" y="106" width="66" height="5" rx="2.5" fill="#d9c2c4"/>
-<circle cx="110" cy="138" r="18" fill="url(#gSoup)"/>
-<path d="M92 136 Q110 112 128 136" stroke="#ffffff" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/>
-</symbol>
-
-<symbol id="vt-11" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<path d="M80 80 Q80 46 100 46 Q120 46 120 80" stroke="#a86a2c" stroke-width="6" fill="none"/>
-<path d="M56 80 H144 L152 178 H48 Z" fill="url(#gWood)"/>
-<rect x="70" y="112" width="60" height="32" rx="6" fill="url(#gRed)"/>
-<text x="100" y="133" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff">FOOD</text>
-<rect x="124" y="20" width="52" height="88" rx="10" fill="url(#gSteel)"/>
-<rect x="130" y="30" width="40" height="68" rx="5" fill="#ffffff"/>
-<path d="M0 -8 L2.4 -2.5 L8 -2 L3.8 1.8 L5 7.5 L0 4.5 L-5 7.5 L-3.8 1.8 L-8 -2 L-2.4 -2.5Z" transform="translate(150 62) scale(1.5)" fill="url(#gGold)"/>
-</symbol>
-
-<symbol id="vt-12" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<rect x="18" y="80" width="68" height="90" rx="6" fill="#fff6f5"/>
-<path d="M12 80 H92 L86 60 H18 Z" fill="url(#gRed)"/>
-<path d="M30 60 L24 80 M48 60 L42 80 M66 60 L60 80" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/>
-<rect x="50" y="118" width="18" height="52" rx="3" fill="url(#gSteel)"/>
-<rect x="114" y="80" width="68" height="90" rx="6" fill="#fff6f5"/>
-<path d="M108 80 H188 L182 60 H114 Z" fill="url(#gGold)"/>
-<path d="M126 60 L120 80 M144 60 L138 80 M162 60 L156 80" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/>
-<rect x="132" y="118" width="18" height="52" rx="3" fill="url(#gSteel)"/>
-<ellipse cx="94" cy="104" rx="14" ry="9" fill="none" stroke="url(#gRed)" stroke-width="6"/>
-<ellipse cx="106" cy="104" rx="14" ry="9" fill="none" stroke="#9a5f06" stroke-width="6"/>
-</symbol>
-
-<symbol id="vt-13" viewBox="0 0 200 200"><ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>
-<rect x="20" y="38" width="58" height="116" rx="12" fill="url(#gSteel)"/>
-<rect x="27" y="52" width="44" height="88" rx="5" fill="#ffffff"/>
-<rect x="33" y="62" width="32" height="10" rx="5" fill="#e9d3d5"/>
-<rect x="33" y="78" width="24" height="10" rx="5" fill="#e9d3d5"/>
-<rect x="33" y="120" width="32" height="12" rx="6" fill="url(#gRed)"/>
-<path d="M88 96 C100 68 122 68 128 90" stroke="url(#gRed)" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M120 84 L131 90 L124 99Z" fill="url(#gRed)"/>
-<path d="M128 118 C116 146 94 146 86 124" stroke="url(#gGold)" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M92 118 L84 124 L92 132Z" fill="url(#gGold)"/>
-<path d="M118 84 H182 L176 64 H124 Z" fill="url(#gRed)"/>
-<rect x="122" y="84" width="58" height="86" rx="4" fill="#fff6f5"/>
-<rect x="130" y="100" width="18" height="18" rx="3" fill="url(#gTeal)"/>
-<rect x="152" y="118" width="18" height="52" rx="3" fill="url(#gSteel)"/>
-</symbol>
 </defs>
 </svg>
 
@@ -909,7 +801,8 @@ header .btn-red{min-height:42px!important;font-size:14px!important;padding:0 16p
 <div class="rv center" style="display: flex; flex-direction: column; gap: 18px">
 <span class="tagx" style="align-self: center"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-star"></use></svg>13 món · 1 thực đơn</span>
 <h2 class="h2">Thực đơn <em>marketing F&amp;B</em> của Atomix Foodlab</h2>
-<p class="lead">Mỗi hoạt động là một món trong thực đơn. Rê chuột vào để dừng, bấm “Chọn món” để chúng tôi tư vấn đúng hoạt động đó.</p>
+<p class="lead">Mỗi hoạt động là một món trong thực đơn. Thực đơn tự chạy; giữ chuột và kéo ngang, hoặc vuốt trên điện thoại để xem nhanh. Bấm “Chọn món” để chúng tôi tư vấn đúng hoạt động đó.</p>
+<span class="vt-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M11 11.5v-2a1.5 1.5 0 0 1 3 0V12"/><path d="M14 10.5a1.5 1.5 0 0 1 3 0V12"/><path d="M17 11.5a1.5 1.5 0 0 1 3 0V16a6 6 0 0 1-6 6h-2a6 6 0 0 1-5-2.7L4.3 15a1.5 1.5 0 0 1 2.4-1.8L8 15"/><path d="M2 4h4M18 4h4"/></svg>Giữ và kéo ngang để xem nhanh</span>
 </div>
 <div class="vt-marquee" id="vt-marquee">
 <div class="vt-row"><div class="vt-track" id="vt-row1"></div></div>
@@ -1158,16 +1051,283 @@ function renderStage() {
   $('st-helps').innerHTML = st.helps.map((h) => `<li><svg aria-hidden="true"><use href="#tick"></use></svg><span>${esc(h)}</span></li>`).join('');
 }
 
+const STAR = 'M0 -8 L2.4 -2.5 L8 -2 L3.8 1.8 L5 7.5 L0 4.5 L-5 7.5 L-3.8 1.8 L-8 -2 L-2.4 -2.5Z';
+const SPARK = 'M0 -7 L1.6 -1.6 L7 0 L1.6 1.6 L0 7 L-1.6 1.6 L-7 0 L-1.6 -1.6Z';
+const SH = '<ellipse cx="100" cy="186" rx="66" ry="8" fill="#000" fill-opacity=".35"/>';
+const heart = (x, y, s) => `<path d="M0 10 C-6 5 -11 2 -11 -3 A5.5 5.5 0 0 1 0 -6 A5.5 5.5 0 0 1 11 -3 C11 2 6 5 0 10Z" transform="translate(${x} ${y}) scale(${s})" fill="url(#gRed)"/>`;
+// Minh hoạ từng món: vẽ inline để chuyển động CSS chạy ổn định trên mọi trình duyệt.
+const ART = {
+  'vt-1': `${SH}
+<g class="vt-steam"><path d="M58 128 C52 120 64 114 58 106" stroke="#ffe0e2" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+<g class="vt-steam d4"><path d="M142 128 C136 120 148 114 142 106" stroke="#ffe0e2" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+<ellipse cx="100" cy="150" rx="62" ry="14" fill="url(#gWhite)"/>
+<path d="M58 148 Q100 100 142 148 Z" fill="url(#gSoup)"/>
+<ellipse cx="92" cy="138" rx="12" ry="4" fill="#3c8d4a" transform="rotate(-12 92 138)"/>
+<circle cx="112" cy="134" r="4" fill="#e3101c"/>
+<g class="vt-bob">
+<rect x="40" y="44" width="104" height="70" rx="14" fill="url(#gRed)"/>
+<rect x="40" y="44" width="104" height="18" rx="9" fill="#ffffff" fill-opacity=".22"/>
+<rect x="62" y="26" width="42" height="22" rx="7" fill="url(#gWhite)"/>
+<path d="M144 66 L178 48 L178 112 L144 94 Z" fill="url(#gSteel)"/>
+<circle cx="90" cy="80" r="23" fill="#1a0309"/>
+<circle cx="90" cy="80" r="16" fill="url(#gTeal)"/>
+<g class="vt-spin" style="transform-origin: 90px 80px"><path d="M80 70 A14 14 0 0 1 100 70" stroke="#ffffff" stroke-opacity=".8" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+<circle class="vt-blink" cx="126" cy="60" r="4.5" fill="#ff3b45"/>
+</g>`,
+  'vt-2': `${SH}
+<rect x="28" y="30" width="144" height="128" rx="18" fill="#f4ebe2"/>
+<path d="M28 92 H172 M28 124 H172 M72 30 V158 M130 30 V158" stroke="#ffffff" stroke-width="9"/>
+<rect x="82" y="98" width="40" height="24" rx="6" fill="#b9dfa4"/>
+<g class="vt-drive"><rect x="24" y="119" width="16" height="10" rx="4" fill="#e3101c"/></g>
+<ellipse class="vt-ping" cx="100" cy="146" rx="16" ry="5" fill="none" stroke="#e3101c" stroke-width="3"/>
+<g class="vt-drop">
+<path d="M100 146 C100 146 64 106 64 80 A36 36 0 0 1 136 80 C136 106 100 146 100 146Z" fill="#4a030a" transform="translate(4 5)"/>
+<path d="M100 146 C100 146 64 106 64 80 A36 36 0 0 1 136 80 C136 106 100 146 100 146Z" fill="url(#gPin)"/>
+<circle cx="100" cy="80" r="15" fill="#fffaf9"/>
+<path d="M100 71 L103.5 78 L111 79 L105.5 84 L107 91.5 L100 88 L93 91.5 L94.5 84 L89 79 L96.5 78Z" fill="#f5b82e"/>
+</g>
+<rect x="36" y="160" width="128" height="22" rx="11" fill="#ffffff"/>
+<text x="100" y="175" text-anchor="middle" font-size="12" font-weight="900" fill="#c40d18">★ 4.9 · Google Maps</text>`,
+  'vt-3': `${SH}
+<g class="vt-wave"><path d="M40 86 Q30 100 40 114 M28 76 Q12 100 28 124" stroke="url(#gRed)" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+<g class="vt-wave d3"><path d="M160 86 Q170 100 160 114 M172 76 Q188 100 172 124" stroke="url(#gRed)" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+<rect x="62" y="22" width="76" height="146" rx="18" fill="url(#gSteel)"/>
+<rect x="70" y="38" width="60" height="114" rx="8" fill="#ffffff"/>
+<rect x="70" y="38" width="60" height="60" rx="8" fill="url(#gSoup)"/>
+<g class="vt-pop"><circle cx="100" cy="68" r="14" fill="#e3101c"/><path d="M96 60 L107 68 L96 76Z" fill="#ffffff"/></g>
+<rect x="78" y="110" width="44" height="6" rx="3" fill="#e9d3d5"/>
+<rect x="78" y="122" width="30" height="6" rx="3" fill="#e9d3d5"/>
+<rect x="78" y="136" width="44" height="9" rx="4.5" fill="url(#gRed)"/>
+<g class="vt-float">${heart(152, 46, 1.6)}</g>
+<g class="vt-float d4">${heart(46, 46, 1)}</g>`,
+  'vt-4': `${SH}
+<rect x="54" y="22" width="84" height="152" rx="18" fill="url(#gSteel)"/>
+<rect x="62" y="38" width="68" height="120" rx="8" fill="#fff6f5"/>
+<g class="vt-msg"><rect x="68" y="46" width="36" height="18" rx="9" fill="#e9d3d5"/></g>
+<g class="vt-msg d2"><rect x="84" y="72" width="40" height="20" rx="10" fill="url(#gRed)"/><path d="M96 82 L101 87 L110 77" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g class="vt-msg d3"><rect x="68" y="100" width="34" height="16" rx="8" fill="#e9d3d5"/><circle class="vt-type" cx="78" cy="108" r="2.5" fill="#8a7b7d"/><circle class="vt-type d2" cx="85" cy="108" r="2.5" fill="#8a7b7d"/><circle class="vt-type d3" cx="92" cy="108" r="2.5" fill="#8a7b7d"/></g>
+<g class="vt-msg d4"><rect x="76" y="124" width="48" height="22" rx="11" fill="url(#gGold)"/><path d="M90 135 H110" stroke="#6e0610" stroke-width="3" stroke-linecap="round"/></g>
+<g class="vt-bounce"><circle cx="150" cy="56" r="22" fill="url(#gPin)"/><path d="M140 52 H160 M140 60 H152" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/></g>`,
+  'vt-5': `${SH}
+<rect x="36" y="46" width="124" height="128" rx="14" fill="url(#gWhite)"/>
+<rect x="36" y="46" width="124" height="30" rx="14" fill="url(#gRed)"/>
+<text x="48" y="66" font-size="12" font-weight="900" fill="#ffffff">TOP QUÁN NGON</text>
+<g class="vt-in"><circle cx="58" cy="92" r="10" fill="url(#gGold)"/><rect x="76" y="86" width="72" height="12" rx="6" fill="#d9c2c4"/></g>
+<g class="vt-in d2"><circle cx="58" cy="122" r="10" fill="#cfd3d8"/><rect x="76" y="116" width="58" height="12" rx="6" fill="#d9c2c4"/></g>
+<g class="vt-in d3"><circle cx="58" cy="152" r="10" fill="#c98a4f"/><rect x="76" y="146" width="66" height="12" rx="6" fill="#d9c2c4"/></g>
+<g class="vt-swing"><path d="M146 2 L150 18 M162 2 L158 18" stroke="#e3101c" stroke-width="6"/><circle cx="154" cy="40" r="24" fill="url(#gGold)" stroke="#9a5f06" stroke-width="3"/><path d="M154 28 L157.5 36 L166 37 L159.5 42.5 L161.5 51 L154 46.5 L146.5 51 L148.5 42.5 L142 37 L150.5 36Z" fill="#ffffff"/></g>
+<g class="vt-twinkle d2"><path d="${SPARK}" transform="translate(184 74)" fill="#fff0b8"/></g>
+<g class="vt-twinkle d4"><path d="${SPARK}" transform="translate(124 22) scale(.7)" fill="#fff0b8"/></g>`,
+  'vt-6': `${SH}
+<rect x="54" y="20" width="92" height="152" rx="18" fill="url(#gSteel)"/>
+<rect x="62" y="36" width="76" height="120" rx="8" fill="#fff6f5"/>
+<circle cx="100" cy="72" r="19" fill="#f2c4a0"/>
+<path d="M68 128 Q100 90 132 128 L132 136 L68 136Z" fill="url(#gRed)"/>
+<circle cx="93" cy="70" r="2.5" fill="#2a0510"/><circle cx="107" cy="70" r="2.5" fill="#2a0510"/>
+<path d="M93 80 Q100 86 107 80" stroke="#8a0812" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<g class="vt-twinkle"><path d="${STAR}" transform="translate(76 145) scale(.9)" fill="#f5b82e"/></g>
+<g class="vt-twinkle d2"><path d="${STAR}" transform="translate(89 145) scale(.9)" fill="#f5b82e"/></g>
+<g class="vt-twinkle d3"><path d="${STAR}" transform="translate(102 145) scale(.9)" fill="#f5b82e"/></g>
+<g class="vt-twinkle d4"><path d="${STAR}" transform="translate(115 145) scale(.9)" fill="#f5b82e"/></g>
+<g class="vt-twinkle d5"><path d="${STAR}" transform="translate(128 145) scale(.9)" fill="#f5b82e"/></g>
+<g class="vt-pop d2"><rect x="8" y="40" width="58" height="26" rx="13" fill="url(#gRed)"/><text x="37" y="57" text-anchor="middle" font-size="11" font-weight="900" fill="#ffffff">Ngon xỉu!</text></g>
+<g class="vt-float d3">${heart(162, 96, 1.1)}</g>`,
+  'vt-7': `${SH}
+<g class="vt-tilt"><path d="M24 62 H176 V90 Q162 90 162 104 Q162 118 176 118 V146 H24 V118 Q38 118 38 104 Q38 90 24 90 Z" fill="url(#gRed)"/>
+<path d="M120 72 V136" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="5 5" opacity=".6"/>
+<text x="70" y="108" text-anchor="middle" font-size="17" font-weight="900" fill="#ffffff">GIẢM 20%</text></g>
+<g class="vt-bounce"><rect x="110" y="122" width="66" height="50" rx="6" fill="url(#gWhite)"/><rect x="136" y="122" width="16" height="50" fill="url(#gGold)"/><ellipse cx="138" cy="118" rx="11" ry="7" fill="url(#gGold)"/><ellipse cx="152" cy="118" rx="11" ry="7" fill="url(#gGold)"/></g>
+<g class="vt-flip"><circle cx="40" cy="36" r="26" fill="url(#gGold)" stroke="#9a5f06" stroke-width="3"/><path d="${STAR}" transform="translate(40 36) scale(2.1)" fill="#fff6d0"/></g>
+<g class="vt-twinkle d3"><path d="${SPARK}" transform="translate(80 20)" fill="#fff0b8"/></g>`,
+  'vt-8': `${SH}
+<path d="M60 160 L44 178 M140 160 L156 178" stroke="url(#gSteel)" stroke-width="6" stroke-linecap="round"/>
+<path d="M60 160 L100 54 L140 160 Z" fill="url(#gRed)"/>
+<rect x="78" y="88" width="44" height="54" rx="4" fill="#fffaf9"/>
+<circle cx="100" cy="114" r="12" fill="url(#gSoup)"/>
+<g class="vt-steam"><path d="M96 101 C92 97 100 95 96 91" stroke="#ff9ea3" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+<g class="vt-steam d3"><path d="M104 101 C100 97 108 95 104 91" stroke="#ff9ea3" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+<rect x="84" y="130" width="32" height="4" rx="2" fill="#e9d3d5"/>
+<rect x="84" y="137" width="22" height="4" rx="2" fill="#e9d3d5"/>
+<g class="vt-swing"><path d="M124 4 V24 M174 4 V24" stroke="#d9c2c4" stroke-width="2.5"/><rect x="110" y="24" width="78" height="36" rx="7" fill="url(#gGold)"/><text x="149" y="48" text-anchor="middle" font-size="15" font-weight="900" fill="#6e0610">MENU</text></g>
+<g class="vt-twinkle d2"><path d="${SPARK}" transform="translate(36 64)" fill="#fff0b8"/></g>`,
+  'vt-9': `<path d="M14 40 Q100 72 186 40" stroke="#ff9ea3" stroke-width="2.5" fill="none"/>
+<g class="vt-flag"><polygon points="22,46 38,46 30,64" fill="url(#gRed)"/></g>
+<g class="vt-flag d2"><polygon points="52,52 68,52 60,70" fill="url(#gGold)"/></g>
+<g class="vt-flag d3"><polygon points="82,57 98,57 90,75" fill="url(#gWhite)"/></g>
+<g class="vt-flag d4"><polygon points="112,57 128,57 120,75" fill="url(#gRed)"/></g>
+<g class="vt-flag d5"><polygon points="142,52 158,52 150,70" fill="url(#gGold)"/></g>
+<g class="vt-flag d6"><polygon points="172,46 188,46 180,64" fill="url(#gWhite)"/></g>
+${SH}
+<g class="vt-pulse"><circle cx="100" cy="124" r="44" fill="url(#gGold)" stroke="#9a5f06" stroke-width="4"/><text x="100" y="144" text-anchor="middle" font-size="52" font-weight="900" fill="#6e0610">%</text></g>
+<g class="vt-fall"><rect x="34" y="96" width="8" height="8" rx="1" fill="#e3101c"/></g>
+<g class="vt-fall d2"><circle cx="166" cy="92" r="5" fill="#f5b82e"/></g>
+<g class="vt-fall d3"><rect x="52" y="104" width="7" height="7" rx="1" fill="#ffffff"/></g>
+<g class="vt-fall d4"><circle cx="152" cy="100" r="4.5" fill="#ff5a62"/></g>
+<g class="vt-fall d5"><rect x="176" y="110" width="7" height="7" rx="1" fill="#ffd34d"/></g>`,
+  'vt-10': `${SH}
+<rect x="44" y="60" width="92" height="120" rx="6" fill="#e9d3d5" transform="rotate(-10 90 120)"/>
+<rect x="56" y="48" width="92" height="120" rx="6" fill="#fffaf9" transform="rotate(6 102 108)"/>
+<g class="vt-fly">
+<rect x="64" y="36" width="92" height="120" rx="6" fill="#ffffff" stroke="#e9d3d5" stroke-width="2"/>
+<rect x="64" y="36" width="92" height="38" rx="6" fill="url(#gRed)"/>
+<rect x="74" y="84" width="72" height="5" rx="2.5" fill="#d9c2c4"/>
+<rect x="74" y="95" width="60" height="5" rx="2.5" fill="#d9c2c4"/>
+<rect x="74" y="106" width="66" height="5" rx="2.5" fill="#d9c2c4"/>
+<circle cx="110" cy="134" r="18" fill="url(#gSoup)"/>
+<path d="M92 132 Q110 108 128 132" stroke="#ffffff" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/>
+</g>
+<g class="vt-twinkle d2"><path d="${SPARK}" transform="translate(170 46)" fill="#fff0b8"/></g>
+<g class="vt-twinkle d5"><path d="${SPARK}" transform="translate(36 40) scale(.8)" fill="#fff0b8"/></g>`,
+  'vt-11': `${SH}
+<g class="vt-speed"><path d="M12 118 H40 M22 134 H46 M10 150 H36" stroke="#ff9ea3" stroke-width="4" stroke-linecap="round"/></g>
+<g class="vt-bob">
+<path d="M80 80 Q80 46 100 46 Q120 46 120 80" stroke="#a86a2c" stroke-width="6" fill="none"/>
+<path d="M56 80 H144 L152 178 H48 Z" fill="url(#gWood)"/>
+<rect x="70" y="112" width="60" height="32" rx="6" fill="url(#gRed)"/>
+<text x="100" y="133" text-anchor="middle" font-size="12" font-weight="900" fill="#ffffff">FOOD</text>
+</g>
+<rect x="124" y="20" width="52" height="88" rx="10" fill="url(#gSteel)"/>
+<rect x="130" y="30" width="40" height="68" rx="5" fill="#ffffff"/>
+<g class="vt-twinkle"><path d="${STAR}" transform="translate(150 62) scale(1.5)" fill="url(#gGold)"/></g>
+<g class="vt-pop d2"><circle cx="174" cy="22" r="9" fill="#e3101c"/><text x="174" y="26" text-anchor="middle" font-size="11" font-weight="900" fill="#ffffff">1</text></g>`,
+  'vt-12': `${SH}
+<rect x="18" y="80" width="68" height="90" rx="6" fill="#fff6f5"/>
+<path d="M12 80 H92 L86 60 H18 Z" fill="url(#gRed)"/>
+<path d="M30 60 L24 80 M48 60 L42 80 M66 60 L60 80" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/>
+<rect x="50" y="118" width="18" height="52" rx="3" fill="url(#gSteel)"/>
+<rect x="114" y="80" width="68" height="90" rx="6" fill="#fff6f5"/>
+<path d="M108 80 H188 L182 60 H114 Z" fill="url(#gGold)"/>
+<path d="M126 60 L120 80 M144 60 L138 80 M162 60 L156 80" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/>
+<rect x="132" y="118" width="18" height="52" rx="3" fill="url(#gSteel)"/>
+<g class="vt-pulse"><ellipse cx="94" cy="104" rx="14" ry="9" fill="none" stroke="url(#gRed)" stroke-width="6"/><ellipse cx="106" cy="104" rx="14" ry="9" fill="none" stroke="#f5b82e" stroke-width="6"/></g>
+<circle class="vt-walk" cx="64" cy="180" r="5" fill="#ffd34d"/>
+<circle class="vt-walk vt-back d4" cx="64" cy="180" r="5" fill="#ff9ea3"/>
+<g class="vt-float d2">${heart(100, 74, .9)}</g>`,
+  'vt-13': `${SH}
+<rect x="20" y="38" width="58" height="116" rx="12" fill="url(#gSteel)"/>
+<rect x="27" y="52" width="44" height="88" rx="5" fill="#ffffff"/>
+<rect x="33" y="62" width="32" height="10" rx="5" fill="#e9d3d5"/>
+<rect x="33" y="78" width="24" height="10" rx="5" fill="#e9d3d5"/>
+<rect class="vt-pop" x="33" y="120" width="32" height="12" rx="6" fill="url(#gRed)"/>
+<path class="vt-flow" d="M88 96 C100 68 122 68 128 90" stroke="#ff3b45" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M120 84 L131 90 L124 99Z" fill="#ff3b45"/>
+<path class="vt-flow" d="M128 118 C116 146 94 146 86 124" stroke="#f5b82e" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M92 118 L84 124 L92 132Z" fill="#f5b82e"/>
+<path d="M118 84 H182 L176 64 H124 Z" fill="url(#gRed)"/>
+<rect x="122" y="84" width="58" height="86" rx="4" fill="#fff6f5"/>
+<rect class="vt-type" x="130" y="100" width="18" height="18" rx="3" fill="url(#gTeal)"/>
+<rect x="152" y="118" width="18" height="52" rx="3" fill="url(#gSteel)"/>`,
+};
+
 function cardHtml(m, i) {
-  return `<article class="vt-card"><div class="vt-art"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#${m.art}"></use></svg></div><span class="vt-no">Món ${String(i + 1).padStart(2, '0')} · ${esc(RING_NAMES[m.ring])}</span><h3>${esc(m.name)}</h3><p>${esc(m.desc)}</p><div class="vt-foot"><button type="button" class="vt-pick" data-name="${esc(m.name)}">Chọn món</button></div></article>`;
+  const no = String(i + 1).padStart(2, '0');
+  return `<article class="vt-card"><div class="vt-art"><span class="vt-tag">${no}</span><svg viewBox="0 0 200 200" aria-hidden="true">${ART[m.art]}</svg></div><span class="vt-no">${esc(RING_NAMES[m.ring])}</span><h3>${esc(m.name)}</h3><p>${esc(m.desc)}</p><div class="vt-foot"><button type="button" class="vt-pick" data-name="${esc(m.name)}"><span class="vt-plus" aria-hidden="true">+</span>Chọn món</button></div></article>`;
 }
 
 function renderMenu() {
-  // Chia 13 món thành 2 hàng; hàng sau được lặp đôi (inert) để cuộn vòng liền mạch.
+  // Chia 13 món thành 2 hàng; mỗi hàng lặp đôi để cuộn vòng liền mạch. Bản lặp ẩn với trình đọc
+  // màn hình và bỏ khỏi thứ tự Tab, nhưng vẫn bấm được bằng chuột/cảm ứng.
   [[0, MENU.slice(0, 7)], [7, MENU.slice(7)]].forEach(([offset, row], r) => {
     const html = row.map((m, i) => cardHtml(m, i + offset)).join('');
-    $(r ? 'vt-row2' : 'vt-row1').innerHTML = `<div class="vt-group">${html}</div><div class="vt-group" aria-hidden="true" inert>${html}</div>`;
+    const copy = html.replaceAll('class="vt-pick"', 'class="vt-pick" tabindex="-1"');
+    $(r ? 'vt-row2' : 'vt-row1').innerHTML = `<div class="vt-group">${html}</div><div class="vt-group" aria-hidden="true">${copy}</div>`;
   });
+  startMarquee($('vt-row1'), -38);
+  startMarquee($('vt-row2'), 32);
+}
+
+// Hàng món tự chạy ngang; giữ chuột hoặc vuốt để kéo, thả tay thì trượt theo quán tính rồi chạy tiếp.
+function startMarquee(track, speed) {
+  const row = track.parentNode;
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let x = 0, groupW = 0, cur = still ? 0 : speed, vel = 0;
+  let hover = false, focus = false, down = false, dragging = false, suppress = false;
+  let startX = 0, startOff = 0, lastX = 0, lastT = 0;
+  const measure = () => { groupW = track.firstElementChild.getBoundingClientRect().width; };
+  measure();
+  new ResizeObserver(measure).observe(track.firstElementChild);
+  const wrap = (v) => {
+    if (!groupW) return v;
+    v %= groupW;
+    return v > 0 ? v - groupW : v;
+  };
+  let prev = performance.now();
+  const tick = (now) => {
+    const dt = Math.min(0.05, (now - prev) / 1000);
+    prev = now;
+    if (!dragging) {
+      const target = still || hover || focus ? 0 : speed;
+      cur += (target - cur) * Math.min(1, dt * 3);
+      x += (cur + vel) * dt;
+      vel *= Math.pow(0.05, dt);
+      if (Math.abs(vel) < 1) vel = 0;
+    }
+    x = wrap(x);
+    track.style.transform = `translate3d(${x}px, 0, 0)`;
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+
+  row.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hover = true; });
+  row.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hover = false; });
+  row.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    down = true;
+    dragging = false;
+    suppress = false;
+    startX = lastX = e.clientX;
+    startOff = x;
+    lastT = e.timeStamp;
+    vel = 0;
+  });
+  row.addEventListener('pointermove', (e) => {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (!dragging) {
+      if (Math.abs(dx) < 6) return;
+      dragging = true;
+      try { row.setPointerCapture(e.pointerId); } catch (err) { /* con trỏ giả lập */ }
+      row.classList.add('is-drag');
+    }
+    x = startOff + dx;
+    const dt = e.timeStamp - lastT;
+    if (dt > 0) vel = (e.clientX - lastX) / dt * 1000;
+    lastX = e.clientX;
+    lastT = e.timeStamp;
+  });
+  const end = (e) => {
+    if (!down) return;
+    down = false;
+    if (!dragging) return;
+    dragging = false;
+    suppress = true;
+    row.classList.remove('is-drag');
+    // Dừng tay trước khi thả thì không trượt tiếp.
+    vel = e.timeStamp - lastT > 80 ? 0 : Math.max(-2500, Math.min(2500, vel));
+  };
+  row.addEventListener('pointerup', end);
+  row.addEventListener('pointercancel', end);
+  row.addEventListener('click', (e) => {
+    if (!suppress) return;
+    e.stopPropagation();
+    e.preventDefault();
+    suppress = false;
+  }, true);
+  row.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    x -= e.deltaX;
+  }, { passive: false });
+  row.addEventListener('focusin', (e) => {
+    focus = true;
+    row.scrollLeft = 0;
+    const card = e.target.closest('.vt-card');
+    if (!card) return;
+    const r = card.getBoundingClientRect();
+    const box = row.getBoundingClientRect();
+    if (r.left < box.left || r.right > box.right) x += box.left + box.width / 2 - (r.left + r.width / 2);
+  });
+  row.addEventListener('focusout', () => { focus = false; });
 }
 
 function renderCompare() {
